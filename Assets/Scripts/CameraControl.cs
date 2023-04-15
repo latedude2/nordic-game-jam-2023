@@ -29,13 +29,15 @@ public class CameraControl : MonoBehaviour
         euler.z = 0;
         transform.eulerAngles = euler;
 
+
+/*
         //move camera
         float moveX = transform.localRotation.eulerAngles.y;
         //
   
         transform.parent.localPosition = cameraPosition + new Vector3(1,0,0) * moveX * 0.01f;
 
-
+*/
 
         
     }
