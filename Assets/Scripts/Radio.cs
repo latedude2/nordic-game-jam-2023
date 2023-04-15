@@ -8,7 +8,7 @@ public class Radio : MonoBehaviour
     [SerializeField] private AudioSource knobAudioSource;
     [SerializeField] private AudioSource musicAudioSource;
     [SerializeField] private Transform radioLight;
-    bool isOn = false;
+    bool isOn = true;
     // Start is called before the first frame update
     void Start()
     {
