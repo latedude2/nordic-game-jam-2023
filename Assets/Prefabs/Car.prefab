@@ -952,15 +952,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steeringWheel: {fileID: 6632911670634107801}
-  maxSpeed: 106
+  maxSpeed: 92
   maxReverseSpeed: 49
-  accelerationMultiplier: 7
-  maxSteeringAngle: 35
+  accelerationMultiplier: 8
+  maxSteeringAngle: 32
   steeringSpeed: 0.574
-  brakeForce: 220
-  decelerationMultiplier: 1
+  brakeForce: 280
+  decelerationMultiplier: 2
   handbrakeDriftMultiplier: 5
-  bodyMassCenter: {x: 0, y: 0.2, z: 0}
+  bodyMassCenter: {x: 0, y: 0, z: 0}
   frontLeftMesh: {fileID: 2025138735195146185}
   frontLeftCollider: {fileID: 2239677824950174677}
   frontRightMesh: {fileID: 1079464785174481128}
