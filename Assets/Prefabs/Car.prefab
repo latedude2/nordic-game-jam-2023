@@ -892,6 +892,8 @@ GameObject:
   - component: {fileID: 261786959625234688}
   - component: {fileID: 5135156708204615449}
   - component: {fileID: 627556911}
+  - component: {fileID: 1946080049}
+  - component: {fileID: 1946080050}
   m_Layer: 0
   m_Name: Car
   m_TagString: Player
@@ -988,6 +990,38 @@ MonoBehaviour:
   carSpeed: 0
   isDrifting: 0
   isTractionLocked: 0
+--- !u!65 &1946080049
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642287924342879162}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.006073, y: 0.95841736, z: 4.928074}
+  m_Center: {x: 0.036506653, y: 0.7317747, z: -0.05774498}
+--- !u!114 &1946080050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642287924342879162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08fcd1fa080f747499383fb3cfd4ea52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactSounds:
+  - {fileID: 8300000, guid: 6b8a0b7a437d26641a3c5f819c559a58, type: 3}
+  - {fileID: 8300000, guid: eba0bc18cf5f53148bff56238b7a87ae, type: 3}
+  - {fileID: 8300000, guid: be8e7cd7042839f43bd8b1eb9340cdcf, type: 3}
+  - {fileID: 8300000, guid: d6a95063289dcaf448c6bce9d03cf810, type: 3}
+  - {fileID: 8300000, guid: 2670492fedf64574e86b52ea26cce087, type: 3}
+  - {fileID: 8300000, guid: 119faf5ccf98edc45bc18884d412edd6, type: 3}
 --- !u!1 &1017544330230184320
 GameObject:
   m_ObjectHideFlags: 0

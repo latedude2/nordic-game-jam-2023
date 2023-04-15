@@ -5162,25 +5162,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1896702795}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1946080045 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 642287924342879162, guid: 79d0ca8b77e301442afdb49f102e8aed,
-    type: 3}
-  m_PrefabInstance: {fileID: 2105588967}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1946080049
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1946080045}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.006073, y: 0.95841736, z: 4.928074}
-  m_Center: {x: 0.036506653, y: 0.7317747, z: -0.05774498}
 --- !u!1001 &1952065953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5693,30 +5674,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 879420898, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 879420900, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: m_Size.x
-      value: 2.006073
-      objectReference: {fileID: 0}
-    - target: {fileID: 879420900, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: m_Size.z
-      value: 4.928074
-      objectReference: {fileID: 0}
-    - target: {fileID: 879420900, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: m_Center.x
-      value: 0.036506653
-      objectReference: {fileID: 0}
-    - target: {fileID: 879420900, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: m_Center.z
-      value: -0.05774498
-      objectReference: {fileID: 0}
-    - target: {fileID: 879420900, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 261786959625234688, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}
       propertyPath: m_RootOrder
@@ -5777,9 +5734,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prometheus
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 879420901, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-    - {fileID: 879420902, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
 --- !u!1001 &2105834683
 PrefabInstance:
