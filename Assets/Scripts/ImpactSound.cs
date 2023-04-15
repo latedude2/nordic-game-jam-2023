@@ -7,6 +7,7 @@ public class ImpactSound : MonoBehaviour
     
     public AudioClip[] impactSounds;
     private AudioSource audioSource;
+    public AudioClip finishSound;
     private float playInterval = 0.5f;
     private float lastPlayTime = 0;
 
@@ -17,7 +18,12 @@ public class ImpactSound : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (Time.time - lastPlayTime < playInterval)
+        //if finish play other sound
+        if (collider.gameObject.tag == "Finish")
+        {
+            audioSource.PlayOneShot(finishSound);
+        } 
+        else if (Time.time - lastPlayTime < playInterval)
         {
             return;
         }
