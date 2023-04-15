@@ -1035,15 +1035,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1096174432, guid: 7b7125923c8bd90479709797df47ab63, type: 3}
+      propertyPath: m_Name
+      value: EndScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096174432, guid: 7b7125923c8bd90479709797df47ab63, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096174434, guid: 7b7125923c8bd90479709797df47ab63, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5198508390114391273, guid: 7b7125923c8bd90479709797df47ab63,
         type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 5263446903262387902, guid: 7b7125923c8bd90479709797df47ab63,
-        type: 3}
-      propertyPath: duration
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6853610108516794403, guid: 7b7125923c8bd90479709797df47ab63,
         type: 3}

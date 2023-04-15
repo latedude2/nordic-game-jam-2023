@@ -22,7 +22,7 @@ public class Radio : MonoBehaviour
     void Update()
     {
         //if music is not playing, play next song in list
-        if (!musicAudioSource.isPlaying)
+        if (!musicAudioSource.isPlaying && !Timer.ded)
         {
             musicAudioSource.clip = musicClips[currentlyPlaying];
             musicAudioSource.Play();

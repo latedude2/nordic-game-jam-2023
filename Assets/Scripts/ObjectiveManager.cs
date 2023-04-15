@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObjectiveManager : MonoBehaviour
 {
     public List<Objective> potentialObjectives;
-    private float terrainIncreaseValue = 0.001f;
+    private float terrainIncreaseValue = 0.0002f;
     private int completedObjectiveCount = 0;
 
     //event for when objective is completed
