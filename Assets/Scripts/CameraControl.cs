@@ -3,43 +3,54 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraControl : MonoBehaviour
-{
-    private Camera camera;
-    private Vector3 cameraPosition;
-    [SerializeField] private float cameraSpeed = 1000f;
+{    public float sensitivity = 2.0f; // Camera sensitivity
+    public float minimumY = -80.0f; // Minimum vertical angle
+    public float maximumY = 80.0f; // Maximum vertical angle
+    private float cameraTruckAdjustment = 0.002f; 
+
+    private float rotationY = 0.0f;
     void Start()
     {
-        camera = GetComponent<Camera>();
-        cameraPosition = camera.transform.parent.localPosition;
-        //lock mouse
+        //lock mouse to center of screen
         Cursor.lockState = CursorLockMode.Locked;
-        
     }
 
-    // Rotate camera using mouse 
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
-        transform.RotateAround(transform.position, Vector3.up, mouseX * cameraSpeed * Time.deltaTime);
-        transform.RotateAround(transform.position, transform.right, -mouseY * cameraSpeed * Time.deltaTime);
+        // Rotate the camera based on the mouse movement
+        float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity;
 
-        //stop rotation on the z axis
-        Vector3 euler = transform.eulerAngles;
-        euler.z = 0;
-        transform.eulerAngles = euler;
+        rotationY += Input.GetAxis("Mouse Y") * sensitivity;
+        rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
 
+        //limit camera rotation to the left
+        if (rotationX < 280 && rotationX > 225)
+        {
+            rotationX = 280;
+        }
+        else if (rotationX > 180 && rotationX < 225)
+        {
+            rotationX = 180;
+        }
 
-/*
-        //move camera
-        float moveX = transform.localRotation.eulerAngles.y;
-        //
-  
-        transform.parent.localPosition = cameraPosition + new Vector3(1,0,0) * moveX * 0.01f;
+        transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0.0f);
+    
+        if(transform.localEulerAngles.y < 180)
+        {
+            //move camera to the right
+            transform.localPosition = new Vector3(transform.localEulerAngles.y * cameraTruckAdjustment, 0, 0);
+        }
+        else if(transform.localEulerAngles.y > 270)
+        {
+            //move camera to the left
+            transform.localPosition = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            //move camera to the left
+            transform.localPosition = new Vector3(180 * cameraTruckAdjustment, 0, 0);
+        }
 
-*/
-
-        
     }
 
     
