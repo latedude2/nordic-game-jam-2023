@@ -22,8 +22,9 @@ public class ImpactSound : MonoBehaviour
         if (collider.gameObject.tag == "Finish")
         {
             audioSource.PlayOneShot(finishSound);
+            return;
         } 
-        else if (Time.time - lastPlayTime < playInterval)
+        if (Time.time - lastPlayTime < playInterval)
         {
             return;
         }
