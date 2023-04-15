@@ -7,6 +7,7 @@ public class ObjectiveManager : MonoBehaviour
 {
     public List<Objective> potentialObjectives;
     private float terrainIncreaseValue = 0.001f;
+    private int completedObjectiveCount = 0;
 
     //event for when objective is completed
     public UnityEvent OnObjectiveCompleted;
@@ -22,6 +23,7 @@ public class ObjectiveManager : MonoBehaviour
     {
         Instance = this;
         OnObjectiveCompleted = new UnityEvent();
+        PlayerPrefs.SetInt("NewScore", 0);
     }
     void Start()
     {
@@ -47,5 +49,12 @@ public class ObjectiveManager : MonoBehaviour
         oldObjective.gameObject.SetActive(false);
         //increase terrain target
         TerrainController.Instance.SetAmplitudeTargetAndSpeed(TerrainController.Instance.amplitudeTarget + terrainIncreaseValue, 0.000001f);
+        
+        completedObjectiveCount++;
+        PlayerPrefs.SetInt("NewScore", completedObjectiveCount);
+        if (completedObjectiveCount > PlayerPrefs.GetInt("HighScore"))
+        {
+            PlayerPrefs.SetInt("HighScore", completedObjectiveCount);
+        }
     }
 }

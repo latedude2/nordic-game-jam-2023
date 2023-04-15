@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
@@ -29,6 +30,11 @@ public class Timer : MonoBehaviour
         string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
         string seconds = Mathf.Floor(timeLeft % 60).ToString("00");
         timerText.text = minutes + ":" + seconds;
+
+        if(timeLeft < -5)
+        {
+            SceneManager.LoadScene("EndScreen");
+        }
         
         if(timeLeft < 0)
         {
