@@ -24,7 +24,7 @@ public class SpringSound : MonoBehaviour
             {
                 Debug.Log("Spring triggered");
                 audioSource.clip = springSound[Random.Range(0, springSound.Count)];
-                audioSource.volume = hit.force / 20000;
+                //audioSource.volume = hit.force / 20000;
                 audioSource.Play();
             }
         }
