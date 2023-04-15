@@ -1037,7 +1037,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1096174432, guid: 7b7125923c8bd90479709797df47ab63, type: 3}
       propertyPath: m_Name
-      value: EndScreen
+      value: BlackScreen
       objectReference: {fileID: 0}
     - target: {fileID: 1096174432, guid: 7b7125923c8bd90479709797df47ab63, type: 3}
       propertyPath: m_IsActive
