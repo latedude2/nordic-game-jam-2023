@@ -219,7 +219,7 @@ PrefabInstance:
     - target: {fileID: 3716697168033546004, guid: fbbf95d44e522974a8c453e9ab32f524,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3716697168033546004, guid: fbbf95d44e522974a8c453e9ab32f524,
         type: 3}
@@ -637,11 +637,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain
       objectReference: {fileID: 0}
-    - target: {fileID: 5105439816602684401, guid: b57081e58c8c38149a6882769772db1a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5105439816602684402, guid: b57081e58c8c38149a6882769772db1a,
         type: 3}
       propertyPath: m_RootOrder
@@ -696,6 +691,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105439816602684403, guid: b57081e58c8c38149a6882769772db1a,
+        type: 3}
+      propertyPath: m_TreeCrossFadeLength
+      value: 144
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b57081e58c8c38149a6882769772db1a, type: 3}
@@ -905,7 +905,7 @@ PrefabInstance:
     - target: {fileID: 261786959625234688, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 273.22086
+      value: 426.6
       objectReference: {fileID: 0}
     - target: {fileID: 261786959625234688, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}
@@ -915,7 +915,7 @@ PrefabInstance:
     - target: {fileID: 261786959625234688, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 230.77481
+      value: 271.2
       objectReference: {fileID: 0}
     - target: {fileID: 261786959625234688, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}
