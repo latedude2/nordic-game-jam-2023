@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectiveManager : MonoBehaviour
 {
     public List<Objective> potentialObjectives;
-    private Objective currentObjective;
+    [System.NonSerialized] public Objective currentObjective;
 
     //singleton
     public static ObjectiveManager Instance;
