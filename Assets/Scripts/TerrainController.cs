@@ -9,6 +9,7 @@ public class TerrainController : MonoBehaviour
     public float scrollSpeedX = 0;
     private float scrollY = 0;
     public float scrollSpeedY = 0;
+    public int terrainSize = 200;
 
     [Range(0,.1f)] public float frequencyX = .1f;
     [Range(0,.1f)] public float frequencyY = .1f;
@@ -22,6 +23,7 @@ public class TerrainController : MonoBehaviour
 
     void Start()
     {
+        this.terrain.terrainData.heightmapResolution = terrainSize;
         res = this.terrain.terrainData.heightmapResolution;
         mesh = new float[res, res];
         mesh = this.terrain.terrainData.GetHeights(0,0,res,res);
