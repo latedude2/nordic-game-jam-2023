@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TerrainController : MonoBehaviour
 {
+    //singleton
+    public static TerrainController Instance;
+
     public Terrain terrain;
     private float scrollX = 0;
     public float scrollSpeedX = 0;
@@ -13,7 +16,7 @@ public class TerrainController : MonoBehaviour
 
     [Range(0,.1f)] public float frequencyX = .1f;
     [Range(0,.1f)] public float frequencyY = .1f;
-    [Range(0,.1f)] public float amplitude = .1f;
+    public float amplitude = .1f;
     public float amplitudeIncrementSpeed = 0;
     public float amplitudeTarget = 0;
 
@@ -23,6 +26,7 @@ public class TerrainController : MonoBehaviour
 
     void Start()
     {
+        Instance = this;
         this.terrain.terrainData.heightmapResolution = terrainSize;
         res = this.terrain.terrainData.heightmapResolution;
         mesh = new float[res, res];

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectiveManager : MonoBehaviour
 {
     public List<Objective> potentialObjectives;
+    private float terrainIncreaseValue = 0.001f;
     [System.NonSerialized] public Objective currentObjective;
 
     //singleton
@@ -18,7 +19,7 @@ public class ObjectiveManager : MonoBehaviour
         {
             objective.gameObject.SetActive(false);
         }
-        currentObjective = potentialObjectives[Random.Range(0, potentialObjectives.Count)];
+        currentObjective = potentialObjectives[0];
         currentObjective.gameObject.SetActive(true);
     }
 
@@ -33,5 +34,7 @@ public class ObjectiveManager : MonoBehaviour
         currentObjective.gameObject.SetActive(true);
         //make old objective invisible
         oldObjective.gameObject.SetActive(false);
+        //increase terrain target
+        TerrainController.Instance.SetAmplitudeTargetAndSpeed(TerrainController.Instance.amplitudeTarget + terrainIncreaseValue, 0.000001f);
     }
 }

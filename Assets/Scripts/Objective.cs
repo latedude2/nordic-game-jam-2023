@@ -22,7 +22,7 @@ public class Objective : MonoBehaviour
 
     void Update()
     {
-        transform.position = new Vector3(transform.position.x,  Terrain.activeTerrain.SampleHeight(transform.position) + 0.5f, transform.position.z);
+        transform.position = new Vector3(transform.position.x, Terrain.activeTerrain.transform.position.y + Terrain.activeTerrain.SampleHeight(transform.position) + 0.5f, transform.position.z);
     }
     
 }
