@@ -7,7 +7,7 @@ public class BioInfoDisplay : MonoBehaviour {
     public float duration = 2;
     public float fadeTime = .001f;
     private CanvasGroup UIElements;
-    void Start() {
+    void Awake() {
         UIElements = GetComponent<CanvasGroup>();
     }
 

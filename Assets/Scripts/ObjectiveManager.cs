@@ -32,7 +32,6 @@ public class ObjectiveManager : MonoBehaviour
         }
         currentObjective = potentialObjectives[0];
         currentObjective.gameObject.SetActive(true);
-        characterGenerator.showDeadCharacter();
     }
 
     public void ObjectiveCompleted()

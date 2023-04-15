@@ -116,6 +116,7 @@ MonoBehaviour:
   knobSound: {fileID: 8300000, guid: 0cd096da60473054e98b764266d526ed, type: 3}
   knobAudioSource: {fileID: 127558035877700387}
   musicAudioSource: {fileID: 1340787647}
+  radioLight: {fileID: 4437683051911942896}
 --- !u!82 &1340787647
 AudioSource:
   m_ObjectHideFlags: 0
@@ -380,6 +381,12 @@ PrefabInstance:
 --- !u!4 &3632698489501070252 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9159537069380060400, guid: a7dbdd508737b0d49b444c4263d812f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5581303992184797020}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4437683051911942896 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8133808041408554412, guid: a7dbdd508737b0d49b444c4263d812f1,
     type: 3}
   m_PrefabInstance: {fileID: 5581303992184797020}
   m_PrefabAsset: {fileID: 0}

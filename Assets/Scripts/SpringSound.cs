@@ -20,7 +20,7 @@ public class SpringSound : MonoBehaviour
         WheelHit hit;
         if (wheelCollider.GetGroundHit(out hit))
         {
-            if (hit.force > 10000)
+            if (hit.force > 6000)
             {
                 Debug.Log("Spring triggered");
                 audioSource.clip = springSound[Random.Range(0, springSound.Count)];

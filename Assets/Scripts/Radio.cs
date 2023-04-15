@@ -7,7 +7,8 @@ public class Radio : MonoBehaviour
     [SerializeField] private AudioClip knobSound;
     [SerializeField] private AudioSource knobAudioSource;
     [SerializeField] private AudioSource musicAudioSource;
-    bool isOn = false;
+    [SerializeField] private Transform radioLight;
+    bool isOn = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class Radio : MonoBehaviour
     {
         knobAudioSource.PlayOneShot(knobSound);
         isOn = !isOn;
+        radioLight.gameObject.SetActive(isOn);
         if (isOn)
         {
             //set volume to 1

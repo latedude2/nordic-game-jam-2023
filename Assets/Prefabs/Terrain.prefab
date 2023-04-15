@@ -93,10 +93,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrain: {fileID: 5105439816602684403}
   scrollSpeedX: 0.01
-  scrollSpeedY: 0.01
+  scrollSpeedY: 0
   terrainSize: 200
   frequencyX: 0.1
   frequencyY: 0.1
   amplitude: 0
-  amplitudeIncrementSpeed: 0.0000001
+  amplitudeIncrementSpeed: 0.000001
   amplitudeTarget: 0
