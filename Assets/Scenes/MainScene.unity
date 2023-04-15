@@ -802,22 +802,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 55417258, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: m_Volume
-      value: 0.703
-      objectReference: {fileID: 0}
-    - target: {fileID: 756912717, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: m_Volume
-      value: 0.703
-      objectReference: {fileID: 0}
-    - target: {fileID: 1115937922, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: m_Volume
-      value: 0.703
-      objectReference: {fileID: 0}
-    - target: {fileID: 1750363252, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: m_Volume
-      value: 0.703
-      objectReference: {fileID: 0}
     - target: {fileID: 261786959625234688, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}
       propertyPath: m_RootOrder
@@ -877,11 +861,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prometheus
-      objectReference: {fileID: 0}
-    - target: {fileID: 5135156708204615449, guid: 79d0ca8b77e301442afdb49f102e8aed,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
