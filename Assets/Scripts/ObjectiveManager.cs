@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
 {
     public List<Objective> potentialObjectives;
     private float terrainIncreaseValue = 0.001f;
+
+    //event for when objective is completed
+    //UnityEvent OnObjectiveCompleted;
+
     [System.NonSerialized] public Objective currentObjective;
 
     //singleton
@@ -25,7 +30,7 @@ public class ObjectiveManager : MonoBehaviour
 
     public void ObjectiveCompleted()
     {
-        Debug.Log("Objective completed");
+        OnObjectiveCompleted.Invoke();
         Objective oldObjective = currentObjective;
         potentialObjectives.Remove(oldObjective);
         currentObjective = potentialObjectives[Random.Range(0, potentialObjectives.Count)];

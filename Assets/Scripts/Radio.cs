@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Radio : MonoBehaviour
 {
+    [SerializeField] private AudioClip knobSound;
+    [SerializeField] private AudioSource knobAudioSource;
+    [SerializeField] private AudioSource musicAudioSource;
     bool isOn = false;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,7 @@ public class Radio : MonoBehaviour
 
     public void Toggle()
     {
+        knobAudioSource.PlayOneShot(knobSound);
         isOn = !isOn;
         if (isOn)
         {
