@@ -16,6 +16,7 @@ public class PrometeoEditor : Editor{
   //CAR SETUP
   //
   //
+  private SerializedProperty steeringWheel;
   private SerializedProperty maxSpeed;
   private SerializedProperty maxReverseSpeed;
   private SerializedProperty accelerationMultiplier;
@@ -79,6 +80,7 @@ public class PrometeoEditor : Editor{
     prometeo = (PrometeoCarController)target;
     SO = new SerializedObject(target);
 
+    steeringWheel = SO.FindProperty("steeringWheel");
     maxSpeed = SO.FindProperty("maxSpeed");
     maxReverseSpeed = SO.FindProperty("maxReverseSpeed");
     accelerationMultiplier = SO.FindProperty("accelerationMultiplier");
@@ -133,6 +135,7 @@ public class PrometeoEditor : Editor{
     //
     //
     //
+    EditorGUILayout.PropertyField(steeringWheel, new GUIContent("Steering wheel transform: "));
     maxSpeed.intValue = EditorGUILayout.IntSlider("Max Speed:", maxSpeed.intValue, 20, 190);
     maxReverseSpeed.intValue = EditorGUILayout.IntSlider("Max Reverse Speed:", maxReverseSpeed.intValue, 10, 120);
     accelerationMultiplier.intValue = EditorGUILayout.IntSlider("Acceleration Multiplier:", accelerationMultiplier.intValue, 1, 10);
