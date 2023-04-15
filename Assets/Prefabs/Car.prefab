@@ -1428,6 +1428,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   springSound:
   - {fileID: 8300000, guid: 6c141ff11ab0fdc4f837585141cb787a, type: 3}
+  - {fileID: 8300000, guid: 06b3988d44590b04984de1ba81b0583a, type: 3}
+  - {fileID: 8300000, guid: 18fe4e3b0fb5c1f47a5b2027d345fd1b, type: 3}
+  - {fileID: 8300000, guid: 13d16c76a698df94c898d95302f43252, type: 3}
+  - {fileID: 8300000, guid: 2617578e13817bd449f9ffcad116e173, type: 3}
+  - {fileID: 8300000, guid: 20739757e713f3c4bb1fb135a2087262, type: 3}
+  - {fileID: 8300000, guid: f91a39caccd60dc4089cbee46c96931c, type: 3}
+  - {fileID: 8300000, guid: 5089ccabacf307440b39c37385048751, type: 3}
+  - {fileID: 8300000, guid: 31ea3f525eb85a0479de8dcb32629a47, type: 3}
 --- !u!1 &1071753561836620958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,6 +1821,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   springSound:
   - {fileID: 8300000, guid: 6c141ff11ab0fdc4f837585141cb787a, type: 3}
+  - {fileID: 8300000, guid: 06b3988d44590b04984de1ba81b0583a, type: 3}
+  - {fileID: 8300000, guid: 18fe4e3b0fb5c1f47a5b2027d345fd1b, type: 3}
+  - {fileID: 8300000, guid: 13d16c76a698df94c898d95302f43252, type: 3}
+  - {fileID: 8300000, guid: 2617578e13817bd449f9ffcad116e173, type: 3}
+  - {fileID: 8300000, guid: 20739757e713f3c4bb1fb135a2087262, type: 3}
+  - {fileID: 8300000, guid: f91a39caccd60dc4089cbee46c96931c, type: 3}
+  - {fileID: 8300000, guid: 5089ccabacf307440b39c37385048751, type: 3}
+  - {fileID: 8300000, guid: 31ea3f525eb85a0479de8dcb32629a47, type: 3}
 --- !u!1 &2001459980240962088
 GameObject:
   m_ObjectHideFlags: 0
@@ -2465,6 +2481,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   springSound:
   - {fileID: 8300000, guid: 6c141ff11ab0fdc4f837585141cb787a, type: 3}
+  - {fileID: 8300000, guid: 06b3988d44590b04984de1ba81b0583a, type: 3}
+  - {fileID: 8300000, guid: 18fe4e3b0fb5c1f47a5b2027d345fd1b, type: 3}
+  - {fileID: 8300000, guid: 13d16c76a698df94c898d95302f43252, type: 3}
+  - {fileID: 8300000, guid: 2617578e13817bd449f9ffcad116e173, type: 3}
+  - {fileID: 8300000, guid: 20739757e713f3c4bb1fb135a2087262, type: 3}
+  - {fileID: 8300000, guid: f91a39caccd60dc4089cbee46c96931c, type: 3}
+  - {fileID: 8300000, guid: 5089ccabacf307440b39c37385048751, type: 3}
+  - {fileID: 8300000, guid: 31ea3f525eb85a0479de8dcb32629a47, type: 3}
 --- !u!1 &8578955236269824521
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,7 +49,7 @@ public class Timer : MonoBehaviour
     }
     void PlayTimerSound()
     {
-        if (timeLeft > 0)
+        if (timeLeft > 0 && timeLeft < 10)
         {
             audioSource.PlayOneShot(timerSound);
         }
