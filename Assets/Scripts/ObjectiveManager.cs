@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.Events;
 using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
@@ -9,28 +9,35 @@ public class ObjectiveManager : MonoBehaviour
     private float terrainIncreaseValue = 0.001f;
 
     //event for when objective is completed
-    //UnityEvent OnObjectiveCompleted;
+    public UnityEvent OnObjectiveCompleted;
 
     [System.NonSerialized] public Objective currentObjective;
 
     //singleton
     public static ObjectiveManager Instance;
+    [SerializeField] private CharacterGenerator characterGenerator;
 
 
-    void Start()
+    void Awake()
     {
         Instance = this;
+        OnObjectiveCompleted = new UnityEvent();
+    }
+    void Start()
+    {
+        
         foreach(Objective objective in potentialObjectives)
         {
             objective.gameObject.SetActive(false);
         }
         currentObjective = potentialObjectives[0];
         currentObjective.gameObject.SetActive(true);
+        characterGenerator.showDeadCharacter();
     }
 
     public void ObjectiveCompleted()
     {
-        //OnObjectiveCompleted.Invoke();
+        OnObjectiveCompleted.Invoke();
         Objective oldObjective = currentObjective;
         potentialObjectives.Remove(oldObjective);
         currentObjective = potentialObjectives[Random.Range(0, potentialObjectives.Count)];

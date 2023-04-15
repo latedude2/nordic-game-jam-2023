@@ -432,7 +432,6 @@ public class PrometeoCarController : MonoBehaviour
       }
       var steeringAngle = steeringAxis * maxSteeringAngle;
       steeringAngle += UnityEngine.Random.Range(-driftAmount, driftAmount);
-      Debug.Log(steeringAngle);
       frontLeftCollider.steerAngle = Mathf.Lerp(frontLeftCollider.steerAngle, steeringAngle, steeringSpeed);
       frontRightCollider.steerAngle = Mathf.Lerp(frontRightCollider.steerAngle, steeringAngle, steeringSpeed);
     }
@@ -445,7 +444,6 @@ public class PrometeoCarController : MonoBehaviour
       }
       var steeringAngle = steeringAxis * maxSteeringAngle;
       steeringAngle += UnityEngine.Random.Range(-driftAmount, driftAmount);
-      Debug.Log(steeringAngle);
       frontLeftCollider.steerAngle = Mathf.Lerp(frontLeftCollider.steerAngle, steeringAngle, steeringSpeed);
       frontRightCollider.steerAngle = Mathf.Lerp(frontRightCollider.steerAngle, steeringAngle, steeringSpeed);
     }
@@ -463,7 +461,6 @@ public class PrometeoCarController : MonoBehaviour
       }
       var steeringAngle = steeringAxis * maxSteeringAngle;
       steeringAngle += UnityEngine.Random.Range(-driftAmount, driftAmount);
-      Debug.Log(steeringAngle);
       frontLeftCollider.steerAngle = Mathf.Lerp(frontLeftCollider.steerAngle, steeringAngle, steeringSpeed);
       frontRightCollider.steerAngle = Mathf.Lerp(frontRightCollider.steerAngle, steeringAngle, steeringSpeed);
     }
