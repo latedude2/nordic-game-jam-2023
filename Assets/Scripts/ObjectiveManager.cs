@@ -30,7 +30,7 @@ public class ObjectiveManager : MonoBehaviour
 
     public void ObjectiveCompleted()
     {
-        OnObjectiveCompleted.Invoke();
+        //OnObjectiveCompleted.Invoke();
         Objective oldObjective = currentObjective;
         potentialObjectives.Remove(oldObjective);
         currentObjective = potentialObjectives[Random.Range(0, potentialObjectives.Count)];
