@@ -48,7 +48,9 @@ public class Timer : MonoBehaviour
                 foreach (AudioSource audioSource in audioSources)
                 {
                     audioSource.Stop();
+                    audioSource.enabled = false;
                 }
+                audioSource.enabled = true;
                 audioSource.PlayOneShot(bombSound);
             }
         }
