@@ -1305,18 +1305,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1697935063, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 8400000, guid: e2347f71c19bc1b4183b1a8e25afdee3, type: 2}
-    - target: {fileID: 1697935066, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: m_CameraType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1697935066, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: m_RendererIndex
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 261786959625234688, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}
       propertyPath: m_RootOrder
