@@ -65,6 +65,6 @@ public class Timer : MonoBehaviour
 
     void IncreaseTime()
     {
-        timeLeft += 30f;
+        timeLeft += 50f;
     }
 }
