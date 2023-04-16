@@ -3368,6 +3368,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 261786959625234688}
     m_Modifications:
+    - target: {fileID: 1110515317843955022, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
+        type: 3}
+      propertyPath: field of view
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110515317843955022, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
+        type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: e2347f71c19bc1b4183b1a8e25afdee3, type: 2}
     - target: {fileID: 1456258260393862981, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
       propertyPath: m_Name
