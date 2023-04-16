@@ -31,7 +31,7 @@ public class Timer : MonoBehaviour
         string seconds = Mathf.Floor(timeLeft % 60).ToString("00");
         timerText.text = minutes + ":" + seconds;
 
-        if(timeLeft < -3)
+        if(timeLeft < -5)
         {
             SceneManager.LoadScene("EndScreen");
         }
