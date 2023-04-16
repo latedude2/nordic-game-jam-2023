@@ -270,6 +270,16 @@ public class PrometeoCarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      if(Engine.isOn)
+      {
+        if(!carEngineSound.isPlaying)
+        {
+          carEngineSound.Play();
+        }
+      } else if(carEngineSound.isPlaying)
+      {
+          carEngineSound.Stop();
+      }
 
       //CAR DATA
 
@@ -509,6 +519,8 @@ public class PrometeoCarController : MonoBehaviour
 
     // This method apply positive torque to the wheels in order to go forward.
     public void GoForward(){
+      if(!Engine.isOn)
+        return;
       //If the forces aplied to the rigidbody in the 'x' asis are greater than
       //3f, it means that the car is losing traction, then the car will start emitting particle systems.
       if(Mathf.Abs(localVelocityX) > 2.5f){
@@ -553,6 +565,8 @@ public class PrometeoCarController : MonoBehaviour
 
     // This method apply negative torque to the wheels in order to go backwards.
     public void GoReverse(){
+      if(!Engine.isOn)
+        return;
       //If the forces aplied to the rigidbody in the 'x' asis are greater than
       //3f, it means that the car is losing traction, then the car will start emitting particle systems.
       if(Mathf.Abs(localVelocityX) > 2.5f){
