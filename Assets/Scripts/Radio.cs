@@ -7,7 +7,9 @@ public class Radio : MonoBehaviour
     [SerializeField] private AudioClip knobSound;
     [SerializeField] private AudioSource knobAudioSource;
     [SerializeField] private AudioSource musicAudioSource;
+    [SerializeField] private List<AudioClip> musicClips;
     [SerializeField] private Transform radioLight;
+    int currentlyPlaying = 0;
     bool isOn = true;
     // Start is called before the first frame update
     void Start()
@@ -15,6 +17,21 @@ public class Radio : MonoBehaviour
         //Randombly toggle radio
         InvokeRepeating(nameof(RandomToggle), 25, 15);
         GetComponent<AudioSource>().Play();
+    }
+
+    void Update()
+    {
+        //if music is not playing, play next song in list
+        if (!musicAudioSource.isPlaying && !Timer.ded)
+        {
+            musicAudioSource.clip = musicClips[currentlyPlaying];
+            musicAudioSource.Play();
+            currentlyPlaying++;
+            if (currentlyPlaying >= musicClips.Count)
+            {
+                currentlyPlaying = 0;
+            }
+        }
     }
 
     private void RandomToggle()

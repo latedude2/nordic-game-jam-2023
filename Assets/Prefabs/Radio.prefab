@@ -116,6 +116,13 @@ MonoBehaviour:
   knobSound: {fileID: 8300000, guid: 0cd096da60473054e98b764266d526ed, type: 3}
   knobAudioSource: {fileID: 127558035877700387}
   musicAudioSource: {fileID: 1340787647}
+  musicClips:
+  - {fileID: 8300000, guid: 37c00feefc7fabd4b858d72d04e6c938, type: 3}
+  - {fileID: 8300000, guid: 826520df845bf534ea23a0d7e42a2aa2, type: 3}
+  - {fileID: 8300000, guid: 6bac35a996a578d4ea0ebb51bd8c4d73, type: 3}
+  - {fileID: 8300000, guid: 48ba945a72fb19b4196b1632acf65ba2, type: 3}
+  - {fileID: 8300000, guid: 25003293f4ffdf94e923f2096ab337cf, type: 3}
+  - {fileID: 8300000, guid: cf0434e17a798f245b0890d8b342744f, type: 3}
   radioLight: {fileID: 4437683051911942896}
 --- !u!82 &1340787647
 AudioSource:
@@ -131,7 +138,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

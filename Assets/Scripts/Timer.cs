@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
@@ -12,7 +13,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private AudioClip bombSound;
     private AudioSource audioSource;
 
-    bool ded = false;
+    static public bool ded = false;
 
     void Start()
     {   
@@ -29,11 +30,16 @@ public class Timer : MonoBehaviour
         string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
         string seconds = Mathf.Floor(timeLeft % 60).ToString("00");
         timerText.text = minutes + ":" + seconds;
+
+        if(timeLeft < -3)
+        {
+            SceneManager.LoadScene("EndScreen");
+        }
         
         if(timeLeft < 0)
         {
-            Camera mainCamera = Camera.main;
-            mainCamera.GetComponent<Camera>().enabled = false;
+            GameObject blackScreen = GameObject.Find("BlackScreen");
+            blackScreen.GetComponent<Image>().enabled = true;
             if (!ded)
             {
                 ded = true;
@@ -57,6 +63,6 @@ public class Timer : MonoBehaviour
 
     void IncreaseTime()
     {
-        timeLeft += 15f;
+        timeLeft += 30f;
     }
 }
