@@ -21,6 +21,12 @@ public class Radio : MonoBehaviour
 
     void Update()
     {
+        if(!Engine.isOn)
+        {
+            if(isOn)
+                TurnOff();
+            return;
+        }
         if(Input.GetKeyDown(KeyCode.R))
         {
             Toggle();
@@ -60,5 +66,11 @@ public class Radio : MonoBehaviour
         {
             GetComponent<AudioSource>().volume = 0;
         }
+    }
+    private void TurnOff()
+    {
+        isOn = false;
+        radioLight.gameObject.SetActive(false);
+        GetComponent<AudioSource>().volume = 0;
     }
 }
