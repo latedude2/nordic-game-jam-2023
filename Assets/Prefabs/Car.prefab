@@ -1223,6 +1223,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2670492fedf64574e86b52ea26cce087, type: 3}
   - {fileID: 8300000, guid: 119faf5ccf98edc45bc18884d412edd6, type: 3}
   finishSound: {fileID: 8300000, guid: 40efd4a6be7d02b4ba280b10e88bb607, type: 3}
+  shakePreset: {fileID: 11400000, guid: d7a93a3c6c2182b4ab29c6ca2f5c77d3, type: 2}
 --- !u!1 &1017544330230184320
 GameObject:
   m_ObjectHideFlags: 0

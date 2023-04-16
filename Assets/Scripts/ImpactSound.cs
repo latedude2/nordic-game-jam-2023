@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MilkShake;
 
 public class ImpactSound : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class ImpactSound : MonoBehaviour
     public AudioClip finishSound;
     private float playInterval = 0.5f;
     private float lastPlayTime = 0;
+
+    [SerializeField]
+    private ShakePreset shakePreset;
 
     void Start()
     {
@@ -29,6 +33,7 @@ public class ImpactSound : MonoBehaviour
             return;
         }
         lastPlayTime = Time.time;
+        Shaker.ShakeAll(shakePreset);
         audioSource.PlayOneShot(impactSounds[Random.Range(0, impactSounds.Length)]);
     }
 
