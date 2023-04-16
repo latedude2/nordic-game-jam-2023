@@ -25,7 +25,7 @@ public class SpookEventController : MonoBehaviour
         {
             timePassed -= Random.Range(5f, 15f);
             if(Random.Range(0,100/(spookOmeter+1)) <= 2){
-                float time = Random.Range(.5f,3);
+                float time = Random.Range(.5f,3+(spookOmeter/2));
                 decals[Random.Range(0,decals.Length)].GetComponent<WindowDecalController>().SetActiveSeconds(time);
             }
         } 
