@@ -13,7 +13,12 @@ public class Timer : MonoBehaviour
     [SerializeField] private AudioClip bombSound;
     private AudioSource audioSource;
 
-    static public bool ded = false;
+    static public bool ded;
+
+    void Awake()
+    {
+        ded = false;
+    }
 
     void Start()
     {   

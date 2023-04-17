@@ -270,7 +270,7 @@ public class PrometeoCarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(Engine.isOn)
+      if(Engine.Instance.isOn)
       {
         if(!carEngineSound.isPlaying)
         {
@@ -519,7 +519,7 @@ public class PrometeoCarController : MonoBehaviour
 
     // This method apply positive torque to the wheels in order to go forward.
     public void GoForward(){
-      if(!Engine.isOn)
+      if(!Engine.Instance.isOn)
         return;
       //If the forces aplied to the rigidbody in the 'x' asis are greater than
       //3f, it means that the car is losing traction, then the car will start emitting particle systems.
@@ -565,7 +565,7 @@ public class PrometeoCarController : MonoBehaviour
 
     // This method apply negative torque to the wheels in order to go backwards.
     public void GoReverse(){
-      if(!Engine.isOn)
+      if(!Engine.Instance.isOn)
         return;
       //If the forces aplied to the rigidbody in the 'x' asis are greater than
       //3f, it means that the car is losing traction, then the car will start emitting particle systems.

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Engine : MonoBehaviour
 {
-    public static bool isOn = false;
+    public bool isOn = false;
+    public static Engine Instance;
     Rigidbody rigidbody;
     float engineTimer = 0;
     AudioSource engineTurnSoundSource;
@@ -16,6 +17,11 @@ public class Engine : MonoBehaviour
     public Transform tutorialPrompt;
     public float engineStartTime =  3f;
     private bool carReachedProperSpeed = false;
+
+    void Awake()
+    {
+        Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {

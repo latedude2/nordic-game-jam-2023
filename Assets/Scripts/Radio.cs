@@ -21,7 +21,7 @@ public class Radio : MonoBehaviour
 
     void Update()
     {
-        if(!Engine.isOn)
+        if(!Engine.Instance.isOn)
         {
             if(isOn)
                 TurnOff();
