@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     // Start is called before the first frame update
-    float timeLeft = 60f;
+    float timeLeft = 100f;
     public Text timerText;
     [SerializeField] private AudioClip timerSound;
     [SerializeField] private AudioClip bombSound;
@@ -70,6 +70,6 @@ public class Timer : MonoBehaviour
 
     void IncreaseTime()
     {
-        timeLeft += 50f;
+        timeLeft += 35f;
     }
 }
