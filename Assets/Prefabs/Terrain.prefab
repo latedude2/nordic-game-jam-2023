@@ -120,8 +120,8 @@ MonoBehaviour:
   scrollSpeedX: 0.01
   scrollSpeedY: 0
   terrainSize: 200
-  frequencyX: 0.1
-  frequencyY: 0.1
+  frequencyX: 0.2
+  frequencyY: 0.2
   amplitude: 0
   amplitudeIncrementSpeed: 0.000001
   amplitudeTarget: 0
