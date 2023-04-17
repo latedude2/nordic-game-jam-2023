@@ -14,8 +14,8 @@ public class TerrainController : MonoBehaviour
     public float scrollSpeedY = 0;
     public int terrainSize = 200;
 
-    [Range(0,.1f)] public float frequencyX = .1f;
-    [Range(0,.1f)] public float frequencyY = .1f;
+    [Range(0,.5f)] public float frequencyX = .2f;
+    [Range(0,.5f)] public float frequencyY = .2f;
     public float amplitude = .1f;
     public float amplitudeIncrementSpeed = 0;
     public float amplitudeTarget = 0;

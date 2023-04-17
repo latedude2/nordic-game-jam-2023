@@ -22,7 +22,6 @@ public class SpringSound : MonoBehaviour
         {
             if (hit.force > 6000)
             {
-                Debug.Log("Spring triggered");
                 audioSource.clip = springSound[Random.Range(0, springSound.Count)];
                 audioSource.Play();
             }
