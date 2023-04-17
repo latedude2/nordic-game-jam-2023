@@ -123,6 +123,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 48ba945a72fb19b4196b1632acf65ba2, type: 3}
   - {fileID: 8300000, guid: 25003293f4ffdf94e923f2096ab337cf, type: 3}
   - {fileID: 8300000, guid: cf0434e17a798f245b0890d8b342744f, type: 3}
+  - {fileID: 8300000, guid: cb873651341124d4991c5b5707036f51, type: 3}
+  - {fileID: 8300000, guid: 0d4c9ec2f09f06949b87f81dea94786b, type: 3}
   radioLight: {fileID: 4437683051911942896}
 --- !u!82 &1340787647
 AudioSource:

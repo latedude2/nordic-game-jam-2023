@@ -48,7 +48,8 @@ public class Radio : MonoBehaviour
     {
         if (Random.Range(0, 3) == 0)
         {
-            Toggle();
+            if(!isOn)
+                Toggle();
         }
     }
 
