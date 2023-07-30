@@ -5288,7 +5288,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -5323,7 +5323,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5620,7 +5620,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -5655,7 +5655,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -6119,7 +6119,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 771ce407ce807b74885ec23ebd1e6647, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.449
+  m_Volume: 0.628
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6128,7 +6128,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 150
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -6163,7 +6163,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.75
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -7880,10 +7880,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 4560034794084888223}
     m_Modifications:
     - target: {fileID: 1340787647, guid: dab5e1d2af0f8b64cad6318555fc264e, type: 3}
+      propertyPath: MaxDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340787647, guid: dab5e1d2af0f8b64cad6318555fc264e, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 6912438751487197561, guid: cc087cccd723a7b47810005da4a423bd,
         type: 2}
+    - target: {fileID: 1340787647, guid: dab5e1d2af0f8b64cad6318555fc264e, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.78
+      objectReference: {fileID: 0}
     - target: {fileID: 713405066967713053, guid: dab5e1d2af0f8b64cad6318555fc264e,
         type: 3}
       propertyPath: musicClips.Array.data[1]
@@ -8354,6 +8362,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4560034794084888223}
     m_Modifications:
+    - target: {fileID: 837508889, guid: d560cbf8a2b8fa048b2051f8b003b863, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.78
+      objectReference: {fileID: 0}
     - target: {fileID: 3777035604331969344, guid: d560cbf8a2b8fa048b2051f8b003b863,
         type: 3}
       propertyPath: m_RootOrder
