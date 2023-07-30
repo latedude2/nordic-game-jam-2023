@@ -22,6 +22,15 @@ public class MouseInteraction : MonoBehaviour
                 }
                 
             }
+            if (hit.collider.gameObject.tag == "DoorHandle")
+            {
+                Debug.Log("Mouse over Handle");
+                if(Input.GetMouseButtonDown(0))
+                {
+                    hit.collider.gameObject.GetComponent<DoorHandle>().Exit();
+                }
+                
+            }
         }
     }
 }
