@@ -11,6 +11,7 @@ public class PrometeoEditor : Editor{
 
   private PrometeoCarController prometeo;
   private SerializedObject SO;
+  private SerializedProperty playerControlled;
   //
   //
   //CAR SETUP
@@ -80,6 +81,7 @@ public class PrometeoEditor : Editor{
     prometeo = (PrometeoCarController)target;
     SO = new SerializedObject(target);
 
+    playerControlled = SO.FindProperty("playerControlled");
     steeringWheel = SO.FindProperty("steeringWheel");
     maxSpeed = SO.FindProperty("maxSpeed");
     maxReverseSpeed = SO.FindProperty("maxReverseSpeed");
@@ -125,6 +127,16 @@ public class PrometeoEditor : Editor{
   public override void OnInspectorGUI(){
 
     SO.Update();
+
+    GUILayout.Space(10);
+    GUILayout.Label("GENERAL SETTINGS", EditorStyles.boldLabel);
+    GUILayout.Space(10);
+    //
+    //
+    //GENERAL SETTINGS
+    //
+    //
+    EditorGUILayout.PropertyField(playerControlled, new GUIContent("Player Controlled: "));
 
     GUILayout.Space(25);
     GUILayout.Label("CAR SETUP", EditorStyles.boldLabel);

@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Engine : MonoBehaviour
 {
     public bool isOn = false;
     public static Engine Instance;
-    Rigidbody rigidbody;
+    Rigidbody carRigidbody;
     float engineTimer = 0;
     AudioSource engineTurnSoundSource;
+    [SerializeField] private AudioMixerGroup engineMixer;
     public AudioClip engineStartSound;
     public AudioClip engineStopSound;
     public Transform leftLight;
@@ -25,8 +27,9 @@ public class Engine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        carRigidbody = GetComponent<Rigidbody>();
         engineTurnSoundSource = gameObject.AddComponent<AudioSource>();
+        engineTurnSoundSource.outputAudioMixerGroup = engineMixer;
         leftLight.gameObject.SetActive(false);
         rightLight.gameObject.SetActive(false);
         interiorLight.gameObject.SetActive(false);
@@ -37,19 +40,19 @@ public class Engine : MonoBehaviour
     {   
         if(isOn)
         {
-            if(rigidbody.velocity.magnitude > 1f)
+            if(carRigidbody.velocity.magnitude > 1f)
             {
                 carReachedProperSpeed = true;
             }
             //Random chance to turn off if velocity is low
-            if (Random.Range(0, 100) == 0 && rigidbody.velocity.magnitude < 0.5f && carReachedProperSpeed)
+            if (Random.Range(0, 100) == 0 && carRigidbody.velocity.magnitude < 0.5f && carReachedProperSpeed)
             {
                 TurnOff();
             }
             return;
         }
         //Hold to turn on engine
-        if (Input.GetKey(KeyCode.E))
+        if (GetComponent<PrometeoCarController>().playerControlled && Input.GetKey(KeyCode.E))
         {
             engineTimer += Time.deltaTime;
             if (!engineTurnSoundSource.isPlaying)

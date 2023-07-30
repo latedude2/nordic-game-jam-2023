@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script to handle mouse interaction with objects
+//Should be attached to the camera
 public class MouseInteraction : MonoBehaviour
 {
-
-    // Update is called once per frame
+    private Camera cam;
+    void Start()
+    {
+        cam = GetComponent<Camera>();
+    }
+    
     void Update()
     {
-        //raycast to see if mouse is over object
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //raycast from camera
+        Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+        
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
@@ -22,12 +29,21 @@ public class MouseInteraction : MonoBehaviour
                 }
                 
             }
-            if (hit.collider.gameObject.tag == "DoorHandle")
+            if (hit.collider.gameObject.GetComponent<CarExitHandle>())
             {
                 Debug.Log("Mouse over Handle");
                 if(Input.GetMouseButtonDown(0))
                 {
-                    hit.collider.gameObject.GetComponent<DoorHandle>().Exit();
+                    hit.collider.gameObject.GetComponent<CarExitHandle>().Exit();
+                }
+                
+            }
+            if (hit.collider.gameObject.GetComponent<CarEnterHandle>())
+            {
+                Debug.Log("Mouse over Handle");
+                if(Input.GetMouseButtonDown(0))
+                {
+                    hit.collider.gameObject.GetComponent<CarEnterHandle>().Enter();
                 }
                 
             }

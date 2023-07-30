@@ -12,6 +12,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PrometeoCarController : MonoBehaviour
@@ -164,6 +165,9 @@ public class PrometeoCarController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      CarExitHandle.onExit.AddListener(OnCarExited);
+      CarEnterHandle.onEnter.AddListener(OnCarEntered);
+
       ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(MakeSteeringWorse);
       //In this part, we set the 'carRigidbody' value with the Rigidbody attached to this
       //gameObject. Also, we define the center of mass of the car with the Vector3 given
@@ -770,6 +774,16 @@ public class PrometeoCarController : MonoBehaviour
       {
         steeringDriftAmount = 5f;
       }
+    }
+
+    void OnCarExited()
+    {
+      playerControlled = false;
+    }
+
+    void OnCarEntered()
+    {
+      playerControlled = true;
     }
 
 }

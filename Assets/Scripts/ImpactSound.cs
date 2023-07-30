@@ -22,6 +22,10 @@ public class ImpactSound : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        if(collider.gameObject.tag == "Player")
+        {
+            return;
+        }
         //if finish play other sound
         if (collider.gameObject.tag == "Finish")
         {
