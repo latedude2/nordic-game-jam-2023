@@ -50,8 +50,10 @@ public class ObjectiveManager : MonoBehaviour
         potentialObjectives.Add(oldObjective);
         //make current objective visible
         currentObjective.gameObject.SetActive(true);
+        currentObjective.isCompleted = false;
         //make old objective invisible
-        oldObjective.gameObject.SetActive(false);
+        oldObjective.isCompleted = true;
+        StartCoroutine(SetObjectiveNotVisible(oldObjective));
         //increase terrain target
         TerrainController.Instance.SetAmplitudeTargetAndSpeed(TerrainController.Instance.amplitudeTarget + terrainIncreaseValue, 0.000001f);
         
@@ -61,6 +63,14 @@ public class ObjectiveManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", completedObjectiveCount);
         }
+    }
+
+    IEnumerator SetObjectiveNotVisible(Objective objective)
+    {
+        //Start thank you animation
+        yield return new WaitForSeconds(5f);
+        objective.gameObject.SetActive(false);
+        yield return null;
     }
 
     public int GetCompletedObjectiveCount()

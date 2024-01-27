@@ -23,12 +23,13 @@ public class AIAttackBehavior : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         AttackCooldown = AttackCooldownScaledToIntensity();
+        CameraSwitcher.onEnter.AddListener(SetCurrentPlayerGameobject);
+        CameraSwitcher.onExit.AddListener(SetCurrentPlayerGameobject);
     }
 
     void OnEnable()
     {
         SetCurrentPlayerGameobject();
-        GameObject.Find("First Person Controller");
         
         SetDestination(player.transform.position);
         StartCoroutine(nameof(UpdateDestination));
@@ -36,7 +37,8 @@ public class AIAttackBehavior : MonoBehaviour
 
     private void SetCurrentPlayerGameobject()
     {
-        GameObject playerWalking = GameObject.Find("First Person Controller");
+        Debug.Log("Looking for walking player gameobject");
+        GameObject playerWalking = GameObject.Find("Human(Clone)");
         if(playerWalking != null)
         {
             Debug.Log("Player walking found");
@@ -58,12 +60,13 @@ public class AIAttackBehavior : MonoBehaviour
             }
             Debug.Log("Waiting for " + ChaseIntervalScaledToIntensity() + " seconds");
             yield return new WaitForSeconds(ChaseIntervalScaledToIntensity());  
-            //get Player by tag
-            SetDestination(player.transform.position);
             if (!isActiveAndEnabled)
             {
                 yield break;
             }
+            //get Player by tag
+            SetCurrentPlayerGameobject();
+            SetDestination(player.transform.position);
             Debug.Log("Navigating to player at location: " + player.transform.position);
             yield return null;
         }

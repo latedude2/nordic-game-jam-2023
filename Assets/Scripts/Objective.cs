@@ -5,17 +5,27 @@ using UnityEngine;
 public class Objective : MonoBehaviour
 {
     private Collider objectiveCollider;
+    public AudioClip finishSound;
+    private AudioSource audioSource;
+
+    public bool isCompleted = false;
     void Start()
     {
         objectiveCollider = GetComponent<Collider>();
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.enabled = true;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Triggered");
-        if (other.gameObject.tag == "Player")
+        if(isCompleted)
+        {
+            return;
+        }
+        if(other.gameObject.GetComponent<ObjectiveCompleter>() != null)
         {
             ObjectiveManager.Instance.ObjectiveCompleted();
+            audioSource.PlayOneShot(finishSound);
         }
     }
 

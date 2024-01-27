@@ -26,7 +26,7 @@ public class AIStalkBehavior : MonoBehaviour
 
     private void SetCurrentPlayerGameobject()
     {
-        GameObject playerWalking = GameObject.Find("First Person Controller");
+        GameObject playerWalking = GameObject.Find("Human");
         if(playerWalking != null)
         {
             Debug.Log("Player walking found");
