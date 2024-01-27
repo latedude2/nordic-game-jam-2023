@@ -6,12 +6,18 @@ using UnityEngine;
 public class CameraSwitcher : MonoBehaviour
 {
     [SerializeField] bool enableCameraOnCarEnter = true;
-
+    static public UnityEvent onEnter;
+    static public UnityEvent onExit;
 
     void Start()
     {
-        CarEnterHandle.onEnter.AddListener(OnCarEnter);
-        CarExitHandle.onExit.AddListener(OnCarExit);
+        onExit = new UnityEvent();
+        onEnter = new UnityEvent();
+        if(CarEnterHandle.onEnter != null)
+        {
+            CarEnterHandle.onEnter.AddListener(OnCarEnter);
+            CarExitHandle.onExit.AddListener(OnCarExit);
+        }
     }
 
     void OnCarEnter()
@@ -26,6 +32,7 @@ public class CameraSwitcher : MonoBehaviour
                 child.gameObject.SetActive(true);
             }
         }
+        onEnter.Invoke();
     }
 
     void OnCarExit()
@@ -35,5 +42,6 @@ public class CameraSwitcher : MonoBehaviour
         {
             child.gameObject.SetActive(!enableCameraOnCarEnter);
         }
+        onExit.Invoke();
     }
 }

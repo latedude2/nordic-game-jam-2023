@@ -20,6 +20,11 @@ public class MouseInteraction : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
+            if(hit.collider.gameObject.GetComponent<HoverInfo>())
+            {
+                hit.collider.gameObject.GetComponent<HoverInfo>().Show();
+            }
+
             if (hit.collider.gameObject.tag == "Radio")
             {
                 Debug.Log("Mouse over player");

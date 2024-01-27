@@ -523,8 +523,10 @@ GameObject:
   - component: {fileID: 114497868231759342}
   - component: {fileID: 114762042097486276}
   - component: {fileID: 7785554871515096328}
+  - component: {fileID: 4849956501994277802}
+  - component: {fileID: 3627282231368938870}
   m_Layer: 0
-  m_Name: First Person Controller
+  m_Name: Human
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -640,6 +642,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableCameraOnCarEnter: 0
+--- !u!114 &4849956501994277802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773623360729482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5559ff9ab6b5ba1488daa4d6cde34b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+--- !u!114 &3627282231368938870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773623360729482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41091c109fb077c4aaaaabd6dba7a23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1963958859065967600
 GameObject:
   m_ObjectHideFlags: 0

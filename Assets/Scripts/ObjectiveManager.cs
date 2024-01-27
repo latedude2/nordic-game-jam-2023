@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class ObjectiveManager : MonoBehaviour
 {
@@ -9,8 +10,12 @@ public class ObjectiveManager : MonoBehaviour
     private float terrainIncreaseValue = 0.0002f;
     private int completedObjectiveCount = 0;
 
+    public int RequiredPizzasForExit = 4; 
+
     //event for when objective is completed
     public UnityEvent OnObjectiveCompleted;
+
+    
 
     [System.NonSerialized] public Objective currentObjective;
 
@@ -27,13 +32,26 @@ public class ObjectiveManager : MonoBehaviour
     }
     void Start()
     {
-        
+        //UpdateIntensities();
+        //subscirbe to event in objective manager to update intensity
+        OnObjectiveCompleted.AddListener(UpdateIntensities);
+
+
         foreach(Objective objective in potentialObjectives)
         {
             objective.gameObject.SetActive(false);
         }
         currentObjective = potentialObjectives[0];
         currentObjective.gameObject.SetActive(true);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("Using cheat to increase completed objective count");
+            completedObjectiveCount++;
+        }
     }
 
     public void ObjectiveCompleted()
@@ -45,8 +63,10 @@ public class ObjectiveManager : MonoBehaviour
         potentialObjectives.Add(oldObjective);
         //make current objective visible
         currentObjective.gameObject.SetActive(true);
+        currentObjective.isCompleted = false;
         //make old objective invisible
-        oldObjective.gameObject.SetActive(false);
+        oldObjective.isCompleted = true;
+        StartCoroutine(SetObjectiveNotVisible(oldObjective));
         //increase terrain target
         TerrainController.Instance.SetAmplitudeTargetAndSpeed(TerrainController.Instance.amplitudeTarget + terrainIncreaseValue, 0.000001f);
         
@@ -56,5 +76,41 @@ public class ObjectiveManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", completedObjectiveCount);
         }
+    }
+
+    IEnumerator SetObjectiveNotVisible(Objective objective)
+    {
+        //Start thank you animation
+        yield return new WaitForSeconds(5f);
+        objective.gameObject.SetActive(false);
+        yield return null;
+    }
+
+    public int GetCompletedObjectiveCount()
+    {
+        return completedObjectiveCount;
+    }
+
+    private void UpdateIntensities()
+    {
+        //Find monsters
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("Monster");
+        foreach(GameObject monster in monsters)
+        {
+            monster.GetComponent<AIAttackBehavior>().ChaseIntensity = 1 + completedObjectiveCount;
+            monster.GetComponent<AIAttackBehavior>().ModifyBehaviorAccordingToIntensity();
+            monster.GetComponent<AIStalkBehavior>().Intensity = 1 + completedObjectiveCount;
+            monster.GetComponent<AIStalkBehavior>().ModifyBehaviorAccordingToIntensity();
+        }
+    }
+
+    public bool IsEnoughPizzaDelivered()
+    {
+        return completedObjectiveCount >= RequiredPizzasForExit;
+    }
+
+    public int GetRemainingPizzasForExit()
+    {
+        return RequiredPizzasForExit - completedObjectiveCount;
     }
 }
