@@ -27,8 +27,10 @@ public class PrometeoCarController : MonoBehaviour
       [Space(10)]
       [Range(20, 190)]
       public int maxSpeed = 90; //The maximum speed that the car can reach in km/h.
+
       [Range(10, 120)]
       public int maxReverseSpeed = 45; //The maximum speed that the car can reach while going on reverse in km/h.
+      
       [Range(1, 10)]
       public int accelerationMultiplier = 2; // How fast the car can accelerate. 1 is a slow acceleration and 10 is the fastest.
       [Space(10)]
@@ -162,11 +164,16 @@ public class PrometeoCarController : MonoBehaviour
       WheelFrictionCurve RRwheelFriction;
       float RRWextremumSlip;
 
+
+      //Upgrades
+      private UpgradeSystem upgradeSystem;
+
     // Start is called before the first frame update
     void Start()
     {
       CarExitHandle.onExit.AddListener(OnCarExited);
       CarEnterHandle.onEnter.AddListener(OnCarEntered);
+      upgradeSystem = GetComponent<UpgradeSystem>();
 
       ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(MakeSteeringWorse);
       //In this part, we set the 'carRigidbody' value with the Rigidbody attached to this
@@ -417,7 +424,7 @@ public class PrometeoCarController : MonoBehaviour
       if(steeringAxis < -1f){
         steeringAxis = -1f;
       }
-      var steeringAngle = steeringAxis * maxSteeringAngle;
+      var steeringAngle = steeringAxis * (maxSteeringAngle + upgradeSystem.SteeringUpgrade);
       steeringWheel.localRotation = Quaternion.Euler(0f, 0f, -steeringAngle * 2);
       steeringAngle += UnityEngine.Random.Range(-steeringDriftAmount, steeringDriftAmount);
       frontLeftCollider.steerAngle = Mathf.Lerp(frontLeftCollider.steerAngle, steeringAngle, steeringSpeed);
@@ -430,7 +437,7 @@ public class PrometeoCarController : MonoBehaviour
       if(steeringAxis > 1f){
         steeringAxis = 1f;
       }
-      var steeringAngle = steeringAxis * maxSteeringAngle;
+      var steeringAngle = steeringAxis * (maxSteeringAngle + upgradeSystem.SteeringUpgrade);
       steeringAngle += UnityEngine.Random.Range(-steeringDriftAmount, steeringDriftAmount);
       steeringWheel.localRotation = Quaternion.Euler(0f, 0f, -steeringAngle * 2);
       frontLeftCollider.steerAngle = Mathf.Lerp(frontLeftCollider.steerAngle, steeringAngle, steeringSpeed);
@@ -448,7 +455,7 @@ public class PrometeoCarController : MonoBehaviour
       if(Mathf.Abs(frontLeftCollider.steerAngle) < 1f){
         steeringAxis = 0f;
       }
-      var steeringAngle = steeringAxis * maxSteeringAngle;
+      var steeringAngle = steeringAxis * (maxSteeringAngle + upgradeSystem.SteeringUpgrade);
       steeringAngle += UnityEngine.Random.Range(-steeringDriftAmount, steeringDriftAmount);
       steeringWheel.localRotation = Quaternion.Euler(0f, 0f, -steeringAngle * 2);
       frontLeftCollider.steerAngle = Mathf.Lerp(frontLeftCollider.steerAngle, steeringAngle, steeringSpeed);
@@ -516,16 +523,16 @@ public class PrometeoCarController : MonoBehaviour
       if(localVelocityZ < -1f){
         Brakes();
       }else{
-        if(Mathf.RoundToInt(carSpeed) < maxSpeed){
+        if(Mathf.RoundToInt(carSpeed) < maxSpeed + upgradeSystem.MaxSpeedUpgrade){
           //Apply positive torque in all wheels to go forward if maxSpeed has not been reached.
           frontLeftCollider.brakeTorque = 0;
-          frontLeftCollider.motorTorque = (accelerationMultiplier * 50f) * throttleAxis;
+          frontLeftCollider.motorTorque = ((accelerationMultiplier + upgradeSystem.AccelerationUpgrade) * 50f) * throttleAxis;
           frontRightCollider.brakeTorque = 0;
-          frontRightCollider.motorTorque = (accelerationMultiplier * 50f) * throttleAxis;
+          frontRightCollider.motorTorque = ((accelerationMultiplier + upgradeSystem.AccelerationUpgrade) * 50f) * throttleAxis;
           rearLeftCollider.brakeTorque = 0;
-          rearLeftCollider.motorTorque = (accelerationMultiplier * 50f) * throttleAxis;
+          rearLeftCollider.motorTorque = ((accelerationMultiplier + upgradeSystem.AccelerationUpgrade) * 50f) * throttleAxis;
           rearRightCollider.brakeTorque = 0;
-          rearRightCollider.motorTorque = (accelerationMultiplier * 50f) * throttleAxis;
+          rearRightCollider.motorTorque = ((accelerationMultiplier + upgradeSystem.AccelerationUpgrade) * 50f) * throttleAxis;
         }else {
           // If the maxSpeed has been reached, then stop applying torque to the wheels.
           // IMPORTANT: The maxSpeed variable should be considered as an approximation; the speed of the car
@@ -565,16 +572,16 @@ public class PrometeoCarController : MonoBehaviour
       if(localVelocityZ > 1f){
         Brakes();
       }else{
-        if(Mathf.Abs(Mathf.RoundToInt(carSpeed)) < maxReverseSpeed){
+        if(Mathf.Abs(Mathf.RoundToInt(carSpeed)) < maxReverseSpeed + upgradeSystem.MaxSpeedUpgrade){
           //Apply negative torque in all wheels to go in reverse if maxReverseSpeed has not been reached.
           frontLeftCollider.brakeTorque = 0;
-          frontLeftCollider.motorTorque = (accelerationMultiplier * 50f) * throttleAxis;
+          frontLeftCollider.motorTorque = ((accelerationMultiplier + upgradeSystem.brakeForceUpgrade) * 50f) * throttleAxis;
           frontRightCollider.brakeTorque = 0;
-          frontRightCollider.motorTorque = (accelerationMultiplier * 50f) * throttleAxis;
+          frontRightCollider.motorTorque = ((accelerationMultiplier + upgradeSystem.brakeForceUpgrade) * 50f) * throttleAxis;
           rearLeftCollider.brakeTorque = 0;
-          rearLeftCollider.motorTorque = (accelerationMultiplier * 50f) * throttleAxis;
+          rearLeftCollider.motorTorque = ((accelerationMultiplier + upgradeSystem.brakeForceUpgrade) * 50f) * throttleAxis;
           rearRightCollider.brakeTorque = 0;
-          rearRightCollider.motorTorque = (accelerationMultiplier * 50f) * throttleAxis;
+          rearRightCollider.motorTorque = ((accelerationMultiplier + upgradeSystem.brakeForceUpgrade) * 50f) * throttleAxis;
         }else {
           //If the maxReverseSpeed has been reached, then stop applying torque to the wheels.
           // IMPORTANT: The maxReverseSpeed variable should be considered as an approximation; the speed of the car
@@ -633,10 +640,10 @@ public class PrometeoCarController : MonoBehaviour
 
     // This function applies brake torque to the wheels according to the brake force given by the user.
     public void Brakes(){
-      frontLeftCollider.brakeTorque = brakeForce;
-      frontRightCollider.brakeTorque = brakeForce;
-      rearLeftCollider.brakeTorque = brakeForce;
-      rearRightCollider.brakeTorque = brakeForce;
+      frontLeftCollider.brakeTorque = brakeForce + upgradeSystem.brakeForceUpgrade;
+      frontRightCollider.brakeTorque = brakeForce + upgradeSystem.brakeForceUpgrade;
+      rearLeftCollider.brakeTorque = brakeForce + upgradeSystem.brakeForceUpgrade;
+      rearRightCollider.brakeTorque = brakeForce + upgradeSystem.brakeForceUpgrade;
     }
 
     // This function is used to make the car lose traction. By using this, the car will start drifting. The amount of traction lost
@@ -784,6 +791,10 @@ public class PrometeoCarController : MonoBehaviour
     void OnCarEntered()
     {
       playerControlled = true;
+    }
+
+    void LoadUpgradeValues()
+    {
     }
 
 }
