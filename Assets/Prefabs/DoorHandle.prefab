@@ -146,6 +146,8 @@ MonoBehaviour:
   playerSpawnLocation: {fileID: 837508889}
   playerPrefab: {fileID: 1773623360729482, guid: 11aaea5348574644a9eb4f4504fcce3f,
     type: 3}
+  rainEffect: {fileID: 0}
+  carExitSound: {fileID: 8300000, guid: dea8af8c5d4b8494795b5d5cd0b0249f, type: 3}
 --- !u!114 &1447875626277106255
 MonoBehaviour:
   m_ObjectHideFlags: 0

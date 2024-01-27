@@ -18,6 +18,6 @@ public class DeliveryCounter : MonoBehaviour
     void UpdateCounter()
     {
         deliveries++;
-        counterText.text = deliveries.ToString();
+        counterText.text = deliveries.ToString() + "/" + ObjectiveManager.Instance.RequiredPizzasForExit.ToString();
     }
 }

@@ -11,13 +11,23 @@ public class CarExitHandle : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] GameObject rainEffect;
 
+    AudioSource audioSource;
+
+    public AudioClip carExitSound;
+
     public void Awake()
     {
         onExit = new UnityEvent();
     }
 
+    public void Start()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
+
     public void Exit()
     {
+        audioSource.PlayOneShot(carExitSound);
         Debug.Log("Exit car");
         onExit.Invoke();
         //point player forward but dont tilt
