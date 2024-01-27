@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837508888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.6, y: 0, z: 0}
+  m_LocalPosition: {x: -15.6, y: -6.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 3933987704436092062}
   - component: {fileID: 6964229194599491338}
   - component: {fileID: 6233820863419904453}
+  - component: {fileID: 1447875626277106255}
   m_Layer: 0
   m_Name: DoorHandle
   m_TagString: DoorHandle
@@ -142,3 +143,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a81ca1b7756094ab99250c10b9e6cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSpawnLocation: {fileID: 837508889}
+  playerPrefab: {fileID: 1773623360729482, guid: 11aaea5348574644a9eb4f4504fcce3f,
+    type: 3}
+--- !u!114 &1447875626277106255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6712168417547286376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7dc8c7d4040ec46a9882162119ba52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextToDisplay: Exit Geoffrey

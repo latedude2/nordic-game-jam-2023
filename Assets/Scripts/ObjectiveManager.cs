@@ -10,8 +10,12 @@ public class ObjectiveManager : MonoBehaviour
     private float terrainIncreaseValue = 0.0002f;
     private int completedObjectiveCount = 0;
 
+    public int RequiredPizzasForExit = 4; 
+
     //event for when objective is completed
     public UnityEvent OnObjectiveCompleted;
+
+    
 
     [System.NonSerialized] public Objective currentObjective;
 
@@ -98,5 +102,15 @@ public class ObjectiveManager : MonoBehaviour
             monster.GetComponent<AIStalkBehavior>().Intensity = 1 + completedObjectiveCount;
             monster.GetComponent<AIStalkBehavior>().ModifyBehaviorAccordingToIntensity();
         }
+    }
+
+    public bool IsEnoughPizzaDelivered()
+    {
+        return completedObjectiveCount >= RequiredPizzasForExit;
+    }
+
+    public int GetRemainingPizzasForExit()
+    {
+        return RequiredPizzasForExit - completedObjectiveCount;
     }
 }

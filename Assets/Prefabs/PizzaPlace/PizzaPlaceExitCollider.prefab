@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3099867318411512396}
   - component: {fileID: 3099867318411512397}
   - component: {fileID: 2023849038}
+  - component: {fileID: 2023849043}
   m_Layer: 0
   m_Name: PizzaPlaceExitCollider
   m_TagString: Finish
@@ -110,3 +111,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfadeb5e8bb593e498e9f524d194ea3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2023849043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3099867318411512386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7dc8c7d4040ec46a9882162119ba52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextToDisplay: Enter to Start next stage

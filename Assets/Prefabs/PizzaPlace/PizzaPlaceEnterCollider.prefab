@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3099867318411512396}
   - component: {fileID: 3099867318411512397}
   - component: {fileID: 1614886349340301857}
+  - component: {fileID: 160910310575814144}
   m_Layer: 0
   m_Name: PizzaPlaceEnterCollider
   m_TagString: Finish
@@ -110,3 +111,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eff1470f68d26641a75125f2a03059c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &160910310575814144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3099867318411512386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff8136ba03013843987b43dc5bff5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextToDisplay: This string is not used
