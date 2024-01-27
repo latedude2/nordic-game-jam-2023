@@ -9,6 +9,7 @@ public class CarExitHandle : MonoBehaviour
     static public UnityEvent onExit;
     [SerializeField] private Transform playerSpawnLocation; 
     [SerializeField] private GameObject playerPrefab;
+    [SerializeField] GameObject rainEffect;
 
     public void Awake()
     {
@@ -24,7 +25,7 @@ public class CarExitHandle : MonoBehaviour
         rotation.x = 0;
         rotation.z = 0;
         playerSpawnLocation.rotation = Quaternion.Euler(rotation);
-        Instantiate(playerPrefab, playerSpawnLocation.position, playerSpawnLocation.rotation);
-
+        GameObject player = Instantiate(playerPrefab, playerSpawnLocation.position, playerSpawnLocation.rotation);
+        rainEffect.transform.SetParent(player.transform);
     }
 }

@@ -7,6 +7,8 @@ public class CarEnterHandle : MonoBehaviour
 {
     //event for exiting the car
     static public UnityEvent onEnter;
+    [SerializeField] GameObject rainEffect;
+    [SerializeField] GameObject car;
 
     public void Awake()
     {
@@ -17,5 +19,6 @@ public class CarEnterHandle : MonoBehaviour
     {
         Debug.Log("Enter car");
         onEnter.Invoke();
+        rainEffect.transform.SetParent(car.transform);
     }
 }
