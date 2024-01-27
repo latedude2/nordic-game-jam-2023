@@ -776,7 +776,7 @@ public class PrometeoCarController : MonoBehaviour
 
     void MakeSteeringWorse()
     { 
-      steeringDriftAmount += 0.25f;
+      steeringDriftAmount += 0.25f / upgradeSystem.SteeringUpgrade;
       if(steeringDriftAmount > 5f)
       {
         steeringDriftAmount = 5f;
