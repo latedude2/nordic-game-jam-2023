@@ -403,8 +403,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 7.91, z: 8.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4905102320473804148}
+  m_Children: []
   m_Father: {fileID: 261786959625234688}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6246,7 +6245,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2964096667791295286}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6641059817945347487
 MeshFilter:
@@ -6695,7 +6694,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2964096667791295286}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8733041726573873617
 MeshFilter:
@@ -6920,7 +6919,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2964096667791295286}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6807866291960831174
 MeshFilter:
@@ -7186,7 +7185,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2964096667791295286}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2155179094551210723
 MeshFilter:
@@ -7266,6 +7265,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4905102320473804148}
   - {fileID: 5685436807906699538}
   - {fileID: 7488095802916936734}
   - {fileID: 3422029511689097647}
@@ -7298,11 +7298,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8855711294183713050}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.808, z: -9.049}
+  m_LocalPosition: {x: 0, y: 1.2449999, z: -0.29899597}
   m_LocalScale: {x: 1, y: 1.2834516, z: 1.2921562}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2008608592}
+  m_Father: {fileID: 2964096667791295286}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2489466827826709841
@@ -8155,6 +8155,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarEnterHandle
       objectReference: {fileID: 0}
+    - target: {fileID: 4724120769955110281, guid: 0155d5a78b10bd04ebeb452fe11416c0,
+        type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 642287924342879162}
+    - target: {fileID: 4724120769955110281, guid: 0155d5a78b10bd04ebeb452fe11416c0,
+        type: 3}
+      propertyPath: rainEffect
+      value: 
+      objectReference: {fileID: 2008608591}
     - target: {fileID: 7605296689029618156, guid: 0155d5a78b10bd04ebeb452fe11416c0,
         type: 3}
       propertyPath: m_RootOrder
@@ -8285,6 +8295,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6233820863419904453, guid: d560cbf8a2b8fa048b2051f8b003b863,
+        type: 3}
+      propertyPath: rainEffect
+      value: 
+      objectReference: {fileID: 2008608591}
     - target: {fileID: 6712168417547286376, guid: d560cbf8a2b8fa048b2051f8b003b863,
         type: 3}
       propertyPath: m_Name
