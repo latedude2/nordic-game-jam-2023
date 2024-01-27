@@ -20,7 +20,22 @@ public class AIStalkBehavior : MonoBehaviour
 
     void OnEnable()
     {
+        SetDestination();
         StartCoroutine(nameof(UpdateDestination));
+    }
+
+    private void SetCurrentPlayerGameobject()
+    {
+        GameObject playerWalking = GameObject.Find("First Person Controller");
+        if(playerWalking != null)
+        {
+            Debug.Log("Player walking found");
+            player = playerWalking;
+        }
+        else
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     private IEnumerator UpdateDestination()
@@ -33,15 +48,25 @@ public class AIStalkBehavior : MonoBehaviour
             }
             Debug.Log("Waiting for " + ChaseIntervalScaledToIntensity() + " seconds");
             yield return new WaitForSeconds(ChaseIntervalScaledToIntensity());  
-            Vector3 playerPos = player.transform.position;
-            Vector2 stalk2D = UnityEngine.Random.insideUnitCircle * stalkDistance;
-            Vector3 stalkPos = playerPos +  new Vector3(stalk2D.x, 0, stalk2D.y);
-
-            //get Player by tag
-            GetComponent<NavMeshAgent>().SetDestination(stalkPos);
-            Debug.Log("Stalking player at : " + stalkPos + " player position: " + player.transform.position);
+            if (!isActiveAndEnabled)
+            {
+                yield break;
+            }
+            SetDestination();
             yield return null;
         }
+    }
+
+    private void SetDestination()
+    {
+        SetCurrentPlayerGameobject();
+        Vector3 playerPos = player.transform.position;
+        Vector2 stalk2D = UnityEngine.Random.insideUnitCircle * stalkDistance;
+        Vector3 stalkPos = playerPos +  new Vector3(stalk2D.x, 0, stalk2D.y);
+
+        //get Player by tag
+        GetComponent<NavMeshAgent>().SetDestination(stalkPos);
+        Debug.Log("Stalking player at : " + stalkPos + " player position: " + player.transform.position);
     }
 
     public void ModifyBehaviorAccordingToIntensity()

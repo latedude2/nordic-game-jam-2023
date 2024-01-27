@@ -74,9 +74,9 @@ public class ObjectiveManager : MonoBehaviour
         GameObject[] monsters = GameObject.FindGameObjectsWithTag("Monster");
         foreach(GameObject monster in monsters)
         {
-            monster.GetComponent<AIAttackBehavior>().Intensity = completedObjectiveCount;
+            monster.GetComponent<AIAttackBehavior>().ChaseIntensity = 1 + completedObjectiveCount;
             monster.GetComponent<AIAttackBehavior>().ModifyBehaviorAccordingToIntensity();
-            monster.GetComponent<AIStalkBehavior>().Intensity = completedObjectiveCount;
+            monster.GetComponent<AIStalkBehavior>().Intensity = 1 + completedObjectiveCount;
             monster.GetComponent<AIStalkBehavior>().ModifyBehaviorAccordingToIntensity();
         }
     }

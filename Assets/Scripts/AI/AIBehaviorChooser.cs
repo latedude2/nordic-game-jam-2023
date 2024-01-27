@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class AIBehaviorChooser : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     void Start()
     {
-        SetAIStalk();
+        SetAIAggressive();
+        ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(UpdateAIBehavior);
     }
 
     // Update is called once per frame
-    void Update()
+    void UpdateAIBehavior()
     {
         if(ObjectiveManager.Instance.GetCompletedObjectiveCount() == 1)
         {
@@ -24,7 +25,9 @@ public class AIBehaviorChooser : MonoBehaviour
 
     }
 
-    void SetAIAggressive()
+    
+
+    public void SetAIAggressive()
     {
         //set AIAttackBehavior to active
         GetComponent<AIAttackBehavior>().enabled = true;
@@ -33,7 +36,7 @@ public class AIBehaviorChooser : MonoBehaviour
         GetComponent<Renderer>().material.color = Color.red;
     }
 
-    void SetAIStalk()
+    public void SetAIStalk()
     {
         //set AIStalkBehavior to active
         GetComponent<AIStalkBehavior>().enabled = true;
