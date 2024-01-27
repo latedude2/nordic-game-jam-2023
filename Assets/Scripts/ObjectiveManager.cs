@@ -70,9 +70,14 @@ public class ObjectiveManager : MonoBehaviour
 
     private void UpdateIntensities()
     {
-        GetComponent<AIAttackBehavior>().Intensity = completedObjectiveCount;
-        GetComponent<AIAttackBehavior>().ModifyBehaviorAccordingToIntensity();
-        GetComponent<AIStalkBehavior>().Intensity = completedObjectiveCount;
-        GetComponent<AIStalkBehavior>().ModifyBehaviorAccordingToIntensity();   
+        //Find monsters
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("Monster");
+        foreach(GameObject monster in monsters)
+        {
+            monster.GetComponent<AIAttackBehavior>().Intensity = completedObjectiveCount;
+            monster.GetComponent<AIAttackBehavior>().ModifyBehaviorAccordingToIntensity();
+            monster.GetComponent<AIStalkBehavior>().Intensity = completedObjectiveCount;
+            monster.GetComponent<AIStalkBehavior>().ModifyBehaviorAccordingToIntensity();
+        }
     }
 }

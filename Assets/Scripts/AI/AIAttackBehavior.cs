@@ -43,9 +43,9 @@ public class AIAttackBehavior : MonoBehaviour
     {
         //The agent becomes more aggressive the higher the intensity starting with intensity 1
         //The agent will attack the player more often
-        GetComponent<NavMeshAgent>().speed = 2 * Intensity;
-        GetComponent<NavMeshAgent>().acceleration = 8 * Intensity;
-        GetComponent<NavMeshAgent>().angularSpeed = 120 * Intensity;
+        GetComponent<NavMeshAgent>().speed = Intensity;
+        GetComponent<NavMeshAgent>().acceleration = 4 * Intensity;
+        GetComponent<NavMeshAgent>().angularSpeed = 60 * Intensity;
     }
 
     float ChaseIntervalScaledToIntensity()
@@ -53,6 +53,6 @@ public class AIAttackBehavior : MonoBehaviour
         //The agent becomes more aggressive the higher the intensity starting with intensity 1
         //The agent will attack the player more often
     
-        return Math.Max(0.5f, 10f - Intensity);
+        return Math.Max(0.5f, 3 - Intensity * 0.5f);
     }
 }

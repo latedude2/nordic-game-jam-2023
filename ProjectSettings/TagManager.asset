@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Radio
   - DoorHandle
+  - Monster
   layers:
   - Default
   - TransparentFX
