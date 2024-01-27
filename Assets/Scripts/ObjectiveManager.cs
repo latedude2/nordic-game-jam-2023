@@ -41,6 +41,15 @@ public class ObjectiveManager : MonoBehaviour
         currentObjective.gameObject.SetActive(true);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("Using cheat to increase completed objective count");
+            completedObjectiveCount++;
+        }
+    }
+
     public void ObjectiveCompleted()
     {
         OnObjectiveCompleted.Invoke();
