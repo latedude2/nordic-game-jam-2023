@@ -25,7 +25,6 @@ public class CameraControl : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(transform.localEulerAngles);
         // Rotate the camera based on the mouse movement
         float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity;
 

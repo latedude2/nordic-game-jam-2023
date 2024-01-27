@@ -15,8 +15,8 @@ public class UpgradeSystem : MonoBehaviour
     void Start()
     {
         AccelerationUpgrade = PlayerPrefs.GetInt("AccelerationUpgrade", 0);
-        MaxSpeedUpgrade = PlayerPrefs.GetInt("MaxSpeedUpgrade", 0);
-        brakeForceUpgrade = PlayerPrefs.GetInt("brakeForceUpgrade", 0);
-        SteeringUpgrade = PlayerPrefs.GetInt("SteeringUpgrade", 0);
+        MaxSpeedUpgrade = PlayerPrefs.GetInt("MaxSpeedUpgrade", 0) * 10;
+        brakeForceUpgrade = PlayerPrefs.GetInt("BrakeForceUpgrade", 0) * 50;
+        SteeringUpgrade = PlayerPrefs.GetInt("SteeringUpgrade", 0) * 3;
     }
 }
