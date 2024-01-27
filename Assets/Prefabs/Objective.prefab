@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3716697168033546001}
   - component: {fileID: 3716697168033546005}
   - component: {fileID: 1125345470086406479}
+  - component: {fileID: 7410253706163571464}
   m_Layer: 0
   m_Name: Objective
   m_TagString: Finish
@@ -114,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishSound: {fileID: 8300000, guid: 40efd4a6be7d02b4ba280b10e88bb607, type: 3}
+  isCompleted: 0
 --- !u!114 &1125345470086406479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +128,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d242e3d56a3e34492dc2db27004987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7410253706163571464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716697168033546000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7dc8c7d4040ec46a9882162119ba52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextToDisplay: Walk up to deliver pizza
 --- !u!1 &5161662372083846636
 GameObject:
   m_ObjectHideFlags: 0

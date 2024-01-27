@@ -5709,6 +5709,7 @@ GameObject:
   - component: {fileID: 1946080049}
   - component: {fileID: 1946080050}
   - component: {fileID: 1725116396}
+  - component: {fileID: 882140338}
   m_Layer: 2
   m_Name: Car
   m_TagString: Player
@@ -5857,6 +5858,18 @@ MonoBehaviour:
   interiorLight: {fileID: 1573528062}
   tutorialPrompt: {fileID: 1074307675}
   engineStartTime: 1.8
+--- !u!114 &882140338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642287924342879162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff324192b67bc94dabc187f9dee9107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1017544330230184320
 GameObject:
   m_ObjectHideFlags: 0
