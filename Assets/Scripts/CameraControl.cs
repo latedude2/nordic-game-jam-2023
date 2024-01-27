@@ -13,10 +13,19 @@ public class CameraControl : MonoBehaviour
     {
         //lock mouse to center of screen
         Cursor.lockState = CursorLockMode.Locked;
+        CarEnterHandle.onEnter.AddListener(ResetCameraRotation);
+    }
+
+    void ResetCameraRotation()
+    {
+        Debug.Log("Reset camera rotation");
+        transform.localEulerAngles = new Vector3(0, 0, 0);
+        rotationY = 0;
     }
 
     void Update()
     {
+        Debug.Log(transform.localEulerAngles);
         // Rotate the camera based on the mouse movement
         float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity;
 

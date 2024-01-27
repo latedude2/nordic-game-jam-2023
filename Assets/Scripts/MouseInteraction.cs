@@ -18,7 +18,7 @@ public class MouseInteraction : MonoBehaviour
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, 3))
         {
             if(hit.collider.gameObject.GetComponent<HoverInfo>())
             {

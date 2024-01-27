@@ -66,7 +66,7 @@ public class AIStalkBehavior : MonoBehaviour
 
         //get Player by tag
         GetComponent<NavMeshAgent>().SetDestination(stalkPos);
-        Debug.Log("Stalking player at : " + stalkPos + " player position: " + player.transform.position);
+        //Debug.Log("Stalking player at : " + stalkPos + " player position: " + player.transform.position);
     }
 
     public void ModifyBehaviorAccordingToIntensity()

@@ -7,7 +7,7 @@ public class AIBehaviorChooser : MonoBehaviour
 
     void Start()
     {
-        SetAIAggressive();
+        SetAIStalk();
         ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(UpdateAIBehavior);
     }
 
