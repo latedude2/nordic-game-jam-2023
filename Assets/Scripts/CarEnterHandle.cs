@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
+using UnityEditor.SceneManagement;
 
 public class CarEnterHandle : MonoBehaviour
 {
@@ -10,13 +11,22 @@ public class CarEnterHandle : MonoBehaviour
     [SerializeField] GameObject rainEffect;
     [SerializeField] GameObject car;
 
+    AudioSource audioSource;
+
+    public AudioClip carEnterSound;
+
     public void Awake()
     {
         onEnter = new UnityEvent();
     }
+    public void Start()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
 
     public void Enter()
     {
+        audioSource.PlayOneShot(carEnterSound);
         Debug.Log("Enter car");
         onEnter.Invoke();
         rainEffect.transform.SetParent(car.transform);

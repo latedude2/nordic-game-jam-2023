@@ -68,6 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4a89b633c46604781fe6130a936d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rainEffect: {fileID: 0}
+  car: {fileID: 0}
+  carEnterSound: {fileID: 8300000, guid: dea8af8c5d4b8494795b5d5cd0b0249f, type: 3}
 --- !u!114 &5127070861077810209
 MonoBehaviour:
   m_ObjectHideFlags: 0
