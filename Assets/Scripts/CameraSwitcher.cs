@@ -10,8 +10,11 @@ public class CameraSwitcher : MonoBehaviour
 
     void Start()
     {
-        CarEnterHandle.onEnter.AddListener(OnCarEnter);
-        CarExitHandle.onExit.AddListener(OnCarExit);
+        if(CarEnterHandle.onEnter != null)
+        {
+            CarEnterHandle.onEnter.AddListener(OnCarEnter);
+            CarExitHandle.onExit.AddListener(OnCarExit);
+        }
     }
 
     void OnCarEnter()

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class ObjectiveManager : MonoBehaviour
 {
@@ -27,7 +28,11 @@ public class ObjectiveManager : MonoBehaviour
     }
     void Start()
     {
-        
+        //UpdateIntensities();
+        //subscirbe to event in objective manager to update intensity
+        OnObjectiveCompleted.AddListener(UpdateIntensities);
+
+
         foreach(Objective objective in potentialObjectives)
         {
             objective.gameObject.SetActive(false);
@@ -56,5 +61,18 @@ public class ObjectiveManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", completedObjectiveCount);
         }
+    }
+
+    public int GetCompletedObjectiveCount()
+    {
+        return completedObjectiveCount;
+    }
+
+    private void UpdateIntensities()
+    {
+        GetComponent<AIAttackBehavior>().Intensity = completedObjectiveCount;
+        GetComponent<AIAttackBehavior>().ModifyBehaviorAccordingToIntensity();
+        GetComponent<AIStalkBehavior>().Intensity = completedObjectiveCount;
+        GetComponent<AIStalkBehavior>().ModifyBehaviorAccordingToIntensity();   
     }
 }
