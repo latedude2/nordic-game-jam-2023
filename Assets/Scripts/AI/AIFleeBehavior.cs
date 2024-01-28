@@ -35,7 +35,7 @@ public class AIFleeBehavior : MonoBehaviour
             {
                 yield break;
             }
-            if(Vector3.Distance(transform.position, player.transform.position) < fleeDistance)
+            if(Vector3.Distance(transform.position, player.transform.position) < CalculateFleeDistance())
             {
                 GetComponent<AIBehaviorChooser>().SetAIAggressive();
                 yield break;
@@ -94,6 +94,11 @@ public class AIFleeBehavior : MonoBehaviour
         GetComponent<NavMeshAgent>().speed = 2 * Intensity;
         GetComponent<NavMeshAgent>().acceleration = 8 * Intensity;
         GetComponent<NavMeshAgent>().angularSpeed = 120 * Intensity;
-        fleeDistance = defaultFleeDistance / Intensity;
+        fleeDistance = CalculateFleeDistance();
+    }
+
+    float CalculateFleeDistance()
+    {
+        return defaultFleeDistance / Intensity;
     }
 }

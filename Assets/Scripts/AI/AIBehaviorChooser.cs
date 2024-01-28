@@ -30,6 +30,7 @@ public class AIBehaviorChooser : MonoBehaviour
         //set AIAttackBehavior to active
         GetComponent<AIAttackBehavior>().enabled = true;
         GetComponent<AIStalkBehavior>().enabled = false;
+        GetComponent<AIFleeBehavior>().enabled = false;
         Debug.Log("Setting AI to aggressive");
     }
 
@@ -38,6 +39,7 @@ public class AIBehaviorChooser : MonoBehaviour
         //set AIStalkBehavior to active
         GetComponent<AIStalkBehavior>().enabled = true;
         GetComponent<AIAttackBehavior>().enabled = false;
+        GetComponent<AIFleeBehavior>().enabled = false;
         Debug.Log("Setting AI to stalk");
     }
 

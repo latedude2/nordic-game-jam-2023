@@ -27,7 +27,6 @@ public class MouseInteraction : MonoBehaviour
 
             if (hit.collider.gameObject.tag == "Radio")
             {
-                Debug.Log("Mouse over player");
                 if(Input.GetMouseButtonDown(0))
                 {
                     hit.collider.gameObject.GetComponent<Radio>().Toggle();
@@ -36,7 +35,6 @@ public class MouseInteraction : MonoBehaviour
             }
             if(hit.collider.gameObject.GetComponent<UpgradeButton>())
             {
-                Debug.Log("Mouse over upgrade");
                 if(Input.GetMouseButtonDown(0))
                 {
                     hit.collider.gameObject.GetComponent<UpgradeButton>().Upgrade();
@@ -45,7 +43,6 @@ public class MouseInteraction : MonoBehaviour
             }
             if (hit.collider.gameObject.GetComponent<CarExitHandle>())
             {
-                Debug.Log("Mouse over Handle");
                 if(Input.GetMouseButtonDown(0))
                 {
                     hit.collider.gameObject.GetComponent<CarExitHandle>().Exit();
@@ -54,7 +51,6 @@ public class MouseInteraction : MonoBehaviour
             }
             if (hit.collider.gameObject.GetComponent<CarEnterHandle>())
             {
-                Debug.Log("Mouse over Handle");
                 if(Input.GetMouseButtonDown(0))
                 {
                     hit.collider.gameObject.GetComponent<CarEnterHandle>().Enter();
