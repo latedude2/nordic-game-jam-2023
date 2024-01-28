@@ -123,11 +123,28 @@ public class AIAttackBehavior : MonoBehaviour
      void Attack(Collider collider)
     {
         if(collider.gameObject.GetComponentInParent<Rigidbody>() != null)
+        {
             collider.gameObject.GetComponentInParent<Rigidbody>().AddForce((collider.gameObject.transform.position - transform.position).normalized * AttackForceScaledToIntensity());
+        }
+
+        if(collider.gameObject.tag == "Player")
+        {
+            Invoke(nameof(ThrowOutOfCar), 0.5f);
+        }
+        
+            
             
         if(collider.gameObject.GetComponentInParent<Health>() != null)
         {
             collider.gameObject.GetComponentInParent<Health>().TakeDamage(1);
         }   
+    }
+
+    void ThrowOutOfCar()
+    {
+        if(CameraSwitcher.playerInCar)
+        {
+            CarExitHandle.Instance.Exit();
+        }
     }
 }
