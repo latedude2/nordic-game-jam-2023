@@ -999,17 +999,32 @@ PrefabInstance:
     - target: {fileID: 1242164160374561187, guid: 6d7fe28af3589714a8effb85ba207e6c,
         type: 3}
       propertyPath: rate
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242164160374561187, guid: 6d7fe28af3589714a8effb85ba207e6c,
+        type: 3}
+      propertyPath: offset
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2587884866575898291, guid: 6d7fe28af3589714a8effb85ba207e6c,
         type: 3}
       propertyPath: rate
-      value: 0.2
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587884866575898291, guid: 6d7fe28af3589714a8effb85ba207e6c,
+        type: 3}
+      propertyPath: offset
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8364750095759442535, guid: 6d7fe28af3589714a8effb85ba207e6c,
         type: 3}
       propertyPath: rate
-      value: 0.2
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364750095759442535, guid: 6d7fe28af3589714a8effb85ba207e6c,
+        type: 3}
+      propertyPath: offset
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7fe28af3589714a8effb85ba207e6c, type: 3}
