@@ -677,7 +677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Intensity: 1
-  fleeDistance: 200
+  defaultFleeDistance: 200
 --- !u!1001 &634897916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -999,12 +999,12 @@ PrefabInstance:
     - target: {fileID: 1242164160374561187, guid: 6d7fe28af3589714a8effb85ba207e6c,
         type: 3}
       propertyPath: rate
-      value: 0.22
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2587884866575898291, guid: 6d7fe28af3589714a8effb85ba207e6c,
         type: 3}
       propertyPath: rate
-      value: 0.24
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8364750095759442535, guid: 6d7fe28af3589714a8effb85ba207e6c,
         type: 3}
