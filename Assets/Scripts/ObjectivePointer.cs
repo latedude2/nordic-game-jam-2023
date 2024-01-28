@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class ObjectivePointer : MonoBehaviour
 {
+    Transform Exit;
+
+    void Start()
+    {
+        Exit = GameObject.Find("PizzaPlaceEnterCollider").transform;
+    }
     // Update is called once per frame
     void Update()
     {
+        if(ObjectiveManager.Instance.IsEnoughPizzaDelivered())
+        {
+            transform.LookAt(Exit);
+        }
         //rotate to point at objective
-        transform.LookAt(ObjectiveManager.Instance.currentObjective.transform);
+        else if(ObjectiveManager.Instance.currentObjective != null)
+            transform.LookAt(ObjectiveManager.Instance.currentObjective.transform);
     }
 }
