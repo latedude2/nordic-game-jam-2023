@@ -74,16 +74,34 @@ public class AIStalkBehavior : MonoBehaviour
 
     private void SetDestination()
     {
-        
         Vector3 playerPos = player.transform.position;
         Vector2 stalk2D = UnityEngine.Random.insideUnitCircle * stalkDistance;
         stalkPos = playerPos +  new Vector3(stalk2D.x, 0, stalk2D.y);
-        
 
-        //get Player by tag
-        GetComponent<NavMeshAgent>().SetDestination(stalkPos);
-        //Debug.Log("Stalking player at : " + stalkPos + " player position: " + player.transform.position);
+        if(RandomPoint(playerPos, stalkDistance, out stalkPos))
+        {
+            GetComponent<NavMeshAgent>().SetDestination(stalkPos);
+        }
+        else
+        {
+            Debug.Log("Stalking player failed to find a random point after 30 attempts, setting to aggressive chase");
+            GetComponent<AIBehaviorChooser>().SetAIAggressive();
+        }
     }
+
+    bool RandomPoint(Vector3 center, float range, out Vector3 result) {
+		for (int i = 0; i < 30; i++) {
+            Vector2 stalk2D = UnityEngine.Random.insideUnitCircle * range;
+			Vector3 randomPoint = center + new Vector3(stalk2D.x, 0, stalk2D.y);
+			NavMeshHit hit;
+			if (NavMesh.SamplePosition(randomPoint, out hit, 5.0f, NavMesh.AllAreas)) {
+				result = hit.position;
+				return true;
+			}
+		}
+		result = Vector3.zero;
+		return false;
+	}
 
     public void ModifyBehaviorAccordingToIntensity()
     {

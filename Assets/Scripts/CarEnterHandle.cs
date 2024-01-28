@@ -27,6 +27,7 @@ public class CarEnterHandle : MonoBehaviour
     {
         audioSource.PlayOneShot(carEnterSound);
         onEnter.Invoke();
-        rainEffect.transform.SetParent(car.transform);
+        if(rainEffect != null)
+            rainEffect.transform.SetParent(car.transform);
     }
 }

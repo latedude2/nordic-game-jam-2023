@@ -38,6 +38,7 @@ public class CarExitHandle : MonoBehaviour
         rotation.z = 0;
         playerSpawnLocation.rotation = Quaternion.Euler(rotation);
         GameObject player = Instantiate(playerPrefab, playerSpawnLocation.position, playerSpawnLocation.rotation);
-        rainEffect.transform.SetParent(player.transform);
+        if(rainEffect != null)
+            rainEffect.transform.SetParent(player.transform);
     }
 }

@@ -280,6 +280,7 @@ public class PrometeoCarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
       if(Engine.Instance.isOn)
       {
         if(!carEngineSound.isPlaying)
