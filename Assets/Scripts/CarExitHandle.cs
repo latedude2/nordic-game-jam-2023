@@ -28,7 +28,6 @@ public class CarExitHandle : MonoBehaviour
     public void Exit()
     {
         audioSource.PlayOneShot(carExitSound);
-        Debug.Log("Exit car");
         onExit.Invoke();
         //point player forward but dont tilt
         Vector3 rotation = playerSpawnLocation.rotation.eulerAngles;

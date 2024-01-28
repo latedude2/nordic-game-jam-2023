@@ -34,6 +34,15 @@ public class MouseInteraction : MonoBehaviour
                 }
                 
             }
+            if(hit.collider.gameObject.GetComponent<UpgradeButton>())
+            {
+                Debug.Log("Mouse over upgrade");
+                if(Input.GetMouseButtonDown(0))
+                {
+                    hit.collider.gameObject.GetComponent<UpgradeButton>().Upgrade();
+                }
+                
+            }
             if (hit.collider.gameObject.GetComponent<CarExitHandle>())
             {
                 Debug.Log("Mouse over Handle");

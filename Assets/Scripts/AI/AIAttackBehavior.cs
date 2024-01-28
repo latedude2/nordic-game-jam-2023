@@ -18,6 +18,8 @@ public class AIAttackBehavior : MonoBehaviour
     public float ImpactForce = 3000000f;
     bool recentlyAttacked = false;
 
+    private SoundtrackController _soundtrackController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,16 @@ public class AIAttackBehavior : MonoBehaviour
         
         SetDestination(player.transform.position);
         StartCoroutine(nameof(UpdateDestination));
+
+        _soundtrackController = FindObjectOfType<SoundtrackController>(); // TODO: Find a better way to do this
+        if (_soundtrackController != null)
+            _soundtrackController.ActivateThreat(gameObject, player);
+    }
+
+    private void OnDisable()
+    {
+        if (_soundtrackController != null)
+            _soundtrackController.DeactivateThreat();
     }
 
     private void SetCurrentPlayerGameobject()
@@ -112,6 +124,10 @@ public class AIAttackBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if(!enabled)
+        {
+            return;
+        }
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Collision with player on trigger");

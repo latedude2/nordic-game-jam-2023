@@ -9,6 +9,7 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/[Uu]serSettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -59,3 +60,6 @@ sysinfo.txt
 crashlytics-build.properties
 
 UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+
+# Visual Studio
+.vsconfig

@@ -15,7 +15,6 @@ public class HoverInfo : MonoBehaviour
 
     public void Show()
     {
-        Debug.Log("Mouse over " + gameObject.name);
         HoverInfoDisplay.onHover.Invoke(GetDisplayString());
     }
 
