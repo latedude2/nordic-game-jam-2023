@@ -64,7 +64,6 @@ public class ObjectiveManager : MonoBehaviour
         //make current objective visible
         currentObjective.gameObject.SetActive(true);
         currentObjective.isCompleted = false;
-        //make old objective invisible
         oldObjective.isCompleted = true;
         StartCoroutine(SetObjectiveNotVisible(oldObjective));
         //increase terrain target
