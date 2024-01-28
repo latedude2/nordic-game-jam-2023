@@ -124,6 +124,10 @@ public class AIAttackBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if(!enabled)
+        {
+            return;
+        }
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Collision with player on trigger");
