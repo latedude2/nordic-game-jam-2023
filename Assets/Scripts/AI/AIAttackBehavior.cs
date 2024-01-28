@@ -26,10 +26,12 @@ public class AIAttackBehavior : MonoBehaviour
         AttackCooldown = AttackCooldownScaledToIntensity();
         CameraSwitcher.onEnter.AddListener(SetCurrentPlayerGameobject);
         CameraSwitcher.onExit.AddListener(SetCurrentPlayerGameobject);
+        ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(ModifyBehaviorAccordingToIntensity);
     }
 
     void OnEnable()
     {
+        ModifyBehaviorAccordingToIntensity();
         SetCurrentPlayerGameobject();
         
         SetDestination(player.transform.position);
@@ -38,12 +40,6 @@ public class AIAttackBehavior : MonoBehaviour
         _soundtrackController = FindObjectOfType<SoundtrackController>(); // TODO: Find a better way to do this
         if (_soundtrackController != null)
             _soundtrackController.ActivateThreat(gameObject, player);
-    }
-
-    private void OnDisable()
-    {
-        if (_soundtrackController != null)
-            _soundtrackController.DeactivateThreat();
     }
 
     private void SetCurrentPlayerGameobject()
@@ -87,8 +83,6 @@ public class AIAttackBehavior : MonoBehaviour
 
     public void ModifyBehaviorAccordingToIntensity()
     {
-        //The agent becomes more aggressive the higher the intensity starting with intensity 1
-        //The agent will attack the player more often
         GetComponent<NavMeshAgent>().speed = ChaseIntensity;
         GetComponent<NavMeshAgent>().acceleration = 2 * ChaseIntensity;
         GetComponent<NavMeshAgent>().angularSpeed = 60 * ChaseIntensity;
@@ -129,11 +123,28 @@ public class AIAttackBehavior : MonoBehaviour
      void Attack(Collider collider)
     {
         if(collider.gameObject.GetComponentInParent<Rigidbody>() != null)
+        {
             collider.gameObject.GetComponentInParent<Rigidbody>().AddForce((collider.gameObject.transform.position - transform.position).normalized * AttackForceScaledToIntensity());
+        }
+
+        if(collider.gameObject.tag == "Player")
+        {
+            Invoke(nameof(ThrowOutOfCar), 0.5f);
+        }
+        
+            
             
         if(collider.gameObject.GetComponentInParent<Health>() != null)
         {
             collider.gameObject.GetComponentInParent<Health>().TakeDamage(1);
         }   
+    }
+
+    void ThrowOutOfCar()
+    {
+        if(CameraSwitcher.playerInCar)
+        {
+            CarExitHandle.Instance.Exit();
+        }
     }
 }

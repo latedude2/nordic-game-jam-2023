@@ -32,6 +32,9 @@ public class Health : MonoBehaviour
         PlayerPrefs.SetInt("BrakeForceUpgrade", 0);
         PlayerPrefs.SetInt("SteeringUpgrade", 1);
         PlayerPrefs.SetInt("Money", 0);
+        PlayerPrefs.SetInt("Day", 0);
+
+        
 
         SceneManager.LoadScene("EndScreen");
     }

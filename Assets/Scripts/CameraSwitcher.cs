@@ -9,6 +9,8 @@ public class CameraSwitcher : MonoBehaviour
     static public UnityEvent onEnter;
     static public UnityEvent onExit;
 
+    static public bool playerInCar = true;
+
     void Start()
     {
         onExit = new UnityEvent();
@@ -22,6 +24,7 @@ public class CameraSwitcher : MonoBehaviour
 
     void OnCarEnter()
     {
+        playerInCar = true;
         if(!enableCameraOnCarEnter)
             Destroy(gameObject);
         else 
@@ -36,6 +39,7 @@ public class CameraSwitcher : MonoBehaviour
 
     void OnCarExit()
     {
+        playerInCar = false;
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(!enableCameraOnCarEnter);

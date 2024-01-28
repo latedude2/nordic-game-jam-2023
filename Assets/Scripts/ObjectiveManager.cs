@@ -32,8 +32,7 @@ public class ObjectiveManager : MonoBehaviour
     }
     void Start()
     {
-        //UpdateIntensities();
-        //subscirbe to event in objective manager to update intensity
+        RequiredPizzasForExit = RequiredPizzasForExit + PlayerPrefs.GetInt("Day");
         OnObjectiveCompleted.AddListener(UpdateIntensities);
 
 
@@ -98,11 +97,8 @@ public class ObjectiveManager : MonoBehaviour
         foreach(GameObject monster in monsters)
         {
             monster.GetComponent<AIAttackBehavior>().ChaseIntensity = 1 + completedObjectiveCount;
-            monster.GetComponent<AIAttackBehavior>().ModifyBehaviorAccordingToIntensity();
             monster.GetComponent<AIStalkBehavior>().Intensity = 1 + completedObjectiveCount;
-            monster.GetComponent<AIStalkBehavior>().ModifyBehaviorAccordingToIntensity();
             monster.GetComponent<AIFleeBehavior>().Intensity = 1 + completedObjectiveCount;
-            monster.GetComponent<AIFleeBehavior>().ModifyBehaviorAccordingToIntensity();
         }
     }
 

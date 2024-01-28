@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class CarExitHandle : MonoBehaviour
 {
@@ -12,11 +13,13 @@ public class CarExitHandle : MonoBehaviour
     [SerializeField] GameObject rainEffect;
 
     AudioSource audioSource;
-
+    
+    static public CarExitHandle Instance;
     public AudioClip carExitSound;
 
     public void Awake()
     {
+        Instance = this;
         onExit = new UnityEvent();
     }
 

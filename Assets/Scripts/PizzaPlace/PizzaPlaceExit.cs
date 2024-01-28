@@ -9,6 +9,8 @@ public class PizzaPlaceExit : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            int Day = PlayerPrefs.GetInt("Day");
+            PlayerPrefs.SetInt("Day", Day + 1);
             SceneManager.LoadScene("MainScene");
         }
     }
