@@ -32,8 +32,7 @@ public class ObjectiveManager : MonoBehaviour
     }
     void Start()
     {
-        //UpdateIntensities();
-        //subscirbe to event in objective manager to update intensity
+        RequiredPizzasForExit = RequiredPizzasForExit + PlayerPrefs.GetInt("Day");
         OnObjectiveCompleted.AddListener(UpdateIntensities);
 
 
