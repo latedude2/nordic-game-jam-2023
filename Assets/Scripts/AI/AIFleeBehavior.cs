@@ -5,25 +5,49 @@ using UnityEngine;
 using VLB;
 using System;
 
-public class AIStalkBehavior : MonoBehaviour
+public class AIFleeBehavior : MonoBehaviour
 {
 
     GameObject player;
     public float Intensity = 1;
-    private float stalkDistance = 10f;
+    private float fleeDistance = 10f;
 
-    public float defaultStalkDistance = 70f;
+    public float defaultFleeDistance = 200f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        StartCoroutine(nameof(FleeUntilReached));
+    }
+
+    IEnumerator FleeUntilReached()
+    {
+        while (true)
+        {
+            if (!isActiveAndEnabled)
+            {
+                yield break;
+            }
+            yield return new WaitForSeconds(1);  
+            if (!isActiveAndEnabled)
+            {
+                yield break;
+            }
+            if(Vector3.Distance(transform.position, player.transform.position) < fleeDistance)
+            {
+                GetComponent<AIBehaviorChooser>().SetAIAggressive();
+                yield break;
+            }
+            yield return null;
+        }
     }
 
     void OnEnable()
     {
         SetDestination();
-        StartCoroutine(nameof(UpdateDestination));
+        UpdateDestination();
     }
 
     private void SetCurrentPlayerGameobject()
@@ -40,35 +64,27 @@ public class AIStalkBehavior : MonoBehaviour
         }
     }
 
-    private IEnumerator UpdateDestination()
+    private void UpdateDestination()
     {
-        while (true)
+        if (!isActiveAndEnabled)
         {
-            if (!isActiveAndEnabled)
-            {
-                yield break;
-            }
-            Debug.Log("Waiting for " + ChaseIntervalScaledToIntensity() + " seconds");
-            yield return new WaitForSeconds(ChaseIntervalScaledToIntensity());  
-            if (!isActiveAndEnabled)
-            {
-                yield break;
-            }
-            SetDestination();
-            yield return null;
+            return;
         }
+        SetDestination();
+
+        
     }
 
     private void SetDestination()
     {
         SetCurrentPlayerGameobject();
         Vector3 playerPos = player.transform.position;
-        Vector2 stalk2D = UnityEngine.Random.insideUnitCircle * stalkDistance;
-        Vector3 stalkPos = playerPos +  new Vector3(stalk2D.x, 0, stalk2D.y);
+        Vector2 stalk2D = UnityEngine.Random.insideUnitCircle * fleeDistance;
+        Vector3 fleePos = playerPos +  new Vector3(stalk2D.x, 0, stalk2D.y);
 
         //get Player by tag
-        GetComponent<NavMeshAgent>().SetDestination(stalkPos);
-        //Debug.Log("Stalking player at : " + stalkPos + " player position: " + player.transform.position);
+        GetComponent<NavMeshAgent>().SetDestination(fleePos);
+        
     }
 
     public void ModifyBehaviorAccordingToIntensity()
@@ -78,14 +94,6 @@ public class AIStalkBehavior : MonoBehaviour
         GetComponent<NavMeshAgent>().speed = 2 * Intensity;
         GetComponent<NavMeshAgent>().acceleration = 8 * Intensity;
         GetComponent<NavMeshAgent>().angularSpeed = 120 * Intensity;
-        stalkDistance = defaultStalkDistance / Intensity;
-    }
-
-    float ChaseIntervalScaledToIntensity()
-    {
-        //The agent becomes more aggressive the higher the intensity starting with intensity 1
-        //The agent will attack the player more often
-
-        return Math.Max(0.5f, 10f - Intensity);
+        fleeDistance = defaultFleeDistance / Intensity;
     }
 }

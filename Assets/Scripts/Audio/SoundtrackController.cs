@@ -35,6 +35,7 @@ public class SoundtrackController : MonoBehaviour
 
     private void EvaluateThreat()
     {
+        SetCurrentPlayerGameobject();
         var distance = Vector3.Distance(_monsterLocation.position, _playerLocation.position);
         if (!_soundtrackIsPlaying)
         {
@@ -78,5 +79,19 @@ public class SoundtrackController : MonoBehaviour
     private void AudioSourceStop()
     {
         _source.Stop();
+    }
+
+    private void SetCurrentPlayerGameobject()
+    {
+        GameObject playerWalking = GameObject.Find("Human(Clone)");
+        if(playerWalking != null)
+        {
+            Debug.Log("Player walking found");
+            _playerLocation = playerWalking.transform;
+        }
+        else
+        {
+            _playerLocation = GameObject.FindGameObjectWithTag("Player").transform;
+        }
     }
 }
