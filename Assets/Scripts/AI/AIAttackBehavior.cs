@@ -9,7 +9,7 @@ public class AIAttackBehavior : MonoBehaviour
 {
 
     GameObject player;
-    public float ChaseIntensity = 1;
+    [NonSerialized] public float ChaseIntensity = 1;
 
     public float DefaultChaseWait = 5f;
 
@@ -48,11 +48,9 @@ public class AIAttackBehavior : MonoBehaviour
 
     private void SetCurrentPlayerGameobject()
     {
-        Debug.Log("Looking for walking player gameobject");
         GameObject playerWalking = GameObject.Find("Human(Clone)");
         if(playerWalking != null)
         {
-            Debug.Log("Player walking found");
             player = playerWalking;
         }
         else

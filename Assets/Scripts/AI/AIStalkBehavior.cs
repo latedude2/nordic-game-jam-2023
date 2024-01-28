@@ -9,10 +9,11 @@ public class AIStalkBehavior : MonoBehaviour
 {
 
     GameObject player;
-    public float Intensity = 1;
+    [NonSerialized] public float Intensity = 1;
     private float stalkDistance = 10f;
 
     public float defaultStalkDistance = 70f;
+    private Vector3 stalkPos;
 
     // Start is called before the first frame update
     void Start()
@@ -22,16 +23,17 @@ public class AIStalkBehavior : MonoBehaviour
 
     void OnEnable()
     {
+        stalkDistance = defaultStalkDistance;
+        SetCurrentPlayerGameobject();
         SetDestination();
         StartCoroutine(nameof(UpdateDestination));
     }
 
     private void SetCurrentPlayerGameobject()
     {
-        GameObject playerWalking = GameObject.Find("Human");
+        GameObject playerWalking = GameObject.Find("Human(Clone)");
         if(playerWalking != null)
         {
-            Debug.Log("Player walking found");
             player = playerWalking;
         }
         else
@@ -48,23 +50,29 @@ public class AIStalkBehavior : MonoBehaviour
             {
                 yield break;
             }
-            Debug.Log("Waiting for " + ChaseIntervalScaledToIntensity() + " seconds");
             yield return new WaitForSeconds(ChaseIntervalScaledToIntensity());  
             if (!isActiveAndEnabled)
             {
                 yield break;
             }
-            SetDestination();
+            SetCurrentPlayerGameobject();
+            if(Vector3.Distance(transform.position, player.transform.position) > stalkDistance || Vector3.Distance(transform.position, stalkPos) < 10f)
+            {
+                Debug.Log("Stalking player because they are too far away or monster reached stalk position");
+                SetDestination();
+            }
+                
             yield return null;
         }
     }
 
     private void SetDestination()
     {
-        SetCurrentPlayerGameobject();
+        
         Vector3 playerPos = player.transform.position;
         Vector2 stalk2D = UnityEngine.Random.insideUnitCircle * stalkDistance;
-        Vector3 stalkPos = playerPos +  new Vector3(stalk2D.x, 0, stalk2D.y);
+        stalkPos = playerPos +  new Vector3(stalk2D.x, 0, stalk2D.y);
+        
 
         //get Player by tag
         GetComponent<NavMeshAgent>().SetDestination(stalkPos);
@@ -86,6 +94,6 @@ public class AIStalkBehavior : MonoBehaviour
         //The agent becomes more aggressive the higher the intensity starting with intensity 1
         //The agent will attack the player more often
 
-        return Math.Max(0.5f, 4f - Intensity);
+        return Math.Max(0.5f, 7f - Intensity);
     }
 }

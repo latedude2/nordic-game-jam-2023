@@ -86,7 +86,6 @@ public class SoundtrackController : MonoBehaviour
         GameObject playerWalking = GameObject.Find("Human(Clone)");
         if(playerWalking != null)
         {
-            Debug.Log("Player walking found");
             _playerLocation = playerWalking.transform;
         }
         else

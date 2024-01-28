@@ -9,7 +9,7 @@ public class AIFleeBehavior : MonoBehaviour
 {
 
     GameObject player;
-    public float Intensity = 1;
+    [NonSerialized] public float Intensity = 1;
     private float fleeDistance = 10f;
 
     public float defaultFleeDistance = 200f;
@@ -52,10 +52,9 @@ public class AIFleeBehavior : MonoBehaviour
 
     private void SetCurrentPlayerGameobject()
     {
-        GameObject playerWalking = GameObject.Find("Human");
+        GameObject playerWalking = GameObject.Find("Human(Clone)");
         if(playerWalking != null)
         {
-            Debug.Log("Player walking found");
             player = playerWalking;
         }
         else
