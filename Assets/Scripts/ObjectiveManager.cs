@@ -51,6 +51,7 @@ public class ObjectiveManager : MonoBehaviour
         {
             Debug.Log("Using cheat to increase completed objective count");
             completedObjectiveCount++;
+            OnObjectiveCompleted.Invoke();
         }
     }
 
