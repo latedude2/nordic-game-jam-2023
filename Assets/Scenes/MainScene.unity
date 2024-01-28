@@ -1221,6 +1221,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1028506831235749306, guid: 48400f5219fbaa54a8298fc5855417ae,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6239881831769578202, guid: 6f3665593ec664046a7dc7e86680c4da,
+        type: 3}
+    - target: {fileID: 1028506831235749306, guid: 48400f5219fbaa54a8298fc5855417ae,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9229f174bc116a04995c0822f3c7e990, type: 2}
     - target: {fileID: 2727039456440294587, guid: 48400f5219fbaa54a8298fc5855417ae,
         type: 3}
       propertyPath: speed
