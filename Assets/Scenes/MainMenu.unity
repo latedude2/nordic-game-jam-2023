@@ -3945,19 +3945,7 @@ PrefabInstance:
     - target: {fileID: 2948417841191297309, guid: 018ca3efdbdcdb640add99fa611ac86d,
         type: 3}
       propertyPath: m_Text
-      value: 'Controls
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948417841191297309, guid: 018ca3efdbdcdb640add99fa611ac86d,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948417841191297309, guid: 018ca3efdbdcdb640add99fa611ac86d,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 35
+      value: Controls
       objectReference: {fileID: 0}
     - target: {fileID: 4458076374117726244, guid: 018ca3efdbdcdb640add99fa611ac86d,
         type: 3}
