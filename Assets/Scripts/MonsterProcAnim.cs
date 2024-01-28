@@ -13,6 +13,9 @@ public class MonsterProcAnim : MonoBehaviour
     [SerializeField] float maxSpread;
     Vector3 currentPosition, prevPosition, spreadVector;
     float lerp, stepDistVar;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip[] audioClips;
+    bool soundPlayed = true;
 
     void Start()
     {
@@ -36,7 +39,7 @@ public class MonsterProcAnim : MonoBehaviour
             Debug.DrawRay(body.position, body.TransformDirection(Vector3.forward) + spreadVector * hit.distance, Color.yellow);
             //Debug.Log(Vector3.Distance(currentPosition, hit.point));
             if (Vector3.Distance(currentPosition, hit.point) > stepDistVar){
-                currentPosition = hit.point;
+                currentPosition = hit.point + new Vector3(0,.3f,0);
                 lerp = 0;
             }
         }
@@ -47,12 +50,20 @@ public class MonsterProcAnim : MonoBehaviour
         
             transform.position = tempPosition;
             lerp += Time.deltaTime * speed * (velocity+1);
+            soundPlayed = false;
         } else {
             transform.position = currentPosition;
             float xSpread = Random.Range(-maxSpread, maxSpread);
             float ySpread = Random.Range(-maxSpread, maxSpread);
             spreadVector = new Vector3(xSpread, ySpread, 0);
             stepDistVar = Random.Range(stepDistance*.85f, stepDistance*1.15f);
+            if (soundPlayed == false){
+                int j = Random.Range(0, audioClips.Length);
+                AudioClip clip = audioClips[j];
+                audioSource.clip = clip;
+                audioSource.Play();
+                soundPlayed = true;
+            }
         }
     }
 }
