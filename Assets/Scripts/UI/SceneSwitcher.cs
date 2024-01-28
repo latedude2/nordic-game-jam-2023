@@ -11,6 +11,6 @@ public class SceneSwitcher : MonoBehaviour
 
     public void OpenGameScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("PizzaPlaceInside");
     }
 }
