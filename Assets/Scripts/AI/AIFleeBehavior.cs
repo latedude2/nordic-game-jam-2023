@@ -46,6 +46,7 @@ public class AIFleeBehavior : MonoBehaviour
 
     void OnEnable()
     {
+        ModifyBehaviorAccordingToIntensity();
         SetDestination();
         UpdateDestination();
     }
@@ -101,7 +102,7 @@ public class AIFleeBehavior : MonoBehaviour
     {
         //The agent becomes more aggressive the higher the intensity starting with intensity 1
         //The agent will attack the player more often
-        GetComponent<NavMeshAgent>().speed = 5 * Intensity;
+        GetComponent<NavMeshAgent>().speed = 2 * Intensity;
         GetComponent<NavMeshAgent>().acceleration = 8 * Intensity;
         GetComponent<NavMeshAgent>().angularSpeed = 120 * Intensity;
         fleeDistance = CalculateFleeDistance();
