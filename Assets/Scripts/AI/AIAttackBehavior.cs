@@ -72,8 +72,9 @@ public class AIAttackBehavior : MonoBehaviour
             {
                 yield break;
             }
-            //get Player by tag
+            
             SetCurrentPlayerGameobject();
+            Debug.Log("Running at player");
             SetDestination(player.transform.position);
             yield return null;
         }
@@ -88,7 +89,7 @@ public class AIAttackBehavior : MonoBehaviour
     {
         //The agent becomes more aggressive the higher the intensity starting with intensity 1
         //The agent will attack the player more often
-        GetComponent<NavMeshAgent>().speed = ChaseIntensity;
+        GetComponent<NavMeshAgent>().speed = 2 * ChaseIntensity;
         GetComponent<NavMeshAgent>().acceleration = 4 * ChaseIntensity;
         GetComponent<NavMeshAgent>().angularSpeed = 60 * ChaseIntensity;
     }
@@ -105,7 +106,7 @@ public class AIAttackBehavior : MonoBehaviour
         //The agent becomes more aggressive the higher the intensity starting with intensity 1
         //The agent will attack the player more often
 
-        return ChaseIntensity * 1000000;
+        return ChaseIntensity * 500000;
     }
 
     void OnTriggerEnter(Collider other)

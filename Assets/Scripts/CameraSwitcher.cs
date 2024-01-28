@@ -26,7 +26,6 @@ public class CameraSwitcher : MonoBehaviour
             Destroy(gameObject);
         else 
         {
-            Debug.Log("Enter car");
             foreach (Transform child in transform)
             {
                 child.gameObject.SetActive(true);
@@ -37,7 +36,6 @@ public class CameraSwitcher : MonoBehaviour
 
     void OnCarExit()
     {
-        Debug.Log("Exit car");
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(!enableCameraOnCarEnter);

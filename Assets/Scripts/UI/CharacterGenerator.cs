@@ -18,7 +18,6 @@ public class CharacterGenerator : MonoBehaviour
         ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(showDeadCharacter);
     }
     public void showDeadCharacter() {
-        Debug.Log("showDeadCharacter");
         Object[] RandomImages = Resources.LoadAll("Sprites/character_faces", typeof(Sprite));
         Sprite RandomImage = (Sprite)RandomImages[Random.Range(0, 68)];
 

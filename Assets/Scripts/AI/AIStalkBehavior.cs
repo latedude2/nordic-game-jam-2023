@@ -56,9 +56,14 @@ public class AIStalkBehavior : MonoBehaviour
                 yield break;
             }
             SetCurrentPlayerGameobject();
-            if(Vector3.Distance(transform.position, player.transform.position) > stalkDistance || Vector3.Distance(transform.position, stalkPos) < 10f)
+            if(Vector3.Distance(transform.position, player.transform.position) > stalkDistance)
             {
-                Debug.Log("Stalking player because they are too far away or monster reached stalk position");
+                Debug.Log("Stalking player because they are too far away");
+                SetDestination();
+            }
+            else if (Vector3.Distance(transform.position, stalkPos) < 10f)
+            {
+                Debug.Log("Stalking player monster reached stalk position");
                 SetDestination();
             }
                 
@@ -83,7 +88,7 @@ public class AIStalkBehavior : MonoBehaviour
     {
         //The agent becomes more aggressive the higher the intensity starting with intensity 1
         //The agent will attack the player more often
-        GetComponent<NavMeshAgent>().speed = 3 * Intensity;
+        GetComponent<NavMeshAgent>().speed = 4 * Intensity;
         GetComponent<NavMeshAgent>().acceleration = 8 * Intensity;
         GetComponent<NavMeshAgent>().angularSpeed = 120 * Intensity;
         stalkDistance = defaultStalkDistance / Intensity;
