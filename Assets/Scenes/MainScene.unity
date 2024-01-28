@@ -2333,26 +2333,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PizzaPlaceEnterCollider
       objectReference: {fileID: 0}
-    - target: {fileID: 3099867318411512397, guid: a4cebcac864383844b3b23d9c5a25698,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.65154064
-      objectReference: {fileID: 0}
-    - target: {fileID: 3099867318411512397, guid: a4cebcac864383844b3b23d9c5a25698,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 0.83856773
-      objectReference: {fileID: 0}
-    - target: {fileID: 3099867318411512397, guid: a4cebcac864383844b3b23d9c5a25698,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0.17422976
-      objectReference: {fileID: 0}
-    - target: {fileID: 3099867318411512397, guid: a4cebcac864383844b3b23d9c5a25698,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0.58589834
-      objectReference: {fileID: 0}
     - target: {fileID: 3099867318411512398, guid: a4cebcac864383844b3b23d9c5a25698,
         type: 3}
       propertyPath: m_RootOrder
