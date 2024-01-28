@@ -658,6 +658,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d3cabfcda7827459c3ce168eddf138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &615754703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3948173955142850203, guid: 48400f5219fbaa54a8298fc5855417ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 1527502267}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &615754712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615754703}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee608beff2128e647868169ccc3e26d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Intensity: 1
+  fleeDistance: 200
 --- !u!1001 &634897916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2001,17 +2021,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
-    - target: {fileID: 8091135960879593834, guid: 5a6a8810cbd3ee648ad4fcdfb6f606b9,
-        type: 3}
-      propertyPath: _threatSnapshot
-      value: 
-      objectReference: {fileID: -1613888558840408951, guid: cc087cccd723a7b47810005da4a423bd,
-        type: 2}
-    - target: {fileID: 8091135960879593834, guid: 5a6a8810cbd3ee648ad4fcdfb6f606b9,
-        type: 3}
-      propertyPath: _noThreatSnapshot
-      value: 
-      objectReference: {fileID: 24500006, guid: cc087cccd723a7b47810005da4a423bd,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a6a8810cbd3ee648ad4fcdfb6f606b9, type: 3}

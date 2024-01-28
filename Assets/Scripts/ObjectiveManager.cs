@@ -101,6 +101,8 @@ public class ObjectiveManager : MonoBehaviour
             monster.GetComponent<AIAttackBehavior>().ModifyBehaviorAccordingToIntensity();
             monster.GetComponent<AIStalkBehavior>().Intensity = 1 + completedObjectiveCount;
             monster.GetComponent<AIStalkBehavior>().ModifyBehaviorAccordingToIntensity();
+            monster.GetComponent<AIFleeBehavior>().Intensity = 1 + completedObjectiveCount;
+            monster.GetComponent<AIFleeBehavior>().ModifyBehaviorAccordingToIntensity();
         }
     }
 

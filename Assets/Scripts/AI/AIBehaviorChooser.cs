@@ -23,17 +23,14 @@ public class AIBehaviorChooser : MonoBehaviour
             SetAIAggressive();
         }
 
-    }
-
-    
+    }    
 
     public void SetAIAggressive()
     {
         //set AIAttackBehavior to active
         GetComponent<AIAttackBehavior>().enabled = true;
         GetComponent<AIStalkBehavior>().enabled = false;
-        //make box red
-        GetComponent<Renderer>().material.color = Color.red;
+        Debug.Log("Setting AI to aggressive");
     }
 
     public void SetAIStalk()
@@ -41,7 +38,15 @@ public class AIBehaviorChooser : MonoBehaviour
         //set AIStalkBehavior to active
         GetComponent<AIStalkBehavior>().enabled = true;
         GetComponent<AIAttackBehavior>().enabled = false;
-        //make box yellow
-        GetComponent<Renderer>().material.color = Color.yellow;
+        Debug.Log("Setting AI to stalk");
+    }
+
+    public void SetAIFlee()
+    {
+        //set AIFleeBehavior to active
+        GetComponent<AIFleeBehavior>().enabled = true;
+        GetComponent<AIAttackBehavior>().enabled = false;
+        GetComponent<AIStalkBehavior>().enabled = false;
+        Debug.Log("Setting AI to flee");
     }
 }
