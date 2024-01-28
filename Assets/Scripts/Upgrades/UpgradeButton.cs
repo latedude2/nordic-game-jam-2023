@@ -23,9 +23,12 @@ public class UpgradeButton : MonoBehaviour
     private int maxAccelerationUpgradeLevel = 5;
     private int maxMaxSpeedUpgradeLevel = 3;
 
+    public int upgradeCost = 100;
+
     void Start()
     {
         CurrentUpgradeLevel = LoadCurrentUpgradeLevel();
+        CalculateUpgradeCost();
     }
 
     int LoadCurrentUpgradeLevel()
@@ -51,6 +54,11 @@ public class UpgradeButton : MonoBehaviour
 
     public void Upgrade()
     {
+        if(Money.Instance.money < upgradeCost)
+        {
+            return;
+        }
+
         if(upgradeType == UpgradeType.Acceleration)
         {
             if(CurrentUpgradeLevel >= maxAccelerationUpgradeLevel)
@@ -86,6 +94,29 @@ public class UpgradeButton : MonoBehaviour
             }
             CurrentUpgradeLevel++;
             PlayerPrefs.SetInt("SteeringUpgrade", CurrentUpgradeLevel);
+        }
+        Money.Instance.RemoveMoney(upgradeCost);
+        CalculateUpgradeCost();
+    }
+
+    void CalculateUpgradeCost()
+    {
+
+        if(upgradeType == UpgradeType.Acceleration)
+        {
+            upgradeCost = 100 * CurrentUpgradeLevel;
+        }
+        else if(upgradeType == UpgradeType.MaxSpeed)
+        {
+            upgradeCost = 100 * CurrentUpgradeLevel;
+        }
+        else if(upgradeType == UpgradeType.Brakes)
+        {
+            upgradeCost = 100 * CurrentUpgradeLevel;
+        }
+        else if(upgradeType == UpgradeType.Steering)
+        {
+            upgradeCost = 100 * CurrentUpgradeLevel;
         }
     }
 }

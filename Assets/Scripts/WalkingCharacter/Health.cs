@@ -20,12 +20,19 @@ public class Health : MonoBehaviour
         {
             GameObject blackScreen = GameObject.Find("BlackScreen");
             blackScreen.GetComponent<Image>().enabled = true;
-            Invoke(nameof(LoadScene), 5f);
+            Invoke(nameof(EndGame), 5f);
         }
     }
 
-    private void LoadScene()
+    private void EndGame()
     {
+        //reset upgrades
+        PlayerPrefs.SetInt("AccelerationUpgrade", 0);
+        PlayerPrefs.SetInt("MaxSpeedUpgrade", 0);
+        PlayerPrefs.SetInt("BrakeForceUpgrade", 0);
+        PlayerPrefs.SetInt("SteeringUpgrade", 1);
+        PlayerPrefs.SetInt("Money", 0);
+
         SceneManager.LoadScene("EndScreen");
     }
 }
