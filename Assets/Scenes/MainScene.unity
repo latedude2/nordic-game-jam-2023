@@ -1807,10 +1807,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3573999886619201465}
     - target: {fileID: 2140920411, guid: 5a6a8810cbd3ee648ad4fcdfb6f606b9, type: 3}
-      propertyPath: potentialObjectives.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2140920411, guid: 5a6a8810cbd3ee648ad4fcdfb6f606b9, type: 3}
       propertyPath: potentialObjectives.Array.data[0]
       value: 
       objectReference: {fileID: 1878333791}
@@ -1910,5 +1906,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 8091135960879593834, guid: 5a6a8810cbd3ee648ad4fcdfb6f606b9,
+        type: 3}
+      propertyPath: _threatSnapshot
+      value: 
+      objectReference: {fileID: -1613888558840408951, guid: cc087cccd723a7b47810005da4a423bd,
+        type: 2}
+    - target: {fileID: 8091135960879593834, guid: 5a6a8810cbd3ee648ad4fcdfb6f606b9,
+        type: 3}
+      propertyPath: _noThreatSnapshot
+      value: 
+      objectReference: {fileID: 24500006, guid: cc087cccd723a7b47810005da4a423bd,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a6a8810cbd3ee648ad4fcdfb6f606b9, type: 3}
