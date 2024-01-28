@@ -12,12 +12,13 @@ public class MonsterProcAnim : MonoBehaviour
     [SerializeField] float stepHeight;
     [SerializeField] float maxSpread;
     Vector3 currentPosition, prevPosition, spreadVector;
-    float lerp;
+    float lerp, stepDistVar;
 
     void Start()
     {
         currentPosition = transform.position;
         spreadVector = new Vector3(0, 0, 0);
+        stepDistVar = Random.Range(stepDistance*.85f, stepDistance*1.15f);
     }
 
     void Update()
@@ -34,7 +35,7 @@ public class MonsterProcAnim : MonoBehaviour
         {
             Debug.DrawRay(body.position, body.TransformDirection(Vector3.forward) + spreadVector * hit.distance, Color.yellow);
             //Debug.Log(Vector3.Distance(currentPosition, hit.point));
-            if (Vector3.Distance(currentPosition, hit.point) > stepDistance){
+            if (Vector3.Distance(currentPosition, hit.point) > stepDistVar){
                 currentPosition = hit.point;
                 lerp = 0;
             }
@@ -51,6 +52,7 @@ public class MonsterProcAnim : MonoBehaviour
             float xSpread = Random.Range(-maxSpread, maxSpread);
             float ySpread = Random.Range(-maxSpread, maxSpread);
             spreadVector = new Vector3(xSpread, ySpread, 0);
+            stepDistVar = Random.Range(stepDistance*.85f, stepDistance*1.15f);
         }
     }
 }
