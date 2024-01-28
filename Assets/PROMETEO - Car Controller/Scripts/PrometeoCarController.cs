@@ -175,7 +175,8 @@ public class PrometeoCarController : MonoBehaviour
       CarEnterHandle.onEnter.AddListener(OnCarEntered);
       upgradeSystem = GetComponent<UpgradeSystem>();
 
-      ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(MakeSteeringWorse);
+      if(ObjectiveManager.Instance != null)
+        ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(MakeSteeringWorse);
       //In this part, we set the 'carRigidbody' value with the Rigidbody attached to this
       //gameObject. Also, we define the center of mass of the car with the Vector3 given
       //in the inspector.
