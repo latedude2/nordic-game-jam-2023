@@ -40,12 +40,6 @@ public class AIAttackBehavior : MonoBehaviour
             _soundtrackController.ActivateThreat(gameObject, player);
     }
 
-    private void OnDisable()
-    {
-        if (_soundtrackController != null)
-            _soundtrackController.DeactivateThreat();
-    }
-
     private void SetCurrentPlayerGameobject()
     {
         GameObject playerWalking = GameObject.Find("Human(Clone)");
