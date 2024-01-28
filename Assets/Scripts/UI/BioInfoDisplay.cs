@@ -12,7 +12,6 @@ public class BioInfoDisplay : MonoBehaviour {
     }
 
     public void Display() {
-        Debug.Log("Displaying");
         CancelInvoke();
         UIElements.alpha = 1;
         InvokeRepeating(nameof(Fade), duration, fadeTime);

@@ -5771,7 +5771,7 @@ MonoBehaviour:
   accelerationMultiplier: 8
   maxSteeringAngle: 32
   steeringSpeed: 0.574
-  brakeForce: 280
+  brakeForce: 408
   decelerationMultiplier: 2
   handbrakeDriftMultiplier: 5
   bodyMassCenter: {x: 0, y: 0, z: 0}
@@ -5882,10 +5882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08bde4e90a01dcd489c3d2a67e071bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AccelerationUpgrade: 0
-  MaxSpeedUpgrade: 0
-  brakeForceUpgrade: 0
-  SteeringUpgrade: 0
 --- !u!1 &1017544330230184320
 GameObject:
   m_ObjectHideFlags: 0

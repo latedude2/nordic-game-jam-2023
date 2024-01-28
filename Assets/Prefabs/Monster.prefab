@@ -695,6 +695,7 @@ GameObject:
   - component: {fileID: 3948173955142850206}
   - component: {fileID: 4722541742892797381}
   - component: {fileID: 7941810855828160645}
+  - component: {fileID: 615754712}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Monster
@@ -814,10 +815,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367fff01a517e7e4f8070885a59c2707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChaseIntensity: 1
   DefaultChaseWait: 5
   DefaultAttackCooldown: 15
-  ImpactForce: 1000
+  ImpactForce: 3000000
 --- !u!114 &4722541742892797381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -830,8 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f1eaa0a334f554ca0fd275768ffb5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Intensity: 1
-  stalkDistance: 60
+  defaultStalkDistance: 70
 --- !u!135 &7941810855828160645
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -845,6 +844,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3.33
   m_Center: {x: 0, y: 1.44, z: 0.58}
+--- !u!114 &615754712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3948173955142850203}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee608beff2128e647868169ccc3e26d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultFleeDistance: 200
 --- !u!1 &4175437651803410505
 GameObject:
   m_ObjectHideFlags: 0

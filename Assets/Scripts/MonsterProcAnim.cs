@@ -27,7 +27,7 @@ public class MonsterProcAnim : MonoBehaviour
         float velocity = Vector3.Distance(core.position, prevPosition) / Time.deltaTime;
         prevPosition = core.position;
 
-        Debug.Log(velocity);
+        //Debug.Log(velocity);
 
         RaycastHit hit;
         
