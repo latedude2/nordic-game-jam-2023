@@ -2206,6 +2206,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PostProcessing
       objectReference: {fileID: 0}
+    - target: {fileID: 1417824811985751174, guid: 524b820640562e0469e79b2fc5aaa79d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1417824811985751192, guid: 524b820640562e0469e79b2fc5aaa79d,
         type: 3}
       propertyPath: m_RootOrder

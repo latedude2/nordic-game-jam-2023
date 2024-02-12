@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class FirstPersonMovement : MonoBehaviour
+public class FirstPersonMovement : NetworkBehaviour
 {
     public float speed = 5;
 
@@ -25,6 +26,11 @@ public class FirstPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(!IsOwner)
+        {
+            return;
+        }
+        
         // Update IsRunning from input.
         IsRunning = canRun && Input.GetKey(runningKey);
 
