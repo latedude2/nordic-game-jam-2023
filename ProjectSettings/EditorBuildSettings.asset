@@ -20,4 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SimonasTestScene.unity
     guid: ce879e4e7630fbd44ab4ee72e3c385f4
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: d5421922f171ebf4793051f58a18c70e,
+      type: 2}
