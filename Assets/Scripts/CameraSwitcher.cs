@@ -9,7 +9,7 @@ public class CameraSwitcher : MonoBehaviour
     static public UnityEvent onEnter;
     static public UnityEvent onExit;
 
-    static public bool playerInCar = true;
+    static public bool playerInCar = false;
 
     void Start()
     {
