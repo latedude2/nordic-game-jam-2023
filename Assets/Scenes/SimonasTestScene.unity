@@ -411,9 +411,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 627556911, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: playerControlled
-      value: 0
+    - target: {fileID: 954166511, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2442369918
+      objectReference: {fileID: 0}
+    - target: {fileID: 954166511, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 4089356781
       objectReference: {fileID: 0}
     - target: {fileID: 261786959625234688, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}
@@ -475,15 +479,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
-    - target: {fileID: 6866298019982574450, guid: 79d0ca8b77e301442afdb49f102e8aed,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8734677253401633703, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}
       propertyPath: GlobalObjectIdHash
       value: 443509987
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734677253401633703, guid: 79d0ca8b77e301442afdb49f102e8aed,
+        type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 4089356781
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
