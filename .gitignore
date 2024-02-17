@@ -63,3 +63,6 @@ UserSettings/Layouts/CurrentMaximizeLayout.dwlt
 
 # Visual Studio
 .vsconfig
+
+# TSK VSCode
+/CSharpProjFolders/*
