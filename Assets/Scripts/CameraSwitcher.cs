@@ -25,9 +25,15 @@ public class CameraSwitcher : MonoBehaviour
 
     void OnCarEnter()
     {
+        if(GetComponentInParent<NetworkObject>() != null && !GetComponentInParent<NetworkObject>().IsOwner)
+        {
+            return;
+        }
         playerInCar = true;
         if(!enableCameraOnCarEnter)
-            Destroy(gameObject);
+        {
+            gameObject.GetComponent<NetworkObject>().Despawn();
+        }
         else 
         {
             GetComponentInChildren<Camera>().enabled = true;
