@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine;
 using Unity.Netcode;
 
-public class CameraSwitcher : MonoBehaviour
+public class CameraSwitcher : NetworkBehaviour
 {
     [SerializeField] bool enableCameraOnCarEnter = true;
     static public UnityEvent onEnter;
@@ -23,27 +23,25 @@ public class CameraSwitcher : MonoBehaviour
         }
     }
 
-    void OnCarEnter()
+    void OnCarEnter(ulong clientId)
     {
-        if(GetComponentInParent<NetworkObject>() != null && !GetComponentInParent<NetworkObject>().IsOwner)
+        if(GetComponentInParent<NetworkObject>() == null)
         {
             return;
         }
         playerInCar = true;
         if(!enableCameraOnCarEnter)
         {
-            gameObject.GetComponent<NetworkObject>().Despawn();
+            if(GetComponentInParent<NetworkObject>().OwnerClientId == clientId)
+                RequestDespawnRpc();
         }
         else 
         {
             GetComponentInChildren<Camera>().enabled = true;
             GetComponentInChildren<MouseInteraction>().enabled = true;
             GetComponentInChildren<CameraControl>().enabled = true;
-            foreach (Transform child in transform)
-            {
-                if(child.GetComponent<Possessable>() != null)
-                    child.GetComponent<Possessable>().Possess(NetworkManager.Singleton.LocalClientId);
-            }
+            RequestCarPosessRpc(clientId);
+            Debug.Log("RequestCarPosessRpc for client " + NetworkManager.Singleton.LocalClientId.ToString());
         }
         onEnter.Invoke();
     }
@@ -56,5 +54,23 @@ public class CameraSwitcher : MonoBehaviour
             child.gameObject.SetActive(!enableCameraOnCarEnter);
         }
         onExit.Invoke();
+    }
+
+    [Rpc(SendTo.Server)]
+    public void RequestDespawnRpc()
+    {
+        gameObject.GetComponent<NetworkObject>().Despawn();
+    }
+
+    [Rpc(SendTo.Server)]
+    public void RequestCarPosessRpc(ulong ClientId)
+    {
+        Debug.Log("Received request RequestCarPosessRpc on server for client " + ClientId.ToString());
+        GetComponentInParent<PrometeoCarController>().Possess(ClientId);
+        foreach (Transform child in transform)
+        {
+            if(child.GetComponent<Possessable>() != null)
+                child.GetComponent<Possessable>().Possess(ClientId);
+        }
     }
 }

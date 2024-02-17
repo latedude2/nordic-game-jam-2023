@@ -144,7 +144,7 @@ public class AIAttackBehavior : MonoBehaviour
     {
         if(CameraSwitcher.playerInCar)
         {
-            CarExitHandle.Instance.Exit();
+            //TODO: CarExitHandle.Instance.Exit(ID OF PLAYER IN CAR);
         }
     }
 }

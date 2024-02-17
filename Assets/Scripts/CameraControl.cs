@@ -16,7 +16,7 @@ public class CameraControl : MonoBehaviour
         CarEnterHandle.onEnter.AddListener(ResetCameraRotation);
     }
 
-    void ResetCameraRotation()
+    void ResetCameraRotation(ulong clientId)
     {
         Debug.Log("Reset camera rotation");
         transform.localEulerAngles = new Vector3(0, 0, 0);

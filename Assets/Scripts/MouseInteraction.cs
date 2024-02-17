@@ -54,7 +54,7 @@ public class MouseInteraction : NetworkBehaviour
             {
                 if(Input.GetMouseButtonDown(0))
                 {
-                    hit.collider.gameObject.GetComponent<CarExitHandle>().Exit();
+                    hit.collider.gameObject.GetComponent<CarExitHandle>().Exit(NetworkManager.Singleton.LocalClientId);
                 }
                 
             }
@@ -62,7 +62,7 @@ public class MouseInteraction : NetworkBehaviour
             {
                 if(Input.GetMouseButtonDown(0))
                 {
-                    hit.collider.gameObject.GetComponent<CarEnterHandle>().Enter();
+                    hit.collider.gameObject.GetComponent<CarEnterHandle>().Enter(NetworkManager.Singleton.LocalClientId);
                 }
                 
             }

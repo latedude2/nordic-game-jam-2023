@@ -13,7 +13,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PrometeoCarController : MonoBehaviour, Possessable
+public class PrometeoCarController : NetworkBehaviour, Possessable
 {
 
     //CAR SETUP
@@ -788,18 +788,19 @@ public class PrometeoCarController : MonoBehaviour, Possessable
       playerControlled = false;
     }
 
-    void OnCarEntered()
+    void OnCarEntered(ulong clientID)
     {
       playerControlled = true;
     }
 
     public void Possess(ulong clientID)
     {
+      Debug.Log("Client " + clientID + " is possessing car");
       GetComponent<NetworkObject>().ChangeOwnership(clientID);
     }
 
     public void Unpossess()
     {
-      GetComponent<NetworkObject>().ChangeOwnership(0);
+      GetComponent<NetworkObject>().RemoveOwnership();
     }
 }
