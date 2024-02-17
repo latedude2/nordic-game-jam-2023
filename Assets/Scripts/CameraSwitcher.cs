@@ -49,10 +49,10 @@ public class CameraSwitcher : NetworkBehaviour
     void OnCarExit()
     {
         playerInCar = false;
-        foreach (Transform child in transform)
-        {
-            child.gameObject.SetActive(!enableCameraOnCarEnter);
-        }
+        GetComponentInChildren<Camera>().enabled = false;
+        GetComponentInChildren<MouseInteraction>().enabled = false;
+        GetComponentInChildren<CameraControl>().enabled = false;
+        RequestCarUnPosessRpc();
         onExit.Invoke();
     }
 
@@ -72,5 +72,11 @@ public class CameraSwitcher : NetworkBehaviour
             if(child.GetComponent<Possessable>() != null)
                 child.GetComponent<Possessable>().Possess(ClientId);
         }
+    }
+
+    [Rpc(SendTo.Server)]
+    public void RequestCarUnPosessRpc()
+    {
+        GetComponentInParent<PrometeoCarController>().Unpossess();
     }
 }

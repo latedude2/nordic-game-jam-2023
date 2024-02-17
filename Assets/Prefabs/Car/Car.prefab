@@ -5704,13 +5704,13 @@ GameObject:
   m_Component:
   - component: {fileID: 261786959625234688}
   - component: {fileID: 5135156708204615449}
+  - component: {fileID: 954166511}
   - component: {fileID: 627556911}
   - component: {fileID: 1946080049}
   - component: {fileID: 1946080050}
   - component: {fileID: 1725116396}
   - component: {fileID: 882140338}
   - component: {fileID: 1629204521168574314}
-  - component: {fileID: 954166511}
   - component: {fileID: 954166512}
   - component: {fileID: 1426310546}
   m_Layer: 2
@@ -5756,6 +5756,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &954166511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642287924342879162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 4089356781
+  InScenePlacedSourceGlobalObjectIdHash: 4089356781
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &627556911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5885,27 +5906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08bde4e90a01dcd489c3d2a67e071bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &954166511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642287924342879162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2442369918
-  InScenePlacedSourceGlobalObjectIdHash: 4089356781
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &954166512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8005,7 +8005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 4085928327
+  GlobalObjectIdHash: 1379218815
   InScenePlacedSourceGlobalObjectIdHash: 4089356781
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
