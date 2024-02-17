@@ -33,7 +33,16 @@ public class CarExitHandle : NetworkBehaviour
     {
         audioSource.PlayOneShot(carExitSound);
         onExit.Invoke();
-        //point player forward but dont tilt
+        RequestSpawnCharacterRpc(ClientID);
+        /*
+        if(rainEffect != null)
+            rainEffect.transform.SetParent(player.transform);
+            */
+    }
+
+    [Rpc(SendTo.Server)]
+    public void RequestSpawnCharacterRpc(ulong ClientID)
+    {
         Vector3 rotation = playerSpawnLocation.rotation.eulerAngles;
         rotation.x = 0;
         rotation.z = 0;
@@ -41,7 +50,5 @@ public class CarExitHandle : NetworkBehaviour
         GameObject player = Instantiate(playerPrefab, playerSpawnLocation.position, playerSpawnLocation.rotation);
         var instanceNetworkObject = player.GetComponent<NetworkObject>();
         instanceNetworkObject.SpawnWithOwnership(ClientID);
-        if(rainEffect != null)
-            rainEffect.transform.SetParent(player.transform);
     }
 }

@@ -19,7 +19,18 @@ public class CameraSwitcher : NetworkBehaviour
         if(CarEnterHandle.onEnter != null)
         {
             CarEnterHandle.onEnter.AddListener(OnCarEnter);
+
+        }
+        if(CarExitHandle.onExit != null)
+        {
             CarExitHandle.onExit.AddListener(OnCarExit);
+        }
+
+        if(enableCameraOnCarEnter)
+        {
+            GetComponentInChildren<Camera>().enabled = false;
+            GetComponentInChildren<MouseInteraction>().enabled = false;
+            GetComponentInChildren<CameraControl>().enabled = false;
         }
     }
 
@@ -49,10 +60,13 @@ public class CameraSwitcher : NetworkBehaviour
     void OnCarExit()
     {
         playerInCar = false;
-        GetComponentInChildren<Camera>().enabled = false;
-        GetComponentInChildren<MouseInteraction>().enabled = false;
-        GetComponentInChildren<CameraControl>().enabled = false;
-        RequestCarUnPosessRpc();
+        if(enableCameraOnCarEnter)
+        {
+            GetComponentInChildren<Camera>().enabled = false;
+            GetComponentInChildren<MouseInteraction>().enabled = false;
+            GetComponentInChildren<CameraControl>().enabled = false;
+            RequestCarUnPosessRpc();
+        }
         onExit.Invoke();
     }
 
@@ -67,6 +81,7 @@ public class CameraSwitcher : NetworkBehaviour
     {
         Debug.Log("Received request RequestCarPosessRpc on server for client " + ClientId.ToString());
         GetComponentInParent<PrometeoCarController>().Possess(ClientId);
+        GetComponentInChildren<NetworkObject>().ChangeOwnership(ClientId);
         foreach (Transform child in transform)
         {
             if(child.GetComponent<Possessable>() != null)
