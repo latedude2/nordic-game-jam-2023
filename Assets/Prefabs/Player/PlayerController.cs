@@ -23,7 +23,6 @@ public class PlayerController : NetworkBehaviour
             PossessedObject = Instantiate(InitialPossessedPrefab);
             var instanceNetworkObject = PossessedObject.GetComponent<NetworkObject>();
             instanceNetworkObject.SpawnWithOwnership(OwnerClientId);
-            PossessedObject.GetComponent<Possessable>().Possess();
         }
         
         if(IsOwner)
@@ -31,6 +30,13 @@ public class PlayerController : NetworkBehaviour
             //lock mouse to center of screen
             Cursor.lockState = CursorLockMode.Locked;
         }
+    }
+
+
+    //Override when ownership is changed
+    public override void OnGainedOwnership()
+    {
+        Debug.Log("Gained ownership of player controller");
     }
     
     public void OnLook(InputValue value)

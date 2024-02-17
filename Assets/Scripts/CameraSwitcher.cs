@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
+using Unity.Netcode;
 
 public class CameraSwitcher : MonoBehaviour
 {
@@ -29,9 +30,13 @@ public class CameraSwitcher : MonoBehaviour
             Destroy(gameObject);
         else 
         {
+            GetComponentInChildren<Camera>().enabled = true;
+            GetComponentInChildren<MouseInteraction>().enabled = true;
+            GetComponentInChildren<CameraControl>().enabled = true;
             foreach (Transform child in transform)
             {
-                child.gameObject.SetActive(true);
+                if(child.GetComponent<Possessable>() != null)
+                    child.GetComponent<Possessable>().Possess(NetworkManager.Singleton.LocalClientId);
             }
         }
         onEnter.Invoke();

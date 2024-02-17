@@ -9,6 +9,7 @@ something useful for your game. Best regards, Mena.
 */
 
 using System;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -792,13 +793,13 @@ public class PrometeoCarController : MonoBehaviour, Possessable
       playerControlled = true;
     }
 
-    public void Possess()
+    public void Possess(ulong clientID)
     {
-        throw new NotImplementedException();
+      GetComponent<NetworkObject>().ChangeOwnership(clientID);
     }
 
     public void Unpossess()
     {
-        throw new NotImplementedException();
+      GetComponent<NetworkObject>().ChangeOwnership(0);
     }
 }

@@ -2,7 +2,7 @@
 public interface Possessable
 {
     //Possess the object, should change the camera, audio listener, change owner and start listening to player input.
-    void Possess();
+    void Possess(ulong clientID);
     void Unpossess();
 
 };
