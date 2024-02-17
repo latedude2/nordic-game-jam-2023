@@ -9,13 +9,10 @@ something useful for your game. Best regards, Mena.
 */
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class PrometeoCarController : MonoBehaviour
+public class PrometeoCarController : MonoBehaviour, Possessable
 {
 
     //CAR SETUP
@@ -778,7 +775,7 @@ public class PrometeoCarController : MonoBehaviour
 
     void MakeSteeringWorse()
     { 
-      steeringDriftAmount += (0.25f / upgradeSystem.SteeringUpgrade);
+      steeringDriftAmount += 0.25f / upgradeSystem.SteeringUpgrade;
       if(steeringDriftAmount > 5f)
       {
         steeringDriftAmount = 5f;
@@ -795,8 +792,13 @@ public class PrometeoCarController : MonoBehaviour
       playerControlled = true;
     }
 
-    void LoadUpgradeValues()
+    public void Possess()
     {
+        throw new NotImplementedException();
     }
 
+    public void Unpossess()
+    {
+        throw new NotImplementedException();
+    }
 }

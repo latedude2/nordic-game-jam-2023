@@ -7,8 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerController : NetworkBehaviour
 {
-    public Possessable PossessedObject;
-    public Possessable InitialPossessedPrefab;
+    public GameObject PossessedObject;
+    public GameObject InitialPossessedPrefab;
 
     private Vector2 Look;
     private Vector2 Move;
@@ -16,7 +16,22 @@ public class PlayerController : NetworkBehaviour
     private bool Jump;
     private bool Crouch;
 
-
+    void Start()
+    {
+        if(IsServer)
+        {
+            PossessedObject = Instantiate(InitialPossessedPrefab);
+            var instanceNetworkObject = PossessedObject.GetComponent<NetworkObject>();
+            instanceNetworkObject.SpawnWithOwnership(OwnerClientId);
+            PossessedObject.GetComponent<Possessable>().Possess();
+        }
+        
+        if(IsOwner)
+        {
+            //lock mouse to center of screen
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
     
     public void OnLook(InputValue value)
     {

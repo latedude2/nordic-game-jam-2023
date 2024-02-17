@@ -2,7 +2,7 @@
 using UnityEngine;
 using Unity.Netcode;
 
-public class FirstPersonMovement : NetworkBehaviour
+public class FirstPersonMovement : NetworkBehaviour, Possessable
 {
     public float speed = 5;
 
@@ -46,5 +46,15 @@ public class FirstPersonMovement : NetworkBehaviour
 
         // Apply movement.
         rigidbody.velocity = transform.rotation * new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.y);
+    }
+
+    public void Possess()
+    {
+        Debug.Log("Possessing" + gameObject.name);
+    }
+
+    public void Unpossess()
+    {
+        Debug.Log("Unpossessing" + gameObject.name);
     }
 }
