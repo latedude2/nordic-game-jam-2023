@@ -411,6 +411,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 604602251, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
+      propertyPath: maxShoulderLook
+      value: 210
+      objectReference: {fileID: 0}
     - target: {fileID: 655156101, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 4085928327

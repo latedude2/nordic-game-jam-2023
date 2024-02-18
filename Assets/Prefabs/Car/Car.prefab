@@ -7926,8 +7926,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1110515318897581074, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
+      propertyPath: maximumX
+      value: 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110515318897581074, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110515318897581074, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
+        type: 3}
+      propertyPath: positionOffsetLeftFraction
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1456258260393862981, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
@@ -8709,8 +8719,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1110515318897581074, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
+      propertyPath: maximumX
+      value: 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110515318897581074, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110515318897581074, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
+        type: 3}
+      propertyPath: positionOffsetLeftFraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110515318897581074, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
+        type: 3}
+      propertyPath: positionOffsetRightFraction
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1456258260393862981, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
@@ -9124,8 +9149,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1110515318897581074, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
+      propertyPath: maximumX
+      value: 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110515318897581074, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110515318897581074, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
+        type: 3}
+      propertyPath: positionOffsetLeftFraction
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110515318897581074, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
+        type: 3}
+      propertyPath: positionOffsetRightFraction
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1456258260393862981, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
@@ -9598,8 +9638,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1110515318897581074, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
+      propertyPath: maximumX
+      value: 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110515318897581074, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110515318897581074, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
+        type: 3}
+      propertyPath: positionOffsetRightFraction
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1456258260393862981, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
