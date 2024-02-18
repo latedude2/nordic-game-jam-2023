@@ -4,10 +4,9 @@ using UnityEngine.Events;
 using UnityEngine;
 using Unity.Netcode;
 
-public class CameraSwitcher : NetworkBehaviour
+public class CarSeat : NetworkBehaviour
 {
-    [SerializeField] bool enableCameraOnCarEnter = true;
-
+    [SerializeField] bool isDriverSeat = false;
     public Camera camera;
     static public UnityEvent onEnter;
     static public UnityEvent onExit;
@@ -18,22 +17,15 @@ public class CameraSwitcher : NetworkBehaviour
     {
         onExit = new UnityEvent();
         onEnter = new UnityEvent();
-        if(CarEnterHandle.onEnter != null)
-        {
-            CarEnterHandle.onEnter.AddListener(OnCarEnter);
-
-        }
         if(CarExitHandle.onExit != null)
         {
             CarExitHandle.onExit.AddListener(OnCarExit);
         }
-
-        if(enableCameraOnCarEnter)
-        {
-            camera.enabled = false;
-            GetComponentInChildren<MouseInteraction>().enabled = false;
-            GetComponentInChildren<CameraControl>().enabled = false;
-        }
+        camera.enabled = false;
+        GetComponentInChildren<AudioListener>().enabled = false;
+        GetComponentInChildren<MouseInteraction>().enabled = false;
+        GetComponentInChildren<CameraControl>().enabled = false;
+        
     }
 
     public IEnumerator DelayedCameraEnable()
@@ -42,39 +34,37 @@ public class CameraSwitcher : NetworkBehaviour
         camera.enabled = true;
     }
 
-    void OnCarEnter(ulong clientId)
+    public void CarEnter(ulong clientId)
     {
         if(GetComponentInParent<NetworkObject>() == null)
         {
             return;
         }
         playerInCar = true;
-        if(!enableCameraOnCarEnter)
+
+        StartCoroutine(DelayedCameraEnable());
+        GetComponentInChildren<AudioListener>().enabled = true;
+        GetComponentInChildren<MouseInteraction>().enabled = true;
+        GetComponentInChildren<CameraControl>().enabled = true;
+        if(isDriverSeat)
         {
-            if(GetComponentInParent<NetworkObject>().OwnerClientId == clientId)
-                RequestDespawnRpc();
-        }
-        else 
-        {
-            StartCoroutine(DelayedCameraEnable());
-            GetComponentInChildren<MouseInteraction>().enabled = true;
-            GetComponentInChildren<CameraControl>().enabled = true;
             RequestCarPosessRpc(clientId);
             Debug.Log("RequestCarPosessRpc for client " + NetworkManager.Singleton.LocalClientId.ToString());
-        }
+        }  
+    
         onEnter.Invoke();
     }
 
     void OnCarExit()
     {
         playerInCar = false;
-        if(enableCameraOnCarEnter)
-        {
-            camera.enabled = false;
-            GetComponentInChildren<MouseInteraction>().enabled = false;
-            GetComponentInChildren<CameraControl>().enabled = false;
+        camera.enabled = false;
+        GetComponentInChildren<AudioListener>().enabled = false;
+        GetComponentInChildren<MouseInteraction>().enabled = false;
+        GetComponentInChildren<CameraControl>().enabled = false;
+        if(isDriverSeat)
             RequestCarUnPosessRpc();
-        }
+        
         onExit.Invoke();
     }
 

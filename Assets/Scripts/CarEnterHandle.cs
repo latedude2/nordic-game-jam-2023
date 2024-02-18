@@ -11,6 +11,8 @@ public class CarEnterHandle : MonoBehaviour
     [SerializeField] GameObject rainEffect;
     [SerializeField] GameObject car;
 
+    [SerializeField] private CarSeat CarSeat;
+
     AudioSource audioSource;
 
     public AudioClip carEnterSound;
@@ -28,6 +30,7 @@ public class CarEnterHandle : MonoBehaviour
     {
         audioSource.PlayOneShot(carEnterSound);
         onEnter.Invoke(ClientId);
+        CarSeat.CarEnter(ClientId);
         if(rainEffect != null)
             rainEffect.transform.SetParent(car.transform);
     }

@@ -7905,6 +7905,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1110515317843955023, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1110515318737468607, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
       propertyPath: m_Enabled
@@ -8031,6 +8036,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1110515318294078361}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7553870064329153870 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7475389348167794391, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1110515318294078361}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955cfb665d3bfda47b622e0ee10aa8b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1310853179920299837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8308,6 +8325,11 @@ PrefabInstance:
       propertyPath: car
       value: 
       objectReference: {fileID: 642287924342879162}
+    - target: {fileID: 4724120769955110281, guid: 0155d5a78b10bd04ebeb452fe11416c0,
+        type: 3}
+      propertyPath: CarSeat
+      value: 
+      objectReference: {fileID: 7553870064329153870}
     - target: {fileID: 4724120769955110281, guid: 0155d5a78b10bd04ebeb452fe11416c0,
         type: 3}
       propertyPath: rainEffect
