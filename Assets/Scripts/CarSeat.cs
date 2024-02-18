@@ -12,6 +12,7 @@ public class CarSeat : NetworkBehaviour
     static public UnityEvent onExit;
 
     static public bool playerInCar = false;
+    static public ulong drivingClientId = 99;
 
     void Start()
     {
@@ -51,6 +52,8 @@ public class CarSeat : NetworkBehaviour
             RequestCarPosessRpc(clientId);
             Debug.Log("RequestCarPosessRpc for client " + NetworkManager.Singleton.LocalClientId.ToString());
         }  
+
+        RequestCameraPosessRpc(clientId);
     
         onEnter.Invoke();
     }
@@ -79,12 +82,12 @@ public class CarSeat : NetworkBehaviour
     {
         Debug.Log("Received request RequestCarPosessRpc on server for client " + ClientId.ToString());
         GetComponentInParent<PrometeoCarController>().Possess(ClientId);
+    }
+
+    [Rpc(SendTo.Server)]
+    public void RequestCameraPosessRpc(ulong ClientId)
+    {
         GetComponentInChildren<NetworkObject>().ChangeOwnership(ClientId);
-        foreach (Transform child in transform)
-        {
-            if(child.GetComponent<Possessable>() != null)
-                child.GetComponent<Possessable>().Possess(ClientId);
-        }
     }
 
     [Rpc(SendTo.Server)]

@@ -479,6 +479,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
+    - target: {fileID: 3089499235854995376, guid: 79d0ca8b77e301442afdb49f102e8aed,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3572699771
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247348547665444149, guid: 79d0ca8b77e301442afdb49f102e8aed,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2641293724
+      objectReference: {fileID: 0}
     - target: {fileID: 7553870064329153870, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}
       propertyPath: isDriverSeat
@@ -488,6 +498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: enableCameraOnCarEnter
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368863331788798687, guid: 79d0ca8b77e301442afdb49f102e8aed,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2896188192
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
