@@ -7,6 +7,8 @@ using Unity.Netcode;
 public class CameraSwitcher : NetworkBehaviour
 {
     [SerializeField] bool enableCameraOnCarEnter = true;
+
+    public Camera camera;
     static public UnityEvent onEnter;
     static public UnityEvent onExit;
 
@@ -28,10 +30,16 @@ public class CameraSwitcher : NetworkBehaviour
 
         if(enableCameraOnCarEnter)
         {
-            GetComponentInChildren<Camera>().enabled = false;
+            camera.enabled = false;
             GetComponentInChildren<MouseInteraction>().enabled = false;
             GetComponentInChildren<CameraControl>().enabled = false;
         }
+    }
+
+    public IEnumerator DelayedCameraEnable()
+    {
+        yield return new WaitForEndOfFrame();
+        camera.enabled = true;
     }
 
     void OnCarEnter(ulong clientId)
@@ -48,7 +56,7 @@ public class CameraSwitcher : NetworkBehaviour
         }
         else 
         {
-            GetComponentInChildren<Camera>().enabled = true;
+            StartCoroutine(DelayedCameraEnable());
             GetComponentInChildren<MouseInteraction>().enabled = true;
             GetComponentInChildren<CameraControl>().enabled = true;
             RequestCarPosessRpc(clientId);
@@ -62,7 +70,7 @@ public class CameraSwitcher : NetworkBehaviour
         playerInCar = false;
         if(enableCameraOnCarEnter)
         {
-            GetComponentInChildren<Camera>().enabled = false;
+            camera.enabled = false;
             GetComponentInChildren<MouseInteraction>().enabled = false;
             GetComponentInChildren<CameraControl>().enabled = false;
             RequestCarUnPosessRpc();
