@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerController : NetworkBehaviour
@@ -16,20 +17,29 @@ public class PlayerController : NetworkBehaviour
     private bool Jump;
     private bool Crouch;
 
+    
     void Start()
     {
-        if(IsServer)
+        NetworkManager.Singleton.SceneManager.OnLoadComplete += (clientID, sceneName, loadSceneMode) =>
         {
-            PossessedObject = Instantiate(InitialPossessedPrefab);
-            var instanceNetworkObject = PossessedObject.GetComponent<NetworkObject>();
-            instanceNetworkObject.SpawnWithOwnership(OwnerClientId);
-        }
+            //TODO: update this to be the actual scene name
+            if(sceneName != "SimonasTestScene") return;
+
+            if(IsServer)
+            {
+                PossessedObject = Instantiate(InitialPossessedPrefab);
+                var instanceNetworkObject = PossessedObject.GetComponent<NetworkObject>();
+                instanceNetworkObject.SpawnWithOwnership(OwnerClientId);
+            }
+            
+            if(IsOwner)
+            {
+                //lock mouse to center of screen
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        };
+ 
         
-        if(IsOwner)
-        {
-            //lock mouse to center of screen
-            Cursor.lockState = CursorLockMode.Locked;
-        }
     }
 
 
