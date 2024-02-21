@@ -53,8 +53,14 @@ public class LobbyHelloWorld : MonoBehaviour
             Debug.LogException(ex);
         }
 
-        await CleanupDemoLobbyAsync();
+        //await CleanupDemoLobbyAsync();
 
+        //Debug.Log("Demo complete!");
+    }
+
+    async void OnDestroy()
+    {
+        await CleanupDemoLobbyAsync();
         Debug.Log("Demo complete!");
     }
 
@@ -101,22 +107,6 @@ public class LobbyHelloWorld : MonoBehaviour
                 field: QueryFilter.FieldOptions.S1, // S1 = "Test"
                 op: QueryFilter.OpOptions.EQ,
                 value: "true"),
-
-            new QueryFilter(
-                field: QueryFilter.FieldOptions.S2, // S2 = "GameMode"
-                op: QueryFilter.OpOptions.EQ,
-                value: "ctf"),
-
-            // Example "skill" range filter (skill is a custom numeric field in this example)
-            new QueryFilter(
-                field: QueryFilter.FieldOptions.N1, // N1 = "Skill"
-                op: QueryFilter.OpOptions.GT,
-                value: "0"),
-
-            new QueryFilter(
-                field: QueryFilter.FieldOptions.N1, // N1 = "Skill"
-                op: QueryFilter.OpOptions.LT,
-                value: "51"),
         };
 
         // Query results can also be ordered
@@ -171,9 +161,6 @@ public class LobbyHelloWorld : MonoBehaviour
             var lobbyData = new Dictionary<string, DataObject>()
             {
                 ["Test"] = new DataObject(DataObject.VisibilityOptions.Public, "true", DataObject.IndexOptions.S1),
-                ["GameMode"] = new DataObject(DataObject.VisibilityOptions.Public, "ctf", DataObject.IndexOptions.S2),
-                ["Skill"] = new DataObject(DataObject.VisibilityOptions.Public, Random.Range(1, 51).ToString(), DataObject.IndexOptions.N1),
-                ["Rank"] = new DataObject(DataObject.VisibilityOptions.Public, Random.Range(1, 51).ToString()),
             };
 
             // Create a new lobby
@@ -193,6 +180,8 @@ public class LobbyHelloWorld : MonoBehaviour
         // Let's write a little info about the lobby we joined / created
         Debug.Log("Lobby info:\n" + JsonConvert.SerializeObject(currentLobby));
 
+
+        /*
         // Let's add some new data for our player and update the lobby state
         // Players can update their own data
         loggedInPlayer.Data.Add("ExamplePublicPlayerData",
@@ -232,54 +221,8 @@ public class LobbyHelloWorld : MonoBehaviour
 
             currentLobby = null;
         }
-        else
-        {
-            // Only hosts can set lobby data, and we're the host, so let's set some
-            // Note that lobby host can be passed around intentionally (by the current host updating the host id)
-            // Host is randomly assigned if the previous host leaves
 
-            // Let's update some existing lobby data
-            currentLobby.Data["GameMode"] =
-                new DataObject(DataObject.VisibilityOptions.Public, "deathmatch", DataObject.IndexOptions.S2);
-
-            // Let's add some new data to the lobby
-            currentLobby.Data.Add("ExamplePublicLobbyData",
-                new DataObject(DataObject.VisibilityOptions.Public, "Everyone can see this"));
-
-            currentLobby.Data.Add("ExamplePrivateLobbyData",
-                new DataObject(DataObject.VisibilityOptions.Private, "Only the host sees this"));
-
-            currentLobby.Data.Add("ExampleMemberLobbyData",
-                new DataObject(DataObject.VisibilityOptions.Member, "Only lobby members see this"));
-
-            // OK, now let's try to push these local changes to the service
-            currentLobby = await LobbyService.Instance.UpdateLobbyAsync(
-                lobbyId: currentLobby.Id,
-                options: new UpdateLobbyOptions()
-                {
-                    Data = currentLobby.Data
-                });
-
-            // Let's print the updated lobby
-            Debug.Log($"Updated lobby {currentLobby.Name} ({currentLobby.Id})");
-            Debug.Log("Updated lobby info:\n" + JsonConvert.SerializeObject(currentLobby));
-
-            // Since we're the host, let's wait a second and then heartbeat the lobby
-            await Task.Delay(1000);
-            await LobbyService.Instance.SendHeartbeatPingAsync(currentLobby.Id);
-
-            // Let's print the updated lobby.  The LastUpdated time should be different.
-            Debug.Log($"Heartbeated lobby {currentLobby.Name} ({currentLobby.Id})");
-            Debug.Log("Updated lobby info:\n" + JsonConvert.SerializeObject(currentLobby));
-
-            // OK, we're done with the lobby - let's delete it
-            await LobbyService.Instance.DeleteLobbyAsync(currentLobby.Id);
-
-            Debug.Log($"Deleted lobby {currentLobby.Name} ({currentLobby.Id})");
-
-            currentLobby = null;
-        }
-
+        /*
         // Now, let's try the QuickJoin API, which just puts our player in a matching lobby automatically
         // This is fast and reliable (as long as matching lobbies are available), but removes some user
         //   interactivity (can't choose from a list of lobbies)
@@ -318,6 +261,7 @@ public class LobbyHelloWorld : MonoBehaviour
                 Debug.LogException(ex);
             }
         }
+        
 
         // If we didn't find a lobby, abort run
         if (currentLobby == null)
@@ -336,7 +280,11 @@ public class LobbyHelloWorld : MonoBehaviour
             playerId: loggedInPlayer.Id);
 
         Debug.Log($"Left lobby {currentLobby.Name} ({currentLobby.Id})");
+        
+        */
     }
+
+    
 
     // Log in a player using Unity's "Anonymous Login" API and construct a Player object for use with the Lobbies APIs
     static async Task<Player> GetPlayerFromAnonymousLoginAsync()

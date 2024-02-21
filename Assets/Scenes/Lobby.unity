@@ -446,6 +446,11 @@ PrefabInstance:
       propertyPath: newLobbyName
       value: PizzaLobby
       objectReference: {fileID: 0}
+    - target: {fileID: 5289949949401526675, guid: 1c0c888993137ec40ae218d33352f9bb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7149443903122146662, guid: 1c0c888993137ec40ae218d33352f9bb,
         type: 3}
       propertyPath: m_Pivot.x
