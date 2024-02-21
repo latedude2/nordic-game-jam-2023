@@ -20,6 +20,7 @@ public class PlayerController : NetworkBehaviour
     
     void Start()
     {
+        //TODO: Try using OnLoadEventCompleted instead of OnLoadComplete
         NetworkManager.Singleton.SceneManager.OnLoadComplete += (clientID, sceneName, loadSceneMode) =>
         {
             //TODO: update this to be the actual scene name
