@@ -1,6 +1,7 @@
 using UnityEngine;
+using Unity.Netcode;
 
-public class Crouch : MonoBehaviour
+public class Crouch : NetworkBehaviour
 {
     public KeyCode key = KeyCode.LeftControl;
 
@@ -36,6 +37,11 @@ public class Crouch : MonoBehaviour
 
     void LateUpdate()
     {
+        if(!IsOwner)
+        {
+            return;
+        }
+        
         if (Input.GetKey(key))
         {
             // Enforce a low head.

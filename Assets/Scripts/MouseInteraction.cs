@@ -1,19 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 //Script to handle mouse interaction with objects
 //Should be attached to the camera
-public class MouseInteraction : MonoBehaviour
+public class MouseInteraction : NetworkBehaviour
 {
     private Camera cam;
     void Start()
     {
         cam = GetComponent<Camera>();
+        if(!IsOwner)
+        {
+            cam.enabled = false;
+        }
     }
     
     void Update()
     {
+        if(!IsOwner)
+        {
+            return;
+        }
         //raycast from camera
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         
@@ -45,7 +54,7 @@ public class MouseInteraction : MonoBehaviour
             {
                 if(Input.GetMouseButtonDown(0))
                 {
-                    hit.collider.gameObject.GetComponent<CarExitHandle>().Exit();
+                    hit.collider.gameObject.GetComponent<CarExitHandle>().Exit(NetworkManager.Singleton.LocalClientId);
                 }
                 
             }
@@ -53,7 +62,7 @@ public class MouseInteraction : MonoBehaviour
             {
                 if(Input.GetMouseButtonDown(0))
                 {
-                    hit.collider.gameObject.GetComponent<CarEnterHandle>().Enter();
+                    hit.collider.gameObject.GetComponent<CarEnterHandle>().Enter(NetworkManager.Singleton.LocalClientId);
                 }
                 
             }

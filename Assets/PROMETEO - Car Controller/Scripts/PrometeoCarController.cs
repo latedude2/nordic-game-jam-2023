@@ -9,13 +9,11 @@ something useful for your game. Best regards, Mena.
 */
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class PrometeoCarController : MonoBehaviour
+public class PrometeoCarController : NetworkBehaviour, Possessable
 {
 
     //CAR SETUP
@@ -778,7 +776,7 @@ public class PrometeoCarController : MonoBehaviour
 
     void MakeSteeringWorse()
     { 
-      steeringDriftAmount += (0.25f / upgradeSystem.SteeringUpgrade);
+      steeringDriftAmount += 0.25f / upgradeSystem.SteeringUpgrade;
       if(steeringDriftAmount > 5f)
       {
         steeringDriftAmount = 5f;
@@ -790,13 +788,19 @@ public class PrometeoCarController : MonoBehaviour
       playerControlled = false;
     }
 
-    void OnCarEntered()
+    void OnCarEntered(ulong clientID)
     {
       playerControlled = true;
     }
 
-    void LoadUpgradeValues()
+    public void Possess(ulong clientID)
     {
+      Debug.Log("Client " + clientID + " is possessing car");
+      GetComponent<NetworkObject>().ChangeOwnership(clientID);
     }
 
+    public void Unpossess()
+    {
+      GetComponent<NetworkObject>().RemoveOwnership();
+    }
 }

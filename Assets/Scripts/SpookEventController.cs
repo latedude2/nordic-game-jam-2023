@@ -11,7 +11,8 @@ public class SpookEventController : MonoBehaviour
 
     void Start()
     {
-        ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(IncreaseSpookLikelyhood);
+        if(ObjectiveManager.Instance != null)
+            ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(IncreaseSpookLikelyhood);
     }
 
     void IncreaseSpookLikelyhood(){

@@ -2124,14 +2124,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 627556911, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: brakeForce
-      value: 581
-      objectReference: {fileID: 0}
-    - target: {fileID: 627556911, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-      propertyPath: decelerationMultiplier
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 261786959625234688, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}
       propertyPath: m_RootOrder
@@ -2192,6 +2184,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prometheus
       objectReference: {fileID: 0}
+    - target: {fileID: 8734677253401633703, guid: 79d0ca8b77e301442afdb49f102e8aed,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 217440217
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
 --- !u!1001 &1417824813854504873
@@ -2205,6 +2202,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PostProcessing
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417824811985751174, guid: 524b820640562e0469e79b2fc5aaa79d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1417824811985751192, guid: 524b820640562e0469e79b2fc5aaa79d,
         type: 3}

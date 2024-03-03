@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class FirstPersonMovement : MonoBehaviour
+public class FirstPersonMovement : NetworkBehaviour, Possessable
 {
     public float speed = 5;
 
@@ -25,6 +26,11 @@ public class FirstPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(!IsOwner)
+        {
+            return;
+        }
+        
         // Update IsRunning from input.
         IsRunning = canRun && Input.GetKey(runningKey);
 
@@ -40,5 +46,15 @@ public class FirstPersonMovement : MonoBehaviour
 
         // Apply movement.
         rigidbody.velocity = transform.rotation * new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.y);
+    }
+
+    public void Possess(ulong clientID)
+    {
+        Debug.Log("Possessing" + gameObject.name);
+    }
+
+    public void Unpossess()
+    {
+        Debug.Log("Unpossessing" + gameObject.name);
     }
 }

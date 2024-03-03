@@ -13,6 +13,9 @@ public class ObjectivePointer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(ObjectiveManager.Instance == null)
+            return;
+
         if(ObjectiveManager.Instance.IsEnoughPizzaDelivered())
         {
             transform.LookAt(Exit);
