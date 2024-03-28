@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using ParrelSync;
 
 public class BackupNetworkManagerCreator : MonoBehaviour
 {
@@ -13,7 +14,17 @@ public class BackupNetworkManagerCreator : MonoBehaviour
         if (FindObjectOfType<NetworkManager>() == null)
         {
             // If not, create one
-            Instantiate(NetworkManagerPrefab);
+            GameObject NetworkManager = Instantiate(NetworkManagerPrefab);
+            
+            //looks like we want to start a level while developing. Start host and client depending if this is a cloned version of the editor.
+            if (ClonesManager.IsClone())
+            {
+                NetworkManager.GetComponent<NetworkManager>().StartClient();
+            }
+            else 
+            {
+                NetworkManager.GetComponent<NetworkManager>().StartHost();
+            }
         }
 
         Destroy(gameObject);
