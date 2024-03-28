@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using Unity.Netcode;
 
-public class Engine : MonoBehaviour
+public class Engine : NetworkBehaviour
 {
-    public bool isOn = false;
+    public NetworkVariable<bool> isOn = new NetworkVariable<bool>(false);
     public static Engine Instance;
     Rigidbody carRigidbody;
     float engineTimer = 0;
@@ -38,8 +39,14 @@ public class Engine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(isOn)
+        if(GetComponent<PrometeoCarController>().playerControlled == false)
         {
+            return;
+        }
+        Debug.Log("Engine Update");
+        if(isOn.Value)
+        {
+            /* functionality for engine randomly turning off
             if(carRigidbody.velocity.magnitude > 1f)
             {
                 carReachedProperSpeed = true;
@@ -47,35 +54,51 @@ public class Engine : MonoBehaviour
             //Random chance to turn off if velocity is low
             if (Random.Range(0, 100) == 0 && carRigidbody.velocity.magnitude < 0.5f && carReachedProperSpeed)
             {
-                TurnOff();
+                TurnOffRpc();
             }
+            */
             return;
         }
+        
         //Hold to turn on engine
-        if (GetComponent<PrometeoCarController>().playerControlled && Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
             engineTimer += Time.deltaTime;
             if (!engineTurnSoundSource.isPlaying)
             {
-                engineTurnSoundSource.clip = engineStartSound;
-                engineTurnSoundSource.Play();
+                Debug.Log("Engine Starting");
+                StartEngineSoundRpc();
             }
         }
         else 
         {
-            if(engineTurnSoundSource.clip == engineStartSound)
-                engineTurnSoundSource.Stop();
-            engineTimer = 0;
+            CancelStartingEngineSoundRpc();
         }
         if(engineTimer > engineStartTime)
         {
-            TurnOn();
+            TurnOnRpc();
         }
     }
 
-    void TurnOff()
+    [Rpc(SendTo.Everyone)]
+    void StartEngineSoundRpc()
     {
-        isOn = false;
+        engineTurnSoundSource.clip = engineStartSound;
+        engineTurnSoundSource.Play();
+    }
+
+    [Rpc(SendTo.Everyone)]
+    void CancelStartingEngineSoundRpc()
+    {
+        if(engineTurnSoundSource.clip == engineStartSound)
+            engineTurnSoundSource.Stop();
+        engineTimer = 0;
+    }
+
+    [Rpc(SendTo.Everyone)]
+    void TurnOffRpc()
+    {
+        isOn.Value = false;
         engineTurnSoundSource.clip = engineStopSound;
         engineTurnSoundSource.Play();
         leftLight.gameObject.SetActive(false);
@@ -84,9 +107,10 @@ public class Engine : MonoBehaviour
         carReachedProperSpeed = false;
     }
 
-    void TurnOn()
+    [Rpc(SendTo.Everyone)]
+    void TurnOnRpc()
     {
-        isOn = true;
+        isOn.Value = true;
         leftLight.gameObject.SetActive(true);
         rightLight.gameObject.SetActive(true);
         interiorLight.gameObject.SetActive(true);

@@ -280,7 +280,7 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
     void Update()
     {
       
-      if(Engine.Instance.isOn)
+      if(Engine.Instance.isOn.Value)
       {
         if(!carEngineSound.isPlaying)
         {
@@ -501,7 +501,7 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
     public void GoForward(){
       CancelInvoke("DecelerateCar");
       deceleratingCar = false;
-      if(!Engine.Instance.isOn)
+      if(!Engine.Instance.isOn.Value)
         return;
       //If the forces aplied to the rigidbody in the 'x' asis are greater than
       //3f, it means that the car is losing traction, then the car will start emitting particle systems.
@@ -550,7 +550,7 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
       CancelInvoke("DecelerateCar");
       deceleratingCar = false;
 
-      if(!Engine.Instance.isOn)
+      if(!Engine.Instance.isOn.Value)
         return;
       //If the forces aplied to the rigidbody in the 'x' asis are greater than
       //3f, it means that the car is losing traction, then the car will start emitting particle systems.
