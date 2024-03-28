@@ -110,6 +110,7 @@ public class Engine : NetworkBehaviour
     [Rpc(SendTo.Everyone)]
     void TurnOnRpc()
     {
+        //TODO: only run on the server probably and make lights listen to the variable.
         isOn.Value = true;
         leftLight.gameObject.SetActive(true);
         rightLight.gameObject.SetActive(true);

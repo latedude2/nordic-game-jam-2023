@@ -292,7 +292,8 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
       }
 
       // We call the method AnimateWheelMeshes() in order to match the wheel collider movements with the 3D meshes of the wheels.
-      AnimateWheelMeshes();
+      if(playerControlled)
+        AnimateWheelMeshes();
 
       //CAR DATA
 
