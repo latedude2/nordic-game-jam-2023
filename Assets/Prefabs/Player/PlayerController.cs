@@ -23,10 +23,15 @@ public class PlayerController : NetworkBehaviour
         //TODO: Try using OnLoadEventCompleted instead of OnLoadComplete
         NetworkManager.Singleton.SceneManager.OnLoadComplete += (clientID, sceneName, loadSceneMode) =>
         {
+            if(clientID != OwnerClientId)
+            {
+                return;
+            }
+            
             //TODO: update this to be the actual scene name
             if(sceneName != "SimonasTestScene") return;
 
-            if(IsServer)
+            if(IsHost)
             {
                 PossessedObject = Instantiate(InitialPossessedPrefab);
                 var instanceNetworkObject = PossessedObject.GetComponent<NetworkObject>();

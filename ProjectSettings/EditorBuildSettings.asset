@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/PizzaPlaceInside.unity
     guid: c7db1b1941cfc054395cc891d550bcd6
   - enabled: 1
-    path: Assets/LobbyExample/Scenes/mainScene.unity
+    path: Assets/Resources/ExternalAssets/LobbyExample/Scenes/Lobby.unity
     guid: ac99f707ce93cff419a804de3a2cc937
   - enabled: 1
     path: Assets/Scenes/SimonasTestScene.unity
