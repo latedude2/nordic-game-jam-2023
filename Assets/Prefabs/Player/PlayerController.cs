@@ -20,6 +20,7 @@ public class PlayerController : NetworkBehaviour
     
     void Start()
     {
+
         //TODO: Try using OnLoadEventCompleted instead of OnLoadComplete
         NetworkManager.Singleton.SceneManager.OnLoadComplete += (clientID, sceneName, loadSceneMode) =>
         {
@@ -34,6 +35,7 @@ public class PlayerController : NetworkBehaviour
             if(IsHost)
             {
                 PossessedObject = Instantiate(InitialPossessedPrefab);
+                PossessedObject.transform.position = GetSpawnPosition(OwnerClientId);
                 var instanceNetworkObject = PossessedObject.GetComponent<NetworkObject>();
                 instanceNetworkObject.SpawnWithOwnership(OwnerClientId);
             }
@@ -44,8 +46,43 @@ public class PlayerController : NetworkBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
             }
         };
+
+        if(SceneManager.GetActiveScene().name != "Lobby")
+        {
+            if(IsHost)
+            {
+                PossessedObject = Instantiate(InitialPossessedPrefab);
+                PossessedObject.transform.position = GetSpawnPosition(OwnerClientId);
+                var instanceNetworkObject = PossessedObject.GetComponent<NetworkObject>();
+                instanceNetworkObject.SpawnWithOwnership(OwnerClientId);
+            }
+            
+            if(IsOwner)
+            {
+                //lock mouse to center of screen
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
  
         
+    }
+
+    private Vector3 GetSpawnPosition(ulong clientID)
+    {
+        GameObject[] respawns = GameObject.FindGameObjectsWithTag("Respawn");
+        if(respawns.Length == 0)
+        {
+            Debug.LogError("No spawn points found");
+            return new Vector3(0, 0, 0);
+        }
+
+        if(respawns.Length <= (int)clientID)
+        {
+            Debug.LogError("Not enough spawn points for all players");
+            return new Vector3(0, 0, 0);
+        }
+
+        return respawns[clientID].transform.position;
     }
 
 
