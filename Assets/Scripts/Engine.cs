@@ -35,7 +35,17 @@ public class Engine : NetworkBehaviour
         rightLight.gameObject.SetActive(false);
         interiorLight.gameObject.SetActive(false);
 
+        
+    }
+
+    public override void OnNetworkSpawn()
+    {
         isOn.OnValueChanged += ReactToEngineSwitch;
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        isOn.OnValueChanged -= ReactToEngineSwitch;
     }
 
     // Update is called once per frame
@@ -45,7 +55,6 @@ public class Engine : NetworkBehaviour
         {
             return;
         }
-        Debug.Log("Engine Update");
         if(isOn.Value)
         {
             /* functionality for engine randomly turning off
@@ -68,7 +77,6 @@ public class Engine : NetworkBehaviour
             engineTimer += Time.deltaTime;
             if (!engineTurnSoundSource.isPlaying)
             {
-                Debug.Log("Engine Starting");
                 StartEngineSoundRpc();
             }
         }
