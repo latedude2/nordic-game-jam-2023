@@ -47,6 +47,7 @@ public class PlayerController : NetworkBehaviour
             }
         };
 
+        #if UNITY_EDITOR
         if(SceneManager.GetActiveScene().name != "Lobby")
         {
             if(IsHost)
@@ -63,7 +64,7 @@ public class PlayerController : NetworkBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
             }
         }
- 
+        #endif
         
     }
 

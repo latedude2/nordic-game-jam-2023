@@ -1,9 +1,11 @@
-#if UNITY_EDITOR
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+#if UNITY_EDITOR
 using ParrelSync;
+#endif
 
 public class BackupNetworkManagerCreator : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class BackupNetworkManagerCreator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        #if UNITY_EDITOR
         // Check if there is a network manager in the scene
         if (FindObjectOfType<NetworkManager>() == null)
         {
@@ -27,10 +30,9 @@ public class BackupNetworkManagerCreator : MonoBehaviour
                 NetworkManager.GetComponent<NetworkManager>().StartHost();
             }
         }
-
+        #endif
         Destroy(gameObject);
     }
 
 }
 
-#endif
