@@ -30,7 +30,7 @@ public class PlayerController : NetworkBehaviour
             }
             
             //TODO: update this to be the actual scene name
-            if(sceneName != "SimonasTestScene") return;
+            if(sceneName != "MainScene") return;
 
             if(IsHost)
             {

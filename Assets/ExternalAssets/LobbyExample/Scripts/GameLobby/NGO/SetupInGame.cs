@@ -47,7 +47,7 @@ namespace LobbyRelaySample.ngo
             {
                 await SetRelayHostData();
                 NetworkManager.Singleton.StartHost();
-                NetworkManager.Singleton.SceneManager.LoadScene("SimonasTestScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
+                NetworkManager.Singleton.SceneManager.LoadScene("MainScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
             }
             else
             {
