@@ -34,6 +34,8 @@ public class Engine : NetworkBehaviour
         leftLight.gameObject.SetActive(false);
         rightLight.gameObject.SetActive(false);
         interiorLight.gameObject.SetActive(false);
+
+        isOn.OnValueChanged += ReactToEngineSwitch;
     }
 
     // Update is called once per frame
@@ -95,26 +97,32 @@ public class Engine : NetworkBehaviour
         engineTimer = 0;
     }
 
-    [Rpc(SendTo.Everyone)]
+    [Rpc(SendTo.Server)]
     void TurnOffRpc()
     {
         isOn.Value = false;
-        engineTurnSoundSource.clip = engineStopSound;
-        engineTurnSoundSource.Play();
-        leftLight.gameObject.SetActive(false);
-        rightLight.gameObject.SetActive(false);
-        interiorLight.gameObject.SetActive(false);
-        carReachedProperSpeed = false;
     }
 
-    [Rpc(SendTo.Everyone)]
+    [Rpc(SendTo.Server)]
     void TurnOnRpc()
     {
-        //TODO: only run on the server probably and make lights listen to the variable.
         isOn.Value = true;
-        leftLight.gameObject.SetActive(true);
-        rightLight.gameObject.SetActive(true);
-        interiorLight.gameObject.SetActive(true);
-        tutorialPrompt.gameObject.SetActive(false);
+    }
+
+    void ReactToEngineSwitch(bool oldState, bool isOn)
+    {
+        leftLight.gameObject.SetActive(isOn);
+        rightLight.gameObject.SetActive(isOn);
+        interiorLight.gameObject.SetActive(isOn);
+        if(isOn)
+        {   
+            tutorialPrompt.gameObject.SetActive(false);
+        }
+        else
+        {
+            engineTurnSoundSource.clip = engineStopSound;
+            engineTurnSoundSource.Play();
+            carReachedProperSpeed = false;
+        }
     }
 }
