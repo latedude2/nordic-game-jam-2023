@@ -20,7 +20,7 @@ public class PlayerController : NetworkBehaviour
     
     void Start()
     {
-
+        #if !UNITY_EDITOR
         //TODO: Try using OnLoadEventCompleted instead of OnLoadComplete
         NetworkManager.Singleton.SceneManager.OnLoadComplete += (clientID, sceneName, loadSceneMode) =>
         {
@@ -46,10 +46,12 @@ public class PlayerController : NetworkBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
             }
         };
+        #endif
 
         #if UNITY_EDITOR
         if(SceneManager.GetActiveScene().name != "Lobby")
         {
+            
             if(IsHost)
             {
                 PossessedObject = Instantiate(InitialPossessedPrefab);
