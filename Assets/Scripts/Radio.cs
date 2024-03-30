@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class Radio : MonoBehaviour
+public class Radio : NetworkBehaviour
 {
     [SerializeField] private AudioClip knobSound;
     [SerializeField] private AudioSource knobAudioSource;
@@ -10,26 +11,34 @@ public class Radio : MonoBehaviour
     [SerializeField] private List<AudioClip> musicClips;
     [SerializeField] private Transform radioLight;
     int currentlyPlaying = 0;
-    bool isOn = true;
-    // Start is called before the first frame update
-    void Start()
+    public NetworkVariable<bool> isOn = new NetworkVariable<bool>(true);
+
+    public override void OnNetworkSpawn()
     {
-        //Randombly toggle radio
-        InvokeRepeating(nameof(RandomToggle), 25, 15);
         GetComponent<AudioSource>().Play();
+        if(IsServer)
+            InvokeRepeating(nameof(RandomToggle), 25, 15);
+        isOn.OnValueChanged += ReactToRadioSwitch;
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        if(IsServer)
+            CancelInvoke(nameof(RandomToggle));
+        isOn.OnValueChanged -= ReactToRadioSwitch;
     }
 
     void Update()
     {
         if(!Engine.Instance.isOn.Value)
         {
-            if(isOn)
-                TurnOff();
+            if(isOn.Value)
+                TurnOffRpc();
             return;
         }
         if(Input.GetKeyDown(KeyCode.R))
         {
-            Toggle();
+            ToggleRpc();
         }
         //if music is not playing, play next song in list
         if (!musicAudioSource.isPlaying && !Timer.ded)
@@ -48,30 +57,34 @@ public class Radio : MonoBehaviour
     {
         if (Random.Range(0, 3) == 0)
         {
-            if(!isOn)
-                Toggle();
+            if(!isOn.Value)
+                ToggleRpc();
         }
     }
 
-    public void Toggle()
+    [Rpc(SendTo.Server)]
+    public void ToggleRpc()
+    {
+        isOn.Value = !isOn.Value;
+    }
+
+    [Rpc(SendTo.Server)]
+    private void TurnOffRpc()
+    {
+        isOn.Value = false;
+    }
+
+    void ReactToRadioSwitch(bool oldState, bool isOn)
     {
         knobAudioSource.PlayOneShot(knobSound);
-        isOn = !isOn;
         radioLight.gameObject.SetActive(isOn);
         if (isOn)
         {
-            //set volume to 1
             GetComponent<AudioSource>().volume = 1;
         }
         else
         {
             GetComponent<AudioSource>().volume = 0;
         }
-    }
-    private void TurnOff()
-    {
-        isOn = false;
-        radioLight.gameObject.SetActive(false);
-        GetComponent<AudioSource>().volume = 0;
     }
 }

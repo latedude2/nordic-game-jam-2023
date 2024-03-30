@@ -34,8 +34,6 @@ public class Engine : NetworkBehaviour
         leftLight.gameObject.SetActive(false);
         rightLight.gameObject.SetActive(false);
         interiorLight.gameObject.SetActive(false);
-
-        
     }
 
     public override void OnNetworkSpawn()
@@ -51,7 +49,7 @@ public class Engine : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(GetComponent<PrometeoCarController>().playerControlled == false)
+        if(GetComponent<PrometeoCarController>().OwnerClientId != NetworkManager.Singleton.LocalClientId)
         {
             return;
         }

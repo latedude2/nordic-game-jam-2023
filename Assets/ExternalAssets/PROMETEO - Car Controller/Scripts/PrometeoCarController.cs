@@ -114,7 +114,7 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
       [Space(10)]
       //The following variables lets you to set up touch controls for mobile devices.
       public bool useTouchControls = false;
-      public bool playerControlled = true;
+      public bool playerControlled = false;
       public GameObject throttleButton;
       PrometeoTouchInput throttlePTI;
       public GameObject reverseButton;
@@ -791,7 +791,7 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
 
     void OnCarEntered(ulong clientID)
     {
-      playerControlled = true;
+        playerControlled = true;
     }
 
     public void Possess(ulong clientID)
