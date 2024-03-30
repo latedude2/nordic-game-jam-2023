@@ -22,6 +22,10 @@ public class FirstPersonLook : NetworkBehaviour
     {
         // Lock the mouse cursor to the game screen.
         Cursor.lockState = CursorLockMode.Locked;
+        if(!IsOwner)
+        {
+            GetComponent<AudioListener>().enabled = false;
+        }
     }
 
     void Update()

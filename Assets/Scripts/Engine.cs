@@ -49,7 +49,7 @@ public class Engine : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(GetComponent<PrometeoCarController>().OwnerClientId != NetworkManager.Singleton.LocalClientId)
+        if(!IsOwner)
         {
             return;
         }
