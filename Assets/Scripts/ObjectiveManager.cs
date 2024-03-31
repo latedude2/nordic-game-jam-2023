@@ -39,7 +39,7 @@ public class ObjectiveManager : NetworkBehaviour
     
     public override void OnNetworkSpawn()
     {
-        Invoke(nameof(SetupObjectives), 1f);
+        Invoke(nameof(SetupObjectives), 1f); //HACK: we are waiting for the client to have spawned the objectives before sending the RPCs, we should do this differently
     }
 
     public void SetupObjectives()
