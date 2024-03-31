@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 using Unity.VisualScripting;
+using Unity.Netcode;
 
-public class ObjectiveManager : MonoBehaviour
+public class ObjectiveManager : NetworkBehaviour
 {
     public List<Objective> potentialObjectives;
     private float terrainIncreaseValue = 0.0002f;
-    private int completedObjectiveCount = 0;
+    private NetworkVariable<int> completedObjectiveCount = new NetworkVariable<int>(0);
 
     public int RequiredPizzasForExit = 4; 
 
@@ -32,24 +33,35 @@ public class ObjectiveManager : MonoBehaviour
     }
     void Start()
     {
-        RequiredPizzasForExit = RequiredPizzasForExit + PlayerPrefs.GetInt("Day");
-        OnObjectiveCompleted.AddListener(UpdateIntensities);
+        RequiredPizzasForExit = RequiredPizzasForExit + PlayerPrefs.GetInt("Day");   
+    }
 
+    
+    public override void OnNetworkSpawn()
+    {
+        Invoke(nameof(SetupObjectives), 1f);
+    }
 
+    public void SetupObjectives()
+    {
         foreach(Objective objective in potentialObjectives)
         {
-            objective.gameObject.SetActive(false);
+            objective.SetObjectiveActiveRpc(false);
         }
         currentObjective = potentialObjectives[0];
-        currentObjective.gameObject.SetActive(true);
+        currentObjective.SetObjectiveActiveRpc(true);
     }
 
     void Update()
     {
+        if(!IsHost)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.P))
         {
             Debug.Log("Using cheat to increase completed objective count");
-            completedObjectiveCount++;
+            completedObjectiveCount.Value++;
             OnObjectiveCompleted.Invoke();
         }
     }
@@ -61,19 +73,19 @@ public class ObjectiveManager : MonoBehaviour
         potentialObjectives.Remove(oldObjective);
         currentObjective = potentialObjectives[Random.Range(0, potentialObjectives.Count)];
         potentialObjectives.Add(oldObjective);
-        //make current objective visible
-        currentObjective.gameObject.SetActive(true);
+        //make current objective visible TODO: run on clients
+        currentObjective.SetObjectiveActiveRpc(true);
         currentObjective.isCompleted = false;
         oldObjective.isCompleted = true;
         StartCoroutine(SetObjectiveNotVisible(oldObjective));
-        //increase terrain target
-        TerrainController.Instance.SetAmplitudeTargetAndSpeed(TerrainController.Instance.amplitudeTarget + terrainIncreaseValue, 0.000001f);
+        //increase terrain target Todo: figure out how to keep in sync across network
+        //TerrainController.Instance.SetAmplitudeTargetAndSpeed(TerrainController.Instance.amplitudeTarget + terrainIncreaseValue, 0.000001f);
         
-        completedObjectiveCount++;
-        PlayerPrefs.SetInt("NewScore", completedObjectiveCount);
-        if (completedObjectiveCount > PlayerPrefs.GetInt("HighScore"))
+        completedObjectiveCount.Value++;
+        PlayerPrefs.SetInt("NewScore", completedObjectiveCount.Value);
+        if (completedObjectiveCount.Value > PlayerPrefs.GetInt("HighScore"))
         {
-            PlayerPrefs.SetInt("HighScore", completedObjectiveCount);
+            PlayerPrefs.SetInt("HighScore", completedObjectiveCount.Value);
         }
     }
 
@@ -81,34 +93,22 @@ public class ObjectiveManager : MonoBehaviour
     {
         //Start thank you animation
         yield return new WaitForSeconds(5f);
-        objective.gameObject.SetActive(false);
+        currentObjective.SetObjectiveActiveRpc(false);
         yield return null;
     }
 
     public int GetCompletedObjectiveCount()
     {
-        return completedObjectiveCount;
-    }
-
-    private void UpdateIntensities()
-    {
-        //Find monsters
-        GameObject[] monsters = GameObject.FindGameObjectsWithTag("Monster");
-        foreach(GameObject monster in monsters)
-        {
-            monster.GetComponent<AIAttackBehavior>().ChaseIntensity = 1 + completedObjectiveCount;
-            monster.GetComponent<AIStalkBehavior>().Intensity = 1 + completedObjectiveCount;
-            monster.GetComponent<AIFleeBehavior>().Intensity = 1 + completedObjectiveCount;
-        }
+        return completedObjectiveCount.Value;
     }
 
     public bool IsEnoughPizzaDelivered()
     {
-        return completedObjectiveCount >= RequiredPizzasForExit;
+        return completedObjectiveCount.Value >= RequiredPizzasForExit;
     }
 
     public int GetRemainingPizzasForExit()
     {
-        return RequiredPizzasForExit - completedObjectiveCount;
+        return RequiredPizzasForExit - completedObjectiveCount.Value;
     }
 }
