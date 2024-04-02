@@ -12,7 +12,6 @@ using Unity.Services.Samples;
 using UnityEngine;
 #if UNITY_EDITOR
 using ParrelSync;
-
 #endif
 
 namespace LobbyRelaySample
@@ -175,8 +174,6 @@ namespace LobbyRelaySample
             SendLocalLobbyData();
         }
 
-        bool updatingLobby;
-
         async void SendLocalLobbyData()
         {
             await LobbyManager.UpdateLobbyDataAsync(LobbyConverters.LocalToRemoteLobbyData(m_LocalLobby));
@@ -184,6 +181,8 @@ namespace LobbyRelaySample
 
         async void SendLocalUserData()
         {
+            Debug.Log("Sending Updated User Data for " + m_LocalUser.DisplayName.Value + " to the server. Player is ready: " + m_LocalUser.UserStatus.Value);
+            LocalLobby.m_Instance.OnUserChangedStatus(m_LocalUser.UserStatus.Value); //letting local player know of the updated status as that will not get updated from server.
             await LobbyManager.UpdatePlayerDataAsync(LobbyConverters.LocalToRemoteUserData(m_LocalUser));
         }
 
@@ -210,6 +209,7 @@ namespace LobbyRelaySample
         //Only Host needs to listen to this and change state.
         void OnPlayersReady(int readyCount)
         {
+            
             if (readyCount == m_LocalLobby.PlayerCount &&
                 m_LocalLobby.LocalLobbyState.Value != LobbyState.CountDown)
             {

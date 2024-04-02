@@ -61,10 +61,11 @@ namespace LobbyRelaySample
         public CallbackValue<long> LastUpdated = new CallbackValue<long>();
 
         public int PlayerCount => m_LocalPlayers.Count;
-        ServerAddress m_RelayServer;
 
-        public List<LocalPlayer> LocalPlayers => m_LocalPlayers;
         List<LocalPlayer> m_LocalPlayers = new List<LocalPlayer>();
+
+        //singleton
+        public static LocalLobby m_Instance;
 
         public void ResetLobby()
         {
@@ -86,6 +87,8 @@ namespace LobbyRelaySample
         {
             LastUpdated.Value = DateTime.Now.ToFileTimeUtc();
             HostID.onChanged += OnHostChanged;
+            if(m_Instance == null)
+                m_Instance = this;
         }
 
         ~LocalLobby()
@@ -121,13 +124,18 @@ namespace LobbyRelaySample
             onUserLeft?.Invoke(playerIndex);
         }
 
-        void OnUserChangedStatus(PlayerStatus status)
+        public void OnUserChangedStatus(PlayerStatus status)
         {
+            Debug.Log("User status changed"); //TODO: update user status in the localPlayers list correctly. We should probably be calling something else than this.
             int readyCount = 0;
             foreach (var player in m_LocalPlayers)
             {
                 if (player.UserStatus.Value == PlayerStatus.Ready)
+                {
+                    Debug.Log($"Player {player.DisplayName.Value} is ready");
                     readyCount++;
+                }
+                    
             }
 
             onUserReadyChange?.Invoke(readyCount);

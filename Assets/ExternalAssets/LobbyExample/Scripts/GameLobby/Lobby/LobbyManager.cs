@@ -426,8 +426,9 @@ namespace LobbyRelaySample
         public async Task UpdatePlayerDataAsync(Dictionary<string, string> data)
         {
             if (!InLobby())
+            {
                 return;
-
+            } 
             string playerId = AuthenticationService.Instance.PlayerId;
             Dictionary<string, PlayerDataObject> dataCurr = new Dictionary<string, PlayerDataObject>();
             foreach (var dataNew in data)
@@ -441,7 +442,9 @@ namespace LobbyRelaySample
             }
 
             if (m_UpdatePlayerCooldown.TaskQueued)
+            {
                 return;
+            } 
             await m_UpdatePlayerCooldown.QueueUntilCooldown();
 
             UpdatePlayerOptions updateOptions = new UpdatePlayerOptions
@@ -450,6 +453,7 @@ namespace LobbyRelaySample
                 AllocationId = null,
                 ConnectionInfo = null
             };
+            Debug.Log("Calling LobbyService.Instance.UpdatePlayerAsync");
             m_CurrentLobby = await LobbyService.Instance.UpdatePlayerAsync(m_CurrentLobby.Id, playerId, updateOptions);
         }
 
