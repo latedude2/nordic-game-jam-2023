@@ -49,6 +49,13 @@ public class PlayerController : NetworkBehaviour
         #endif
 
         #if UNITY_EDITOR
+            Invoke(nameof(EditorSpawn), 1f);
+        #endif
+        
+    }
+
+    private void EditorSpawn()
+    {
         if(SceneManager.GetActiveScene().name != "Lobby")
         {
             
@@ -66,9 +73,7 @@ public class PlayerController : NetworkBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
             }
         }
-        #endif
-        
-    }
+    } 
 
     private Vector3 GetSpawnPosition(ulong clientID)
     {

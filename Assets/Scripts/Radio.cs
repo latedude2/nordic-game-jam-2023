@@ -15,11 +15,17 @@ public class Radio : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        Invoke(nameof(DelayedSpawn), 1);
+    }
+
+    void DelayedSpawn()
+    {
         GetComponent<AudioSource>().Play();
         if(IsServer)
             InvokeRepeating(nameof(RandomToggle), 25, 15);
         isOn.OnValueChanged += ReactToRadioSwitch;
     }
+
 
     public override void OnNetworkDespawn()
     {

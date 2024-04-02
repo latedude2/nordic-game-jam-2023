@@ -190,6 +190,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 870334152
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: AlwaysReplicateAsRoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3948567573
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbbf95d44e522974a8c453e9ab32f524, type: 3}
 --- !u!114 &37009243 stripped
@@ -270,6 +285,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 4382856
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: AlwaysReplicateAsRoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3948567573
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbbf95d44e522974a8c453e9ab32f524, type: 3}
@@ -356,6 +386,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2298417990
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: AlwaysReplicateAsRoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3948567573
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbbf95d44e522974a8c453e9ab32f524, type: 3}
@@ -696,6 +741,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1634162817
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: AlwaysReplicateAsRoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3948567573
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbbf95d44e522974a8c453e9ab32f524, type: 3}
 --- !u!114 &407115326 stripped
@@ -782,6 +842,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3712342915
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: AlwaysReplicateAsRoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3948567573
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbbf95d44e522974a8c453e9ab32f524, type: 3}
 --- !u!114 &488299933 stripped
@@ -867,6 +942,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3442826956
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: AlwaysReplicateAsRoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3948567573
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbbf95d44e522974a8c453e9ab32f524, type: 3}
@@ -1032,6 +1122,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 4029091842
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: AlwaysReplicateAsRoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3948567573
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbbf95d44e522974a8c453e9ab32f524, type: 3}
@@ -1257,6 +1362,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1298629306
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: AlwaysReplicateAsRoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3948567573
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbbf95d44e522974a8c453e9ab32f524, type: 3}
 --- !u!114 &1430679590 stripped
@@ -1337,6 +1457,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2148531112
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: AlwaysReplicateAsRoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3948567573
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbbf95d44e522974a8c453e9ab32f524, type: 3}
@@ -2166,6 +2301,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2048610017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: AlwaysReplicateAsRoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073685145585945979, guid: fbbf95d44e522974a8c453e9ab32f524,
+        type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3948567573
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbbf95d44e522974a8c453e9ab32f524, type: 3}
 --- !u!1001 &4888557900053176686
@@ -2278,6 +2428,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Managers
+      objectReference: {fileID: 0}
+    - target: {fileID: 5544578748413501938, guid: 5a6a8810cbd3ee648ad4fcdfb6f606b9,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3900143858
       objectReference: {fileID: 0}
     - target: {fileID: 8020041309078085491, guid: 5a6a8810cbd3ee648ad4fcdfb6f606b9,
         type: 3}
