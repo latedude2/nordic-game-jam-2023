@@ -58,18 +58,6 @@ namespace LobbyRelaySample.ngo
 
         static InGameRunner s_Instance;
 
-        public void Initialize(Action onConnectionVerified, int expectedPlayerCount, Action onGameBegin,
-            Action onGameEnd,
-            LocalPlayer localUser)
-        {
-            m_onConnectionVerified = onConnectionVerified;
-            m_expectedPlayerCount = expectedPlayerCount;
-            onGameBeginning = onGameBegin;
-            m_onGameEnd = onGameEnd;
-            m_canSpawnInGameObjects = null;
-            m_localUserData = new PlayerData(localUser.DisplayName.Value, 0);
-        }
-
         public override void OnNetworkSpawn()
         {
             if (IsHost)

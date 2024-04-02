@@ -18,7 +18,7 @@ public class PlayerController : NetworkBehaviour
     private bool Crouch;
 
     
-    void Start()
+    public override void OnNetworkSpawn()
     {
         #if !UNITY_EDITOR
         //TODO: Try using OnLoadEventCompleted instead of OnLoadComplete
