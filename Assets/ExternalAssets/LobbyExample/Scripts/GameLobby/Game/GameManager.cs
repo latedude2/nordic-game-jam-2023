@@ -79,6 +79,7 @@ namespace LobbyRelaySample
 
         public async void CreateLobby(string name, bool isPrivate, string password = null, int maxPlayers = 4)
         {
+            (LobbyService.Instance as ILobbyServiceSDKConfiguration).EnableLocalPlayerLobbyEvents(true);
             try
             {
                 var lobby = await LobbyManager.CreateLobbyAsync(
@@ -100,6 +101,7 @@ namespace LobbyRelaySample
 
         public async void JoinLobby(string lobbyID, string lobbyCode, string password = null)
         {
+            (LobbyService.Instance as ILobbyServiceSDKConfiguration).EnableLocalPlayerLobbyEvents(true);
             try
             {
                 var lobby = await LobbyManager.JoinLobbyAsync(lobbyID, lobbyCode,

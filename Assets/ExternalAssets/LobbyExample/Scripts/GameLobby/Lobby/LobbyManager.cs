@@ -453,7 +453,6 @@ namespace LobbyRelaySample
                 AllocationId = null,
                 ConnectionInfo = null
             };
-            Debug.Log("Calling LobbyService.Instance.UpdatePlayerAsync");
             m_CurrentLobby = await LobbyService.Instance.UpdatePlayerAsync(m_CurrentLobby.Id, playerId, updateOptions);
         }
 
