@@ -2453,19 +2453,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1245982575, guid: 60fdc68f5d7fe65419027a3a8869a186, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2158380129034660429, guid: 60fdc68f5d7fe65419027a3a8869a186,
         type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3773650534
-      objectReference: {fileID: 0}
-    - target: {fileID: 2158380129034660429, guid: 60fdc68f5d7fe65419027a3a8869a186,
-        type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 1751819704
       objectReference: {fileID: 0}
     - target: {fileID: 5816158679266444547, guid: 60fdc68f5d7fe65419027a3a8869a186,
         type: 3}
