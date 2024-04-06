@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 using Unity.Netcode;
+using Lightbug.GrabIt;
 
 public class CarSeat : NetworkBehaviour
 {
@@ -26,6 +27,7 @@ public class CarSeat : NetworkBehaviour
         GetComponentInChildren<AudioListener>().enabled = false;
         GetComponentInChildren<MouseInteraction>().enabled = false;
         GetComponentInChildren<CameraControl>().enabled = false;
+        GetComponentInChildren<GrabIt>().enabled = false;
         
     }
 
@@ -47,6 +49,7 @@ public class CarSeat : NetworkBehaviour
         GetComponentInChildren<AudioListener>().enabled = true;
         GetComponentInChildren<MouseInteraction>().enabled = true;
         GetComponentInChildren<CameraControl>().enabled = true;
+        GetComponentInChildren<GrabIt>().enabled = true;
         if(isDriverSeat)
         {
             RequestCarPosessRpc(clientId);
@@ -65,6 +68,7 @@ public class CarSeat : NetworkBehaviour
         GetComponentInChildren<AudioListener>().enabled = false;
         GetComponentInChildren<MouseInteraction>().enabled = false;
         GetComponentInChildren<CameraControl>().enabled = false;
+         GetComponentInChildren<GrabIt>().enabled = false;
         if(isDriverSeat)
             RequestCarUnPosessRpc();
         

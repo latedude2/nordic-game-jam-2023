@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1110515318897581074}
   - component: {fileID: 8529423396314546238}
   - component: {fileID: 1110515318737468607}
+  - component: {fileID: 440780042434476920}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -136,6 +137,14 @@ MonoBehaviour:
   sensitivity: 2
   minimumY: -90
   maximumY: 90
+  minimumX: 180
+  maximumX: 210
+  minShoulderLook: 180
+  maxShoulderLook: 270
+  positionOffset: 0
+  positionOffsetLeftFraction: 1
+  positionOffsetRightFraction: 1
+  rotationX: 0
 --- !u!114 &8529423396314546238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +178,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a35e727731d5d4aa580463e3daa0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &440780042434476920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110515317843955020}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ddba4f181583d46b0eb79a3350c9af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_grabSpeed: 7
+  m_grabMinDistance: 1
+  m_grabMaxDistance: 10
+  m_impulseMagnitude: 25
+  m_grabProperties:
+    m_useGravity: 0
+    m_mass: 0.1
+    m_drag: 10
+    m_angularDrag: 10
+    m_constraints: 112
+  m_collisionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_targetRB: {fileID: 0}
+  m_holding: 0
+  m_pushing: 0
 --- !u!1 &1456258260393862981
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955cfb665d3bfda47b622e0ee10aa8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableCameraOnCarEnter: 1
+  isDriverSeat: 0
+  camera: {fileID: 0}
 --- !u!1 &5773802085330706667
 GameObject:
   m_ObjectHideFlags: 0

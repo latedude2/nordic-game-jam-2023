@@ -14,9 +14,11 @@ public class UpgradeSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /* disable upgrades for now
         AccelerationUpgrade = PlayerPrefs.GetInt("AccelerationUpgrade", 0);
         MaxSpeedUpgrade = PlayerPrefs.GetInt("MaxSpeedUpgrade", 0) * 10;
         brakeForceUpgrade = PlayerPrefs.GetInt("BrakeForceUpgrade", 0) * 50;
         SteeringUpgrade = PlayerPrefs.GetInt("SteeringUpgrade", 1) * 3;
+        */
     }
 }

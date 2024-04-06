@@ -5713,6 +5713,7 @@ GameObject:
   - component: {fileID: 1629204521168574314}
   - component: {fileID: 954166512}
   - component: {fileID: 1426310546}
+  - component: {fileID: 4226435095866965618}
   m_Layer: 2
   m_Name: Car
   m_TagString: Player
@@ -5953,6 +5954,18 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &4226435095866965618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642287924342879162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826296353f4af0d44b651680be5b30f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1017544330230184320
 GameObject:
   m_ObjectHideFlags: 0

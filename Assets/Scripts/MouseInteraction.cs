@@ -8,6 +8,7 @@ using UnityEngine;
 public class MouseInteraction : NetworkBehaviour
 {
     private Camera cam;
+    public RaycastHit hit;
     void Start()
     {
         cam = GetComponent<Camera>();
@@ -26,7 +27,7 @@ public class MouseInteraction : NetworkBehaviour
         //raycast from camera
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         
-        RaycastHit hit;
+        
         if (Physics.Raycast(ray, out hit, 3))
         {
             if(hit.collider.gameObject.GetComponent<HoverInfo>())
