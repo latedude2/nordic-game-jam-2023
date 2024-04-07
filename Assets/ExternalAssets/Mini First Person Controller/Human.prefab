@@ -524,16 +524,13 @@ MonoBehaviour:
   m_grabSpeed: 7
   m_grabMinDistance: 1
   m_grabMaxDistance: 10
-  m_impulseMagnitude: 25
+  m_impulseMagnitude: 1000
   m_grabProperties:
     m_useGravity: 0
     m_mass: 0.1
     m_drag: 10
     m_angularDrag: 10
     m_constraints: 112
-  m_collisionMask:
-    serializedVersion: 2
-    m_Bits: 0
   m_targetRB: {fileID: 0}
   m_holding: 0
   m_pushing: 0

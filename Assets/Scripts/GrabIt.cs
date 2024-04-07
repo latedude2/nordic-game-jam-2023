@@ -34,8 +34,7 @@ namespace Lightbug.GrabIt
         float m_grabMaxDistance = 10;
 
         [SerializeField]
-        [Range(10, 50)]
-        float m_impulseMagnitude = 25;
+        float m_impulseMagnitude = 2500;
 
         public delegate void GrabObjectHandler(Rigidbody rb);
         public static event GrabObjectHandler Grabbed;
@@ -141,12 +140,6 @@ namespace Lightbug.GrabIt
                 return;
             }
 
-            if (m_pushing)
-            {
-                grabbedThisFrame = false;
-                Push();
-            }
-
             if (!m_holding)
                 return;
             
@@ -183,6 +176,13 @@ namespace Lightbug.GrabIt
             RaycastHit hitInfo = GetComponent<MouseInteraction>().hit;
             if (hitInfo.collider != null)
             {
+                 if(hitInfo.collider.GetComponent<Pushable>() != null)
+                {
+                    m_pushing = true;
+                    Push();
+                    GrabSound();
+                    return;
+                }
                 Rigidbody rb = hitInfo.collider.GetComponent<Rigidbody>();
                 if(rb == null && hitInfo.collider.transform.parent != null)
                 {
@@ -190,14 +190,8 @@ namespace Lightbug.GrabIt
                 }
                 if (rb != null)
                 {
-                    if(rb.GetComponent<Pushable>() != null)
-                    {
-                        m_pushing = true;
-                        GrabSound();
-                        Grabbed?.Invoke(rb);
-                        return;
-                    }
-                    else {
+                   
+                    if(rb.GetComponent<Pushable>() == null) {
                         SetHeldObject(rb, hitInfo.distance);
                         m_holding = true;
                         GrabSound();
@@ -212,25 +206,17 @@ namespace Lightbug.GrabIt
             RaycastHit hitInfo = GetComponent<MouseInteraction>().hit;
             if (hitInfo.collider != null)
             {
-                Rigidbody rb = hitInfo.collider.GetComponent<Rigidbody>();
+                
+                Rigidbody rb = hitInfo.collider.GetComponent<Pushable>().pushableRigidbody;
                 if (rb != null)
                 {
-                    if(rb.GetComponent<Pushable>() != null)
-                    {
-                        Vector3 forceVector = m_transform.forward * m_impulseMagnitude;
-                        forceVector = forceVector * (1 - hitInfo.distance / m_grabMaxDistance);
-                        rb.AddForce(forceVector, ForceMode.Impulse);
-                        return;
-                    }
+                    Vector3 forceVector = m_transform.forward * m_impulseMagnitude;
+                    forceVector = forceVector * (1 - hitInfo.distance / m_grabMaxDistance);
+                    rb.GetComponent<Pushable>().PushRpc(forceVector);
+                    Invoke(nameof(PushEndDelay), 0.1f);
+                    return;   
                 }
             }
-            m_pushing = false;
-        }
-
-        [Rpc(SendTo.Server)]
-        void PushRpc()
-        {
-            
         }
 
         void SetHeldObject(Rigidbody target, float distance)
@@ -266,6 +252,11 @@ namespace Lightbug.GrabIt
             {
                 Physics.IgnoreCollision(m_targetRB.GetComponent<Collider>(), transform.parent.GetComponent<CapsuleCollider>(), true);
             }           
+        }
+
+        void PushEndDelay()
+        {
+            m_pushing = false;
         }
 
         void Release()
