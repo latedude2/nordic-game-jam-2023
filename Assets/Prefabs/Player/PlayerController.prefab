@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1844265494205094343}
   m_Layer: 0
   m_Name: PlayerController
-  m_TagString: Untagged
+  m_TagString: PlayerController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 0
+  GlobalObjectIdHash: 3990115313
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -101,3 +101,4 @@ MonoBehaviour:
   PossessedObject: {fileID: 0}
   InitialPossessedPrefab: {fileID: 1773623360729482, guid: 11aaea5348574644a9eb4f4504fcce3f,
     type: 3}
+  Inventory: {fileID: 0}

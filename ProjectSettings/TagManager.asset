@@ -8,6 +8,7 @@ TagManager:
   - DoorHandle
   - Monster
   - Upgrade
+  - PlayerController
   layers:
   - Default
   - TransparentFX
