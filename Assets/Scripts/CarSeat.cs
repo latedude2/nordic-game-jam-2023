@@ -50,7 +50,8 @@ public class CarSeat : NetworkBehaviour
         GetComponentInChildren<MouseInteraction>().enabled = true;
         GetComponentInChildren<CameraControl>().enabled = true;
         GetComponentInChildren<GrabIt>().enabled = true;
-        GetComponentInChildren<Renderer>().enabled = true;
+        ShowPlayerInCarRpc(true);
+        
         if(isDriverSeat)
         {
             RequestCarPosessRpc(clientId);
@@ -69,8 +70,9 @@ public class CarSeat : NetworkBehaviour
         GetComponentInChildren<AudioListener>().enabled = false;
         GetComponentInChildren<MouseInteraction>().enabled = false;
         GetComponentInChildren<CameraControl>().enabled = false;
-         GetComponentInChildren<GrabIt>().enabled = false;
-         GetComponentInChildren<Renderer>().enabled = false;
+        GetComponentInChildren<GrabIt>().enabled = false;
+        ShowPlayerInCarRpc(false);
+        
         if(isDriverSeat)
             RequestCarUnPosessRpc();
         
@@ -88,6 +90,12 @@ public class CarSeat : NetworkBehaviour
     {
         Debug.Log("Received request RequestCarPosessRpc on server for client " + ClientId.ToString());
         GetComponentInParent<PrometeoCarController>().Possess(ClientId);
+    }
+
+    [Rpc(SendTo.Everyone)]
+    public void ShowPlayerInCarRpc(bool visible)
+    {
+        GetComponentInChildren<Renderer>().enabled = visible;
     }
 
     [Rpc(SendTo.Server)]
