@@ -39,7 +39,7 @@ public class MouseInteraction : NetworkBehaviour
             {
                 if(Input.GetMouseButtonDown(0))
                 {
-                    hit.collider.gameObject.GetComponent<Radio>().ToggleRpc();
+                    hit.collider.gameObject.GetComponent<Radio>().Toggle();
                 }
                 
             }
