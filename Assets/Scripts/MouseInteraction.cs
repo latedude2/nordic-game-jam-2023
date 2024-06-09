@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //Script to handle mouse interaction with objects
@@ -9,6 +10,9 @@ public class MouseInteraction : NetworkBehaviour
 {
     private Camera cam;
     public RaycastHit hit;
+
+    public PlayerController playerController;
+
     void Start()
     {
         cam = GetComponent<Camera>();
@@ -16,6 +20,11 @@ public class MouseInteraction : NetworkBehaviour
         {
             cam.enabled = false;
         }
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        playerController = PlayerController.GetPlayerPlayerController(OwnerClientId);
     }
     
     void Update()
@@ -33,6 +42,15 @@ public class MouseInteraction : NetworkBehaviour
             if(hit.collider.gameObject.GetComponent<HoverInfo>())
             {
                 hit.collider.gameObject.GetComponent<HoverInfo>().Show();
+            }
+
+            if(hit.collider.gameObject.GetComponent<Pickup>())
+            {   
+                if(Input.GetMouseButtonDown(0))
+                {
+                    hit.collider.gameObject.GetComponent<Pickup>().PickupItemRpc(playerController.GetComponent<Inventory>());
+                }
+                
             }
 
             if (hit.collider.gameObject.tag == "Radio")
