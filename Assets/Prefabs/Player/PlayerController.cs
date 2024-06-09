@@ -10,6 +10,7 @@ public class PlayerController : NetworkBehaviour
 {
     public GameObject PossessedObject;
     public GameObject InitialPossessedPrefab;
+    public Inventory Inventory;
 
     private Vector2 Look;
     private Vector2 Move;
@@ -91,6 +92,19 @@ public class PlayerController : NetworkBehaviour
         }
 
         return respawns[clientID].transform.position;
+    }
+
+    public static PlayerController GetPlayerPlayerController(ulong clientID)
+    {
+        foreach (var player in GameObject.FindGameObjectsWithTag("PlayerController"))
+        {
+            var playerController = player.GetComponent<PlayerController>();
+            if(playerController.OwnerClientId == clientID)
+            {
+                return playerController;
+            }
+        }
+        return null;
     }
 
 

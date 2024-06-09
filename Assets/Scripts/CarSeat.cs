@@ -28,6 +28,7 @@ public class CarSeat : NetworkBehaviour
         GetComponentInChildren<MouseInteraction>().enabled = false;
         GetComponentInChildren<CameraControl>().enabled = false;
         GetComponentInChildren<GrabIt>().enabled = false;
+        GetComponentInChildren<Renderer>().enabled = false;
         
     }
 
@@ -44,12 +45,12 @@ public class CarSeat : NetworkBehaviour
             return;
         }
         playerInCar = true;
-
         StartCoroutine(DelayedCameraEnable());
         GetComponentInChildren<AudioListener>().enabled = true;
         GetComponentInChildren<MouseInteraction>().enabled = true;
         GetComponentInChildren<CameraControl>().enabled = true;
         GetComponentInChildren<GrabIt>().enabled = true;
+        GetComponentInChildren<Renderer>().enabled = true;
         if(isDriverSeat)
         {
             RequestCarPosessRpc(clientId);
@@ -69,6 +70,7 @@ public class CarSeat : NetworkBehaviour
         GetComponentInChildren<MouseInteraction>().enabled = false;
         GetComponentInChildren<CameraControl>().enabled = false;
          GetComponentInChildren<GrabIt>().enabled = false;
+         GetComponentInChildren<Renderer>().enabled = false;
         if(isDriverSeat)
             RequestCarUnPosessRpc();
         

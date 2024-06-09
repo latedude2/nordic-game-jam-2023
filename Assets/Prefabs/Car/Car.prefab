@@ -5857,7 +5857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 4089356781
+  GlobalObjectIdHash: 1433353251
   InScenePlacedSourceGlobalObjectIdHash: 4089356781
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -8139,7 +8139,7 @@ PrefabInstance:
     - target: {fileID: 1456258260393862981, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
       propertyPath: m_Name
-      value: CameraParent
+      value: PlayerInCarDriver
       objectReference: {fileID: 0}
     - target: {fileID: 4316338388782178947, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
@@ -8236,7 +8236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1379218815
+  GlobalObjectIdHash: 1433353251
   InScenePlacedSourceGlobalObjectIdHash: 4089356781
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -8949,7 +8949,7 @@ PrefabInstance:
     - target: {fileID: 1456258260393862981, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
       propertyPath: m_Name
-      value: CameraParent (1)
+      value: PlayerInCarRight
       objectReference: {fileID: 0}
     - target: {fileID: 4316338388782178947, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
@@ -9053,7 +9053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2877266065
+  GlobalObjectIdHash: 1433353251
   InScenePlacedSourceGlobalObjectIdHash: 4089356781
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -9379,7 +9379,7 @@ PrefabInstance:
     - target: {fileID: 1456258260393862981, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
       propertyPath: m_Name
-      value: CameraParent (3)
+      value: CameraParentRearLeft
       objectReference: {fileID: 0}
     - target: {fileID: 4316338388782178947, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
@@ -9489,7 +9489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1925955039
+  GlobalObjectIdHash: 1433353251
   InScenePlacedSourceGlobalObjectIdHash: 4089356781
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -9863,7 +9863,7 @@ PrefabInstance:
     - target: {fileID: 1456258260393862981, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
       propertyPath: m_Name
-      value: CameraParent (2)
+      value: CameraParentRearRight
       objectReference: {fileID: 0}
     - target: {fileID: 4316338388782178947, guid: 6e410b13e70e1ca4593c756c2f1cd00f,
         type: 3}
@@ -9973,7 +9973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 112762165
+  GlobalObjectIdHash: 1433353251
   InScenePlacedSourceGlobalObjectIdHash: 4089356781
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
