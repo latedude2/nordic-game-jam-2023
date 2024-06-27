@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(PrometeoCarController))]
 public class CarFuelResource : MonoBehaviour
 {
+    public RectTransform fuelDisplay;
+    private float fuelDisplayMaxWidth;
+    private float fuelDisplayMaxHeight;
     private Vector3 previousPosition;
     public float maxFuel = 1.0f;
     public float fuelSpendScalar;
@@ -16,12 +19,15 @@ public class CarFuelResource : MonoBehaviour
         previousPosition = transform.position;
         currentFuel = maxFuel;
         engine = GetComponent<Engine>();
+        fuelDisplayMaxWidth = fuelDisplay.sizeDelta.x;
+        fuelDisplayMaxHeight = fuelDisplay.sizeDelta.y;
     }
 
     void Update()
     {
         SpendFuel();
         EvaluateFuel();
+        UpdateFuelDisplay();
     }
 
     private void SpendFuel()
@@ -41,5 +47,10 @@ public class CarFuelResource : MonoBehaviour
     public void Refuel()
     {
         currentFuel = maxFuel;
+    }
+
+    private void UpdateFuelDisplay()
+    {
+        fuelDisplay.sizeDelta = new Vector2(currentFuel * fuelDisplayMaxWidth, fuelDisplayMaxHeight);
     }
 }
