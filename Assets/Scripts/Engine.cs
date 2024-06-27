@@ -104,7 +104,7 @@ public class Engine : NetworkBehaviour
     }
 
     [Rpc(SendTo.Server)]
-    void TurnOffRpc()
+    public void TurnOffRpc()
     {
         isOn.Value = false;
     }
