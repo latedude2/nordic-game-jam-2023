@@ -10,6 +10,7 @@ public class CarFuelResource : MonoBehaviour
     private float fuelDisplayMaxHeight;
     private Vector3 previousPosition;
     public float maxFuel = 1.0f;
+    public float startingFuel = 0.0f;
     public float fuelSpendScalar;
     public float currentFuel;
     private Engine engine;
@@ -17,7 +18,7 @@ public class CarFuelResource : MonoBehaviour
     void Start()
     {
         previousPosition = transform.position;
-        currentFuel = maxFuel;
+        currentFuel = startingFuel;
         engine = GetComponent<Engine>();
         fuelDisplayMaxWidth = fuelDisplay.sizeDelta.x;
         fuelDisplayMaxHeight = fuelDisplay.sizeDelta.y;
