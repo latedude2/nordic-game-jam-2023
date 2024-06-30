@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Unity.Netcode;
+using Unity.VisualScripting;
 
 namespace Lightbug.GrabIt
 {
@@ -84,6 +85,11 @@ namespace Lightbug.GrabIt
 
         void OnGrabbed(Rigidbody rb)
         {
+            if(rb == null)
+            {
+                return;
+            }
+
             NetworkObjectReference target = rb.GetComponent<NetworkObject>();
             GrabbedChangeOwnershipRpc(target);
         }
@@ -287,7 +293,11 @@ namespace Lightbug.GrabIt
 
         void Hold()
         {
-
+            if(m_targetRB == null)
+            {
+                Drop();
+                return;
+            }
             //If held object gets destroyed for some reason
             Vector3 hitPointPos = m_targetRB.position;
             Vector3 dif = m_targetPos - hitPointPos;
