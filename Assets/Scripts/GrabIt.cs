@@ -34,7 +34,7 @@ namespace Lightbug.GrabIt
         float m_grabMaxDistance = 10;
 
         [SerializeField]
-        float m_impulseMagnitude = 2500;
+        float m_impulseMagnitude = 1;
 
         public delegate void GrabObjectHandler(Rigidbody rb);
         public static event GrabObjectHandler Grabbed;
@@ -210,7 +210,7 @@ namespace Lightbug.GrabIt
                 Rigidbody rb = hitInfo.collider.GetComponent<Pushable>().pushableRigidbody;
                 if (rb != null)
                 {
-                    Vector3 forceVector = m_transform.forward * m_impulseMagnitude;
+                    Vector3 forceVector = m_transform.forward * m_impulseMagnitude * rb.mass;
                     forceVector = forceVector * (1 - hitInfo.distance / m_grabMaxDistance);
                     rb.GetComponent<Pushable>().PushRpc(forceVector);
                     Invoke(nameof(PushEndDelay), 0.1f);
@@ -327,7 +327,7 @@ namespace Lightbug.GrabIt
         {
             if (m_applyImpulse)
             {
-                m_targetRB.velocity = m_transform.forward * m_impulseMagnitude;
+                m_targetRB.velocity = m_transform.forward * m_impulseMagnitude * m_targetRB.mass * 50;
                 Release();
                 m_holding = false;
                 m_applyImpulse = false;

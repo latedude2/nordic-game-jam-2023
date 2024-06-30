@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceThreshold: 0.15
-  isGrounded: 1
+  isGrounded: 0
 --- !u!1 &1593727746557118
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,6 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a35e727731d5d4aa580463e3daa0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
 --- !u!114 &4661190275865417915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,7 +525,7 @@ MonoBehaviour:
   m_grabSpeed: 7
   m_grabMinDistance: 1
   m_grabMaxDistance: 10
-  m_impulseMagnitude: 1000
+  m_impulseMagnitude: 1
   m_grabProperties:
     m_useGravity: 0
     m_mass: 0.1
