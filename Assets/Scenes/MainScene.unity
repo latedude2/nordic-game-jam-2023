@@ -1965,6 +1965,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1668759263
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2417813938638559344, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417813938638559344, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 201.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417813938638559344, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.397
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417813938638559344, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 267.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417813938638559344, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417813938638559344, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417813938638559344, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417813938638559344, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417813938638559344, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417813938638559344, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417813938638559344, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417813938638559348, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: m_Name
+      value: FuelCan (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840470348363347774, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2434267906
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840470348363347774, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2593672950
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c945124e0b4765543b04526162ca2188, type: 3}
 --- !u!1001 &1835420799
 PrefabInstance:
   m_ObjectHideFlags: 0
