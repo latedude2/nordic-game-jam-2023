@@ -32,12 +32,8 @@ public class LootDetector : MonoBehaviour
         timer += Time.fixedDeltaTime;
         if(timer >= beepDelay)
         {
-            DashLight.SetActive(true);
+            DashLight.SetActive(!DashLight.activeSelf);
             timer = 0;
-        }
-        else
-        {
-            DashLight.SetActive(false);
         }
     }
 
