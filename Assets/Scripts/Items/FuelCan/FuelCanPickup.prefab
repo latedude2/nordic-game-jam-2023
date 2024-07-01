@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2158380129034660429, guid: 60fdc68f5d7fe65419027a3a8869a186,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 131245015
+      value: 2593672950
       objectReference: {fileID: 0}
     - target: {fileID: 5816158679266444547, guid: 60fdc68f5d7fe65419027a3a8869a186,
         type: 3}
@@ -79,3 +79,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60fdc68f5d7fe65419027a3a8869a186, type: 3}
+--- !u!1 &2417813938638559348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5816158679266444551, guid: 60fdc68f5d7fe65419027a3a8869a186,
+    type: 3}
+  m_PrefabInstance: {fileID: 8159090374182264179}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9054805041610052001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2417813938638559348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad121dfb70f23fe478ae37ec1f4c684a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2176457423483827367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2417813938638559348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7dc8c7d4040ec46a9882162119ba52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextToDisplay: Fuel can
