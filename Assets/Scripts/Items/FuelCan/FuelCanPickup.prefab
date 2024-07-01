@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2158380129034660429, guid: 60fdc68f5d7fe65419027a3a8869a186,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3773650534
+      value: 131245015
       objectReference: {fileID: 0}
     - target: {fileID: 5816158679266444547, guid: 60fdc68f5d7fe65419027a3a8869a186,
         type: 3}
@@ -70,7 +70,12 @@ PrefabInstance:
     - target: {fileID: 5816158679266444551, guid: 60fdc68f5d7fe65419027a3a8869a186,
         type: 3}
       propertyPath: m_Name
-      value: FuelCan
+      value: FuelCanPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816158679266444551, guid: 60fdc68f5d7fe65419027a3a8869a186,
+        type: 3}
+      propertyPath: m_TagString
+      value: Loot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60fdc68f5d7fe65419027a3a8869a186, type: 3}

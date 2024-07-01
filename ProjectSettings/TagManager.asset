@@ -9,6 +9,7 @@ TagManager:
   - Monster
   - Upgrade
   - PlayerController
+  - Loot
   layers:
   - Default
   - TransparentFX
