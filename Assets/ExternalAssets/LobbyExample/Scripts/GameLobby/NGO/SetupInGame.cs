@@ -6,6 +6,8 @@ using Unity.Networking.Transport;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 namespace LobbyRelaySample.ngo
 {
@@ -19,7 +21,8 @@ namespace LobbyRelaySample.ngo
         GameObject m_IngameRunnerPrefab = default;
         [SerializeField]
         private GameObject[] m_disableWhileInGame = default;
-
+        [SerializeField]
+        private TMP_Dropdown mapDropdown;
         private InGameRunner m_inGameRunner;
 
         private bool m_doesNeedCleanup = false;
@@ -44,7 +47,8 @@ namespace LobbyRelaySample.ngo
             {
                 await SetRelayHostData();
                 NetworkManager.Singleton.StartHost();
-                NetworkManager.Singleton.SceneManager.LoadScene("MainScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
+                Debug.Log(mapDropdown.options[mapDropdown.value].text);
+                NetworkManager.Singleton.SceneManager.LoadScene(mapDropdown.options[mapDropdown.value].text, UnityEngine.SceneManagement.LoadSceneMode.Single);
             }
             else
             {
