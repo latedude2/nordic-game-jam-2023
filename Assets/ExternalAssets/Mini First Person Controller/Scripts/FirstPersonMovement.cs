@@ -44,6 +44,15 @@ public class FirstPersonMovement : NetworkBehaviour, Possessable
         // Get targetVelocity from input.
         Vector2 targetVelocity =new Vector2( Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
 
+        if(targetVelocity.magnitude > 0.1f)
+        {
+            GetComponent<Animator>().SetBool("IsWalking", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("IsWalking", false);
+        }
+
         // Apply movement.
         ControllerRigidbody.velocity = transform.rotation * new Vector3(targetVelocity.x, ControllerRigidbody.velocity.y, targetVelocity.y);
     }
