@@ -195,6 +195,7 @@ MonoBehaviour:
   m_grabMinDistance: 1
   m_grabMaxDistance: 10
   m_impulseMagnitude: 25
+  canPush: 0
   m_grabProperties:
     m_useGravity: 0
     m_mass: 0.1

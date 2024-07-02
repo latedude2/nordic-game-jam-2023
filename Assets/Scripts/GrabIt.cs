@@ -37,6 +37,9 @@ namespace Lightbug.GrabIt
         [SerializeField]
         float m_impulseMagnitude = 1;
 
+        [SerializeField]
+        bool canPush = true;
+
         public delegate void GrabObjectHandler(Rigidbody rb);
         public static event GrabObjectHandler Grabbed;
         public static event GrabObjectHandler Released;
@@ -182,8 +185,12 @@ namespace Lightbug.GrabIt
             RaycastHit hitInfo = GetComponent<MouseInteraction>().hit;
             if (hitInfo.collider != null)
             {
-                 if(hitInfo.collider.GetComponent<Pushable>() != null)
+                if(hitInfo.collider.GetComponent<Pushable>() != null)
                 {
+                    if(!canPush)
+                    {
+                        return;
+                    }
                     m_pushing = true;
                     Push();
                     GrabSound();
