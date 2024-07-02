@@ -1,8 +1,5 @@
 ﻿using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using Unity.Netcode;
-using Unity.VisualScripting;
 
 namespace Lightbug.GrabIt
 {
@@ -93,6 +90,11 @@ namespace Lightbug.GrabIt
                 return;
             }
 
+            if(!rb.GetComponent<NetworkObject>().IsSpawned)
+            {
+                return;
+            }
+
             NetworkObjectReference target = rb.GetComponent<NetworkObject>();
             GrabbedChangeOwnershipRpc(target);
         }
@@ -104,7 +106,6 @@ namespace Lightbug.GrabIt
             if (target.TryGet(out NetworkObject targetObject))
             {
                 targetObject.ChangeOwnership(GetComponentInParent<NetworkObject>().OwnerClientId);
-                Debug.Log("Ownership changed to " + GetComponentInParent<NetworkObject>().OwnerClientId);
             }
         }
 

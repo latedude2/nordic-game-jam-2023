@@ -25,7 +25,7 @@ public class AIAttackBehavior : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         AttackCooldown = AttackCooldownScaledToIntensity();
         CarSeat.onEnter.AddListener(SetCurrentPlayerGameobject);
-        CarSeat.onExit.AddListener(SetCurrentPlayerGameobject);
+        //CarSeat.onExit.AddListener(SetCurrentPlayerGameobject); //broken for now
         ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(ModifyBehaviorAccordingToIntensity);
     }
 
@@ -142,9 +142,11 @@ public class AIAttackBehavior : MonoBehaviour
 
     void ThrowOutOfCar()
     {
+        /*
         if(CarSeat.playerInCar)
         {
             //TODO: CarExitHandle.Instance.Exit(ID OF PLAYER IN CAR);
         }
+        */
     }
 }

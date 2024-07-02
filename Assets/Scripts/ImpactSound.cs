@@ -17,6 +17,7 @@ public class ImpactSound : MonoBehaviour
     void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = 0.3f;
     }
 
     void OnTriggerEnter(Collider collider)

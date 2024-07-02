@@ -33,9 +33,8 @@ public class CameraControl : MonoBehaviour
         CarEnterHandle.onEnter.AddListener(ResetCameraRotation);
     }
 
-    void ResetCameraRotation(ulong clientId)
+    void ResetCameraRotation(ulong clientId, bool isDriverSeat)
     {
-        Debug.Log("Reset camera rotation");
         transform.localEulerAngles = new Vector3(0, 0, 0);
         rotationY = 0;
     }

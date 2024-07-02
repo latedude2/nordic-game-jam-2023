@@ -8,7 +8,6 @@ public class Engine : NetworkBehaviour
 {
     public NetworkVariable<bool> isOn = new NetworkVariable<bool>(false);
     public static Engine Instance;
-    Rigidbody carRigidbody;
     float engineTimer = 0;
     AudioSource engineTurnSoundSource;
     [SerializeField] private AudioMixerGroup engineMixer;
@@ -19,7 +18,6 @@ public class Engine : NetworkBehaviour
     public Transform interiorLight;
     public Transform tutorialPrompt;
     public float engineStartTime =  3f;
-    private bool carReachedProperSpeed = false;
 
     void Awake()
     {
@@ -28,7 +26,6 @@ public class Engine : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        carRigidbody = GetComponent<Rigidbody>();
         engineTurnSoundSource = gameObject.AddComponent<AudioSource>();
         engineTurnSoundSource.outputAudioMixerGroup = engineMixer;
         leftLight.gameObject.SetActive(false);
@@ -49,7 +46,7 @@ public class Engine : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(!IsOwner)
+        if(!IsOwner || GetComponent<PrometeoCarController>().playerControlled.Value == false)
         {
             return;
         }
@@ -128,7 +125,6 @@ public class Engine : NetworkBehaviour
         {
             engineTurnSoundSource.clip = engineStopSound;
             engineTurnSoundSource.Play();
-            carReachedProperSpeed = false;
         }
     }
 }

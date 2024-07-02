@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDriverSeat: 0
-  camera: {fileID: 0}
+  SittingCamera: {fileID: 1110515317843955022}
 --- !u!1 &5773802085330706667
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,8 +10,7 @@ public class CarEnterWiggle : MonoBehaviour
         CarEnterHandle.onEnter.AddListener(ApplySidewaysImpulseToRigidbody);
     }
 
-    void ApplySidewaysImpulseToRigidbody(ulong clientId){
-        Debug.Log("Apply sideways impulse to rigidbody");
+    void ApplySidewaysImpulseToRigidbody(ulong clientId, bool isDriverSeat){
         Rigidbody rb = GetComponent<Rigidbody>();
         //find point left of car
         Vector3 leftPoint = transform.position + transform.right * -10;

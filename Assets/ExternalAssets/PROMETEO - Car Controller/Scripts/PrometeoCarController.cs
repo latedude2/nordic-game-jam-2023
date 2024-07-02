@@ -114,7 +114,8 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
       [Space(10)]
       //The following variables lets you to set up touch controls for mobile devices.
       public bool useTouchControls = false;
-      public bool playerControlled = false;
+      public NetworkVariable<bool> playerControlled = new NetworkVariable<bool>(false);
+      
       public GameObject throttleButton;
       PrometeoTouchInput throttlePTI;
       public GameObject reverseButton;
@@ -147,7 +148,6 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
       float localVelocityZ;
       float localVelocityX;
       bool deceleratingCar;
-      bool touchControlsSetup = false;
       /*
       The following variables are used to store information about sideways friction of the wheels (such as
       extremumSlip,extremumValue, asymptoteSlip, asymptoteValue and stiffness). We change this values to
@@ -169,7 +169,6 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
     // Start is called before the first frame update
     void Start()
     {
-      CarExitHandle.onExit.AddListener(OnCarExited);
       CarEnterHandle.onEnter.AddListener(OnCarEntered);
       upgradeSystem = GetComponent<UpgradeSystem>();
 
@@ -254,26 +253,6 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
             RRWTireSkid.emitting = false;
           }
         }
-
-        if(useTouchControls){
-          if(throttleButton != null && reverseButton != null &&
-          turnRightButton != null && turnLeftButton != null
-          && handbrakeButton != null){
-
-            throttlePTI = throttleButton.GetComponent<PrometeoTouchInput>();
-            reversePTI = reverseButton.GetComponent<PrometeoTouchInput>();
-            turnLeftPTI = turnLeftButton.GetComponent<PrometeoTouchInput>();
-            turnRightPTI = turnRightButton.GetComponent<PrometeoTouchInput>();
-            handbrakePTI = handbrakeButton.GetComponent<PrometeoTouchInput>();
-            touchControlsSetup = true;
-
-          }else{
-            String ex = "Touch controls are not completely set up. You must drag and drop your scene buttons in the" +
-            " PrometeoCarController component.";
-            Debug.LogWarning(ex);
-          }
-        }
-
     }
 
     // Update is called once per frame
@@ -291,9 +270,8 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
           carEngineSound.Stop();
       }
 
-      // We call the method AnimateWheelMeshes() in order to match the wheel collider movements with the 3D meshes of the wheels.
-      if(playerControlled)
-        AnimateWheelMeshes();
+      
+      AnimateWheelMeshes();
 
       //CAR DATA
 
@@ -323,7 +301,7 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
 
     private void HandleInput()
     {
-        if(!playerControlled)
+        if(!playerControlled.Value)
         {
           ThrottleOff();
           if(!deceleratingCar)
@@ -784,24 +762,26 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
       }
     }
 
-    void OnCarExited()
+    void OnCarEntered(ulong clientID, bool ByDriver)
     {
-      playerControlled = false;
-    }
-
-    void OnCarEntered(ulong clientID)
-    {
-        playerControlled = true;
+        if(ByDriver)
+        {
+          if(IsOwner)
+          {
+            playerControlled.Value = true;
+          }
+        }
+          
     }
 
     public void Possess(ulong clientID)
     {
-      Debug.Log("Client " + clientID + " is possessing car");
       GetComponent<NetworkObject>().ChangeOwnership(clientID);
     }
 
     public void Unpossess()
     {
+      playerControlled.Value = false;
       GetComponent<NetworkObject>().RemoveOwnership();
     }
 }

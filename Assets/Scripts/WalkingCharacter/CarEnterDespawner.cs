@@ -14,7 +14,7 @@ public class CarEnterDespawner : NetworkBehaviour
         CarEnterHandle.onEnter.AddListener(CarEnter);
     }
 
-    public void CarEnter(ulong clientId)
+    public void CarEnter(ulong clientId, bool ByDriver)
     {
         if(GetComponentInParent<NetworkObject>() == null)
         {
