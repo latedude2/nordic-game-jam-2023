@@ -2803,6 +2803,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5515088752154846602, guid: 9aae991127b410c45a001ecd7f75311d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[1].m_Text
+      value: SimonasTestScene
+      objectReference: {fileID: 0}
     - target: {fileID: 5778849136970622810, guid: 9aae991127b410c45a001ecd7f75311d,
         type: 3}
       propertyPath: m_AnchorMax.x

@@ -4,6 +4,7 @@ using Unity.Netcode;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerController : NetworkBehaviour
@@ -30,8 +31,13 @@ public class PlayerController : NetworkBehaviour
                 return;
             }
             
-            //TODO: update this to be the actual scene name
-            if(sceneName != "MainScene") return;
+            //check that MapList.maps contains sceneName 
+            if(!MapList.maps.Contains(sceneName))
+            {
+                Debug.LogError("Scene not found in MapList.maps: " + sceneName);
+                return;
+            }
+            
 
             if(IsHost)
             {

@@ -656,6 +656,7 @@ GameObject:
   - component: {fileID: 7408216310146899363}
   - component: {fileID: 287729021270800784}
   - component: {fileID: 2599359266206594271}
+  - component: {fileID: 1204096577407370500}
   m_Layer: 5
   m_Name: MapSelection
   m_TagString: Untagged
@@ -683,8 +684,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -271.4, y: -86.5}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -202.9, y: -86.5}
+  m_SizeDelta: {x: 285.18, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7408216310146899363
 CanvasRenderer:
@@ -773,15 +774,23 @@ MonoBehaviour:
   m_ItemImage: {fileID: 0}
   m_Value: 0
   m_Options:
-    m_Options:
-    - m_Text: mainScene
-      m_Image: {fileID: 0}
-    - m_Text: SimpleEnvironment
-      m_Image: {fileID: 0}
+    m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
   m_AlphaFadeSpeed: 0.15
+--- !u!114 &1204096577407370500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491307129066628018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83779cf1f3e45ec46ad0f61d4a9f66f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3950726262488730657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,7 +1840,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: mainScene
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 008daa1b26adf2b4ba0fbd11b7f79b6e, type: 2}
   m_sharedMaterial: {fileID: 7878303141229832600, guid: 008daa1b26adf2b4ba0fbd11b7f79b6e,
