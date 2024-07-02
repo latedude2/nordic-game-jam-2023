@@ -6,7 +6,7 @@ using UnityEngine;
 public class CarEnterHandle : MonoBehaviour
 {
     //event for exiting the car
-    static public UnityEvent<ulong> onEnter;
+    static public UnityEvent<ulong, bool> onEnter;
 
     [SerializeField] GameObject rainEffect;
     [SerializeField] GameObject car;
@@ -19,7 +19,7 @@ public class CarEnterHandle : MonoBehaviour
 
     public void Awake()
     {
-        onEnter = new UnityEvent<ulong>();        
+        onEnter = new UnityEvent<ulong, bool>();        
     }
     public void Start()
     {
@@ -29,7 +29,7 @@ public class CarEnterHandle : MonoBehaviour
     public void Enter(ulong ClientId)
     {
         audioSource.PlayOneShot(carEnterSound);
-        onEnter.Invoke(ClientId);
+        onEnter.Invoke(ClientId, CarSeat.isDriverSeat);
         CarSeat.CarEnter(ClientId);
         if(rainEffect != null)
             rainEffect.transform.SetParent(car.transform);

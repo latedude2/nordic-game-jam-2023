@@ -9,16 +9,10 @@ public class PizzaPlaceEntrance : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Collision with player on trigger");
             if(ObjectiveManager.Instance.IsEnoughPizzaDelivered())
             {
                 SceneManager.LoadScene("PizzaPlaceInside");
             }
-            else
-            {
-                Debug.Log("Not enough objectives completed");
-            }
-           
         }
     }
 }

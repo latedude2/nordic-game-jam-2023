@@ -7,23 +7,26 @@ using Lightbug.GrabIt;
 
 public class CarSeat : NetworkBehaviour
 {
-    [SerializeField] bool isDriverSeat = false;
-    public Camera camera;
+    [SerializeField] public bool isDriverSeat = false;
+    public Camera SittingCamera;
     static public UnityEvent onEnter;
-    static public UnityEvent onExit;
+    static public UnityEvent<bool> onExit;
 
-    static public bool playerInCar = false;
     static public ulong drivingClientId = 99;
 
     void Start()
     {
-        onExit = new UnityEvent();
+        onExit = new UnityEvent<bool>();
         onEnter = new UnityEvent();
+
+
         if(CarExitHandle.onExit != null)
         {
             CarExitHandle.onExit.AddListener(OnCarExit);
         }
-        camera.enabled = false;
+
+
+        SittingCamera.enabled = false;
         GetComponentInChildren<AudioListener>().enabled = false;
         GetComponentInChildren<MouseInteraction>().enabled = false;
         GetComponentInChildren<CameraControl>().enabled = false;
@@ -35,7 +38,7 @@ public class CarSeat : NetworkBehaviour
     public IEnumerator DelayedCameraEnable()
     {
         yield return new WaitForEndOfFrame();
-        camera.enabled = true;
+        SittingCamera.enabled = true;
     }
 
     public void CarEnter(ulong clientId)
@@ -44,7 +47,6 @@ public class CarSeat : NetworkBehaviour
         {
             return;
         }
-        playerInCar = true;
         StartCoroutine(DelayedCameraEnable());
         GetComponentInChildren<AudioListener>().enabled = true;
         GetComponentInChildren<MouseInteraction>().enabled = true;
@@ -55,7 +57,6 @@ public class CarSeat : NetworkBehaviour
         if(isDriverSeat)
         {
             RequestCarPosessRpc(clientId);
-            Debug.Log("RequestCarPosessRpc for client " + NetworkManager.Singleton.LocalClientId.ToString());
         }  
 
         RequestCameraPosessRpc(clientId);
@@ -65,8 +66,7 @@ public class CarSeat : NetworkBehaviour
 
     void OnCarExit()
     {
-        playerInCar = false;
-        camera.enabled = false;
+        SittingCamera.enabled = false;
         GetComponentInChildren<AudioListener>().enabled = false;
         GetComponentInChildren<MouseInteraction>().enabled = false;
         GetComponentInChildren<CameraControl>().enabled = false;
@@ -75,20 +75,11 @@ public class CarSeat : NetworkBehaviour
         
         if(isDriverSeat)
             RequestCarUnPosessRpc();
-        
-        onExit.Invoke();
-    }
-
-    [Rpc(SendTo.Server)]
-    public void RequestDespawnRpc()
-    {
-        gameObject.GetComponent<NetworkObject>().Despawn();
     }
 
     [Rpc(SendTo.Server)]
     public void RequestCarPosessRpc(ulong ClientId)
     {
-        Debug.Log("Received request RequestCarPosessRpc on server for client " + ClientId.ToString());
         GetComponentInParent<PrometeoCarController>().Possess(ClientId);
     }
 

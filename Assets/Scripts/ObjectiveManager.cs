@@ -8,7 +8,6 @@ using Unity.Netcode;
 public class ObjectiveManager : NetworkBehaviour
 {
     public List<Objective> potentialObjectives;
-    private float terrainIncreaseValue = 0.0002f;
     private NetworkVariable<int> completedObjectiveCount = new NetworkVariable<int>(0);
 
     public int RequiredPizzasForExit = 4; 

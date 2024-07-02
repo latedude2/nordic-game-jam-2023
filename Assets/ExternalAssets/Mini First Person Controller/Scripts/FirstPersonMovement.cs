@@ -12,7 +12,7 @@ public class FirstPersonMovement : NetworkBehaviour, Possessable
     public float runSpeed = 9;
     public KeyCode runningKey = KeyCode.LeftShift;
 
-    Rigidbody rigidbody;
+    Rigidbody ControllerRigidbody;
     /// <summary> Functions to override movement speed. Will use the last added override. </summary>
     public List<System.Func<float>> speedOverrides = new List<System.Func<float>>();
 
@@ -21,7 +21,7 @@ public class FirstPersonMovement : NetworkBehaviour, Possessable
     void Awake()
     {
         // Get the rigidbody on this.
-        rigidbody = GetComponent<Rigidbody>();
+        ControllerRigidbody = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
@@ -45,7 +45,7 @@ public class FirstPersonMovement : NetworkBehaviour, Possessable
         Vector2 targetVelocity =new Vector2( Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
 
         // Apply movement.
-        rigidbody.velocity = transform.rotation * new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.y);
+        ControllerRigidbody.velocity = transform.rotation * new Vector3(targetVelocity.x, ControllerRigidbody.velocity.y, targetVelocity.y);
     }
 
     public void Possess(ulong clientID)

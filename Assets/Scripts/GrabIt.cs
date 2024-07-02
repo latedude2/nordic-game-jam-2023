@@ -1,8 +1,5 @@
 ﻿using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using Unity.Netcode;
-using Unity.VisualScripting;
 
 namespace Lightbug.GrabIt
 {
@@ -36,6 +33,9 @@ namespace Lightbug.GrabIt
 
         [SerializeField]
         float m_impulseMagnitude = 1;
+
+        [SerializeField]
+        bool canPush = true;
 
         public delegate void GrabObjectHandler(Rigidbody rb);
         public static event GrabObjectHandler Grabbed;
@@ -90,6 +90,11 @@ namespace Lightbug.GrabIt
                 return;
             }
 
+            if(!rb.GetComponent<NetworkObject>().IsSpawned)
+            {
+                return;
+            }
+
             NetworkObjectReference target = rb.GetComponent<NetworkObject>();
             GrabbedChangeOwnershipRpc(target);
         }
@@ -101,7 +106,6 @@ namespace Lightbug.GrabIt
             if (target.TryGet(out NetworkObject targetObject))
             {
                 targetObject.ChangeOwnership(GetComponentInParent<NetworkObject>().OwnerClientId);
-                Debug.Log("Ownership changed to " + GetComponentInParent<NetworkObject>().OwnerClientId);
             }
         }
 
@@ -182,8 +186,12 @@ namespace Lightbug.GrabIt
             RaycastHit hitInfo = GetComponent<MouseInteraction>().hit;
             if (hitInfo.collider != null)
             {
-                 if(hitInfo.collider.GetComponent<Pushable>() != null)
+                if(hitInfo.collider.GetComponent<Pushable>() != null)
                 {
+                    if(!canPush)
+                    {
+                        return;
+                    }
                     m_pushing = true;
                     Push();
                     GrabSound();
