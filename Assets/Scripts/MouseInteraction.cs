@@ -49,6 +49,7 @@ public class MouseInteraction : NetworkBehaviour
                 if(Input.GetMouseButtonDown(0))
                 {
                     hit.collider.gameObject.GetComponent<Pickup>().PickupItemRpc(playerController.GetComponent<Inventory>());
+                    return;
                 }
                 
             }

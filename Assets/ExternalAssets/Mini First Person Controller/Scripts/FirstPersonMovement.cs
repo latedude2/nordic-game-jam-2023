@@ -12,6 +12,8 @@ public class FirstPersonMovement : NetworkBehaviour, Possessable
     public float runSpeed = 9;
     public KeyCode runningKey = KeyCode.LeftShift;
 
+    [SerializeField] Transform RightHand;
+
     Rigidbody ControllerRigidbody;
     /// <summary> Functions to override movement speed. Will use the last added override. </summary>
     public List<System.Func<float>> speedOverrides = new List<System.Func<float>>();
@@ -23,6 +25,16 @@ public class FirstPersonMovement : NetworkBehaviour, Possessable
     {
         // Get the rigidbody on this.
         ControllerRigidbody = GetComponent<Rigidbody>();
+    }
+
+    void Start()
+    {
+        if(!IsOwner)
+        {
+            return;
+        }
+        
+        Possess(OwnerClientId);
     }
 
     void FixedUpdate()
@@ -61,6 +73,7 @@ public class FirstPersonMovement : NetworkBehaviour, Possessable
     public void Possess(ulong clientID)
     {
         Debug.Log("Possessing" + gameObject.name);
+        PlayerController.GetPlayerPlayerController(clientID).GetComponent<Inventory>().RightHand = RightHand;
     }
 
     public void Unpossess()

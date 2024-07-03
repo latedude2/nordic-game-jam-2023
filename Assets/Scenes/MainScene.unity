@@ -1143,6 +1143,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: FuelCan (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 5734988165571827020, guid: c945124e0b4765543b04526162ca2188,
+        type: 3}
+      propertyPath: itemToGrantPlayer
+      value: 
+      objectReference: {fileID: 11400000, guid: a8c1e3d30086f3c45923ab06f28a52dc,
+        type: 2}
     - target: {fileID: 7840470348363347774, guid: c945124e0b4765543b04526162ca2188,
         type: 3}
       propertyPath: GlobalObjectIdHash

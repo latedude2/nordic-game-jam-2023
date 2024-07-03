@@ -566,6 +566,7 @@ MonoBehaviour:
   canRun: 1
   runSpeed: 6
   runningKey: 304
+  RightHand: {fileID: 7798030448175062717}
   animator: {fileID: 6827870423420965457}
 --- !u!114 &114497868231759342
 MonoBehaviour:
@@ -611,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5559ff9ab6b5ba1488daa4d6cde34b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 10
 --- !u!114 &3627282231368938870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1603,3 +1604,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
   m_Animator: {fileID: 6827870423420965457}
+--- !u!4 &7798030448175062717 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2675936845010596086, guid: f81a69a6940149b488038006dca95593,
+    type: 3}
+  m_PrefabInstance: {fileID: 3955571135594369463}
+  m_PrefabAsset: {fileID: 0}

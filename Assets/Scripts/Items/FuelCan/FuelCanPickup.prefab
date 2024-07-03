@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2158380129034660429, guid: 60fdc68f5d7fe65419027a3a8869a186,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 2593672950
+      value: 131245015
       objectReference: {fileID: 0}
     - target: {fileID: 5816158679266444547, guid: 60fdc68f5d7fe65419027a3a8869a186,
         type: 3}
@@ -85,18 +85,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8159090374182264179}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9054805041610052001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2417813938638559348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad121dfb70f23fe478ae37ec1f4c684a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2176457423483827367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,3 +98,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextToDisplay: Fuel can
+--- !u!114 &5734988165571827020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2417813938638559348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0211a4fb0a9b4a419b14f7e1f9e20b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToGrantPlayer: {fileID: 11400000, guid: a8c1e3d30086f3c45923ab06f28a52dc, type: 2}
+--- !u!114 &9054805041610052001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2417813938638559348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad121dfb70f23fe478ae37ec1f4c684a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

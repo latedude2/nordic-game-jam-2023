@@ -18,8 +18,6 @@ namespace LobbyRelaySample.ngo
     public class SetupInGame : MonoBehaviour
     {
         [SerializeField]
-        GameObject m_IngameRunnerPrefab = default;
-        [SerializeField]
         private GameObject[] m_disableWhileInGame = default;
         [SerializeField]
         private TMP_Dropdown mapDropdown;

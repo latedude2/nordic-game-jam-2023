@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Pickup : NetworkBehaviour
 {
-    public NetworkBehaviour itemToGrantPlayer;
+    public Item itemToGrantPlayer;
 
     [Rpc(SendTo.Owner)]
     public void PickupItemRpc(NetworkBehaviourReference Inventory)
@@ -13,15 +13,13 @@ public class Pickup : NetworkBehaviour
         // Grant the player the item
         if (Inventory.TryGet(out Inventory inventory))
         {
-            inventory.AddItemRpc(itemToGrantPlayer);
+
+            inventory.AddItemRpc(JsonUtility.ToJson(itemToGrantPlayer.itemReference));
             // Destroy the pickup
             Destroy(gameObject);
         }
         else {
             Debug.Log("Pickup got reference to null inventory!");
         }
-        
-
-        
     }
 }
