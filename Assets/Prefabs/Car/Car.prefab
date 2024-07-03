@@ -5910,7 +5910,8 @@ MonoBehaviour:
   carEngineSound: {fileID: 4486142049271770566}
   tireScreechSound: {fileID: 5597244863200432423}
   useTouchControls: 0
-  playerControlled: 0
+  playerControlled:
+    m_InternalValue: 0
   throttleButton: {fileID: 0}
   reverseButton: {fileID: 0}
   turnRightButton: {fileID: 0}
@@ -9845,6 +9846,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6f2e51a554b0254fa37a3ea8f224b28, type: 3}
+--- !u!1 &6289002727699646755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b6f2e51a554b0254fa37a3ea8f224b28,
+    type: 3}
+  m_PrefabInstance: {fileID: 6595081269477717106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8782776792559617696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289002727699646755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0e24ef4cf21174c9801ac822a344bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseUnreliableDeltas: 0
+  SyncPositionX: 0
+  SyncPositionY: 0
+  SyncPositionZ: 0
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!4 &6632911670634107801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b6f2e51a554b0254fa37a3ea8f224b28,

@@ -294,6 +294,7 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
       In this part of the code we specify what the car needs to do if the user presses W (throttle), S (reverse),
       A (turn left), D (turn right) or Space bar (handbrake).
       */
+      
       HandleInput();
       
 
@@ -301,6 +302,9 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
 
     private void HandleInput()
     {
+        if(!IsOwner)
+          return;
+
         if(!playerControlled.Value)
         {
           ThrottleOff();
@@ -776,6 +780,7 @@ public class PrometeoCarController : NetworkBehaviour, Possessable
 
     public void Possess(ulong clientID)
     {
+      playerControlled.Value = true;
       GetComponent<NetworkObject>().ChangeOwnership(clientID);
     }
 

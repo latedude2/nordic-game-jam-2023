@@ -43,10 +43,6 @@ public class CarSeat : NetworkBehaviour
 
     public void CarEnter(ulong clientId)
     {
-        if(GetComponentInParent<NetworkObject>() == null)
-        {
-            return;
-        }
         StartCoroutine(DelayedCameraEnable());
         GetComponentInChildren<AudioListener>().enabled = true;
         GetComponentInChildren<MouseInteraction>().enabled = true;
