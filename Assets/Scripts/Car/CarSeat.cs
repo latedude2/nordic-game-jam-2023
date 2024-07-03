@@ -60,8 +60,13 @@ public class CarSeat : NetworkBehaviour
         onEnter.Invoke();
     }
 
-    void OnCarExit()
+    void OnCarExit(CarSeat carSeat)
     {
+        if(carSeat != this)
+        {
+            return;
+        }
+        
         SittingCamera.enabled = false;
         GetComponentInChildren<AudioListener>().enabled = false;
         GetComponentInChildren<MouseInteraction>().enabled = false;

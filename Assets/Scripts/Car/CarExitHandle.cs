@@ -8,7 +8,7 @@ using Unity.Netcode;
 public class CarExitHandle : NetworkBehaviour
 {
     //event for exiting the car
-    static public UnityEvent onExit;
+    static public UnityEvent<CarSeat> onExit;
     [SerializeField] private Transform playerSpawnLocation; 
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] GameObject rainEffect;
@@ -21,7 +21,7 @@ public class CarExitHandle : NetworkBehaviour
     public void Awake()
     {
         Instance = this;
-        onExit = new UnityEvent();
+        onExit = new UnityEvent<CarSeat>();
     }
 
     public void Start()
@@ -29,10 +29,10 @@ public class CarExitHandle : NetworkBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
     }
 
-    public void Exit(ulong ClientID)
+    public void Exit(ulong ClientID, CarSeat carSeat)
     {
         audioSource.PlayOneShot(carExitSound);
-        onExit.Invoke();
+        onExit.Invoke(carSeat);
         RequestSpawnCharacterRpc(ClientID);
         /*
         if(rainEffect != null)
