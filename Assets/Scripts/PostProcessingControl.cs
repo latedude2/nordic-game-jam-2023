@@ -9,9 +9,9 @@ public class PostProcessingControl : MonoBehaviour
     
     void Start()
     {
-        ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(AdjustPostProcessing);
+        //ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(AdjustPostProcessing);
         volume = GetComponent<Volume>();
-        volume.weight = 0;
+        volume.weight = 0.05f;
     }
 
 

@@ -10,7 +10,7 @@ public class DeliveryCounter : MonoBehaviour
     private int deliveries = 0;
     void Start()
     {
-        ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(UpdateCounter);
+        //ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(UpdateCounter);
         counterText = GetComponent<Text>();
         counterText.text = "";
     }

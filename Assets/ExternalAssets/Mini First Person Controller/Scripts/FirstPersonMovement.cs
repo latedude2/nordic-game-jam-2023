@@ -16,6 +16,7 @@ public class FirstPersonMovement : NetworkBehaviour, Possessable
     /// <summary> Functions to override movement speed. Will use the last added override. </summary>
     public List<System.Func<float>> speedOverrides = new List<System.Func<float>>();
 
+    [SerializeField] Animator animator;
 
 
     void Awake()
@@ -46,11 +47,11 @@ public class FirstPersonMovement : NetworkBehaviour, Possessable
 
         if(targetVelocity.magnitude > 0.1f)
         {
-            GetComponent<Animator>().SetBool("IsWalking", true);
+            animator.SetBool("IsWalking", true);
         }
         else
         {
-            GetComponent<Animator>().SetBool("IsWalking", false);
+            animator.SetBool("IsWalking", false);
         }
 
         // Apply movement.

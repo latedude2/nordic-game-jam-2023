@@ -15,7 +15,7 @@ public class CharacterGenerator : MonoBehaviour
 
     public void Start()
     {
-        ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(showDeadCharacter);
+        //ObjectiveManager.Instance.OnObjectiveCompleted.AddListener(showDeadCharacter);
     }
     public void showDeadCharacter() {
         Object[] RandomImages = Resources.LoadAll("Sprites/character_faces", typeof(Sprite));
