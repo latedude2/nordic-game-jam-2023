@@ -1779,6 +1779,16 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2802523808
       objectReference: {fileID: 0}
+    - target: {fileID: 6938901162877667371, guid: 79d0ca8b77e301442afdb49f102e8aed,
+        type: 3}
+      propertyPath: startingFuel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938901162877667371, guid: 79d0ca8b77e301442afdb49f102e8aed,
+        type: 3}
+      propertyPath: fuelSpendScalar
+      value: 0.00005
+      objectReference: {fileID: 0}
     - target: {fileID: 8368863331788798687, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}
       propertyPath: GlobalObjectIdHash
@@ -2097,7 +2107,7 @@ PrefabInstance:
     - target: {fileID: 3099867318411512398, guid: a4cebcac864383844b3b23d9c5a25698,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 202.67
+      value: 19.33
       objectReference: {fileID: 0}
     - target: {fileID: 3099867318411512398, guid: a4cebcac864383844b3b23d9c5a25698,
         type: 3}
@@ -2107,7 +2117,7 @@ PrefabInstance:
     - target: {fileID: 3099867318411512398, guid: a4cebcac864383844b3b23d9c5a25698,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 257.87073
+      value: 100.95
       objectReference: {fileID: 0}
     - target: {fileID: 3099867318411512398, guid: a4cebcac864383844b3b23d9c5a25698,
         type: 3}

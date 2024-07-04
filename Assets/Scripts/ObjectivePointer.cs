@@ -14,7 +14,10 @@ public class ObjectivePointer : MonoBehaviour
     void Update()
     {
         if(ObjectiveManager.Instance == null)
+        {
+            transform.LookAt(Exit);
             return;
+        }
 
         if(ObjectiveManager.Instance.IsEnoughPizzaDelivered())
         {

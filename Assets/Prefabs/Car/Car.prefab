@@ -6085,8 +6085,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fuelDisplay: {fileID: 5486670612621342060}
   maxFuel: 1
-  startingFuel: 0
-  fuelSpendScalar: 0.005
+  startingFuel: 0.05
+  fuelSpendScalar: 0.0005
   currentFuel:
     m_InternalValue: 0
 --- !u!1 &923570427443197611
@@ -9042,7 +9042,7 @@ PrefabInstance:
     - target: {fileID: 4801158301913657293, guid: 413b7e140be72354396d49d34b0d05c2,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4827480119102432541, guid: 413b7e140be72354396d49d34b0d05c2,
         type: 3}

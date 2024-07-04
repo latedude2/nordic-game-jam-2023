@@ -6,7 +6,7 @@ using Unity.Netcode;
 public class RadioController : NetworkBehaviour
 {
     [SerializeField] public Radio radio;
-    public NetworkVariable<bool> isOn = new NetworkVariable<bool>(true);
+    public NetworkVariable<bool> isOn = new NetworkVariable<bool>(false);
 
     public override void OnNetworkSpawn()
     {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,9 +10,9 @@ public class PizzaPlaceEntrance : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if(ObjectiveManager.Instance.IsEnoughPizzaDelivered())
+            if(NetworkManager.Singleton.IsServer)
             {
-                SceneManager.LoadScene("PizzaPlaceInside");
+                NetworkManager.Singleton.SceneManager.LoadScene("PizzaPlaceInside", LoadSceneMode.Single);
             }
         }
     }

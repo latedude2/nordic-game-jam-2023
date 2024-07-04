@@ -6,7 +6,7 @@ public class HoverInfoPizzaEnter : HoverInfo
 {
     override public string GetDisplayString()
     {
-        if(ObjectiveManager.Instance.IsEnoughPizzaDelivered())
+        if(ObjectiveManager.Instance == null || ObjectiveManager.Instance.IsEnoughPizzaDelivered())
         {
             return "Finish the day";
         }

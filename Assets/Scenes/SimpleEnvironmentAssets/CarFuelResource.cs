@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -25,24 +26,21 @@ public class CarFuelResource : NetworkBehaviour
         fuelDisplayMaxWidth = fuelDisplay.sizeDelta.x;
         fuelDisplayMaxHeight = fuelDisplay.sizeDelta.y;
         UpdateFuelDisplay(0, startingFuel);
-
-        if (IsServer)
-        {
-            currentFuel.Value = startingFuel;
-        }
-        previousPosition = transform.position;
-
-        
+        previousPosition = transform.position;        
     }
 
     public override void OnNetworkSpawn()
     {
+        if (IsServer)
+        {
+            currentFuel.Value = startingFuel;
+        }
         currentFuel.OnValueChanged += UpdateFuelDisplay;
     }
 
     void Update()
     {
-        if(!IsServer)
+        if(!IsServer || !IsSpawned)
         {
             return;
         }
@@ -77,6 +75,6 @@ public class CarFuelResource : NetworkBehaviour
 
     private void UpdateFuelDisplay(float oldFuelAmount, float newFuelAmount)
     {
-        fuelDisplay.sizeDelta = new Vector2(newFuelAmount * fuelDisplayMaxWidth, fuelDisplayMaxHeight);
+        fuelDisplay.sizeDelta = new Vector2(newFuelAmount/maxFuel * fuelDisplayMaxWidth, fuelDisplayMaxHeight);
     }
 }
