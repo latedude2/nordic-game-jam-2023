@@ -19,4 +19,4 @@ MonoBehaviour:
   itemReference:
     ItemName: Fuel Can
     ItemDescription: Used to feed the car
-    AmountLeft: 1
+    AmountLeft: 10

@@ -1604,6 +1604,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
   m_Animator: {fileID: 6827870423420965457}
+--- !u!1 &4478234805341955956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 630750417446680259, guid: f81a69a6940149b488038006dca95593,
+    type: 3}
+  m_PrefabInstance: {fileID: 3955571135594369463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7710545981119026252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4478234805341955956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f91ad54f55c0048bf10dc8b6682881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseInteraction: {fileID: 8032563102728286614}
 --- !u!4 &7798030448175062717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2675936845010596086, guid: f81a69a6940149b488038006dca95593,

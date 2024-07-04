@@ -68,7 +68,8 @@ public class CarFuelResource : NetworkBehaviour
         }
     }
 
-    public void Refuel()
+    [Rpc(SendTo.Server)]
+    public void RefuelRpc()
     {
         currentFuel.Value = maxFuel;
     }

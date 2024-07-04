@@ -26,6 +26,17 @@ public class Inventory : NetworkBehaviour
     }
 
     [Rpc(SendTo.Owner)]
+    public void SpendItemRpc(string itemName)
+    {
+        ItemReference item = items.Find(i => i.ItemName == itemName);
+        item.AmountLeft--;
+        if(item.AmountLeft <= 0)
+        {
+            RemoveItemRpc(JsonUtility.ToJson(item));
+        }
+    }
+
+    [Rpc(SendTo.Owner)]
     public void AddItemRpc(string item)
     {
         items.Add(JsonUtility.FromJson<ItemReference>(item));
@@ -35,7 +46,19 @@ public class Inventory : NetworkBehaviour
     [Rpc(SendTo.Owner)]
     public void RemoveItemRpc(string item)
     {
-        items.Remove(JsonUtility.FromJson<ItemReference>(item));
+        items.Remove(JsonUtility.FromJson<ItemReference>(item));   
+        UnequipItemRpc();
+    }
+
+    [Rpc(SendTo.Everyone)]
+    public void UnequipItemRpc()
+    {
+        if (EquippedItemGameObject != null)
+        {
+            Debug.Log("Destroying: " + EquippedItemGameObject.name);
+            Destroy(EquippedItemGameObject);
+        }
+        EquippedItem = null;
     }
 
     [Rpc(SendTo.Everyone)]
@@ -47,7 +70,6 @@ public class Inventory : NetworkBehaviour
         {
             Destroy(EquippedItemGameObject);
         }
-
        
         EquippedItemGameObject = Instantiate(GameItemList.FindItem(EquippedItem).EquippedItemPrefab, RightHand);
         Debug.Log("Equipped: " + EquippedItemGameObject.name);

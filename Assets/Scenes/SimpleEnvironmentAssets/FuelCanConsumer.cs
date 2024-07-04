@@ -12,7 +12,7 @@ public class FuelCanConsumer : MonoBehaviour
             if(NetworkManager.Singleton.IsServer)
             {
                 other.gameObject.GetComponent<NetworkObject>().Despawn(true);
-                FindObjectOfType<CarFuelResource>().Refuel();
+                FindObjectOfType<CarFuelResource>().RefuelRpc();
             }
             GetComponent<AudioSource>().Play();
         }

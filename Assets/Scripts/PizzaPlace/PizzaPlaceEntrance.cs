@@ -12,7 +12,7 @@ public class PizzaPlaceEntrance : MonoBehaviour
         {
             if(NetworkManager.Singleton.IsServer)
             {
-                NetworkManager.Singleton.SceneManager.LoadScene("PizzaPlaceInside", LoadSceneMode.Single);
+                NetworkManager.Singleton.SceneManager.LoadScene("SimpleEnvironment", LoadSceneMode.Single);
             }
         }
     }

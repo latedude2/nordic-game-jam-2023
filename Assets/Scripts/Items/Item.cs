@@ -12,5 +12,4 @@ public class Item : ScriptableObject
     public GameObject EquippedItemPrefab;
     public ItemReference itemReference;    
 
-
 }

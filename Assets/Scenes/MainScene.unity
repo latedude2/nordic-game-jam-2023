@@ -1782,12 +1782,12 @@ PrefabInstance:
     - target: {fileID: 6938901162877667371, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}
       propertyPath: startingFuel
-      value: 1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6938901162877667371, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}
       propertyPath: fuelSpendScalar
-      value: 0.00005
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 8368863331788798687, guid: 79d0ca8b77e301442afdb49f102e8aed,
         type: 3}

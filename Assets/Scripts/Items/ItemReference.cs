@@ -11,6 +11,12 @@ using Sirenix.OdinInspector;
 [System.Serializable]
 public class ItemReference
 {   
+    public ItemReference(string name, string description, int amount)
+    {
+        ItemName = name;
+        ItemDescription = description;
+        AmountLeft = amount;
+    }
     [SerializeField] public string ItemName;
     [SerializeField] public string ItemDescription;
     [SerializeField] public int AmountLeft;
