@@ -473,6 +473,7 @@ GameObject:
   - component: {fileID: 7855885179093251813}
   - component: {fileID: 2462207954276409930}
   - component: {fileID: 661073422181042722}
+  - component: {fileID: 4831461162412451147}
   m_Layer: 0
   m_Name: Human
   m_TagString: Player
@@ -680,6 +681,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4831461162412451147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773623360729482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147225f4947a682458e725861dc9b078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameItemList: {fileID: 0}
+  startingItems:
+  - ItemName: Camera
+    ItemDescription: no
+    AmountLeft: 1
+  - ItemName: Sleigh
+    ItemDescription: no
+    AmountLeft: 1
+  EquippedItem:
+    ItemName: 
+    ItemDescription: 
+    AmountLeft: 0
+  RightHand: {fileID: 0}
 --- !u!1 &1963958859065967600
 GameObject:
   m_ObjectHideFlags: 0
